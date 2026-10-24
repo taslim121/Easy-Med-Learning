@@ -1,15 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRight, Calendar, BookOpen, ExternalLink, Play, BookCheck, ShieldAlert } from 'lucide-react';
+import { ChevronRight, Calendar, ExternalLink, Play } from 'lucide-react';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/motion/reveal';
+import { NativeReelPlayer } from '@/components/ui/native-reel-player';
 
 export function CourseHero() {
   const content = siteContent.courses.hero;
+  const bookReel = siteConfig.reels.bookReveal;
   const hasCourseUrl = Boolean(siteConfig.urls.learnystCourse);
   const hasSampleLesson = Boolean(siteConfig.urls.sampleLesson);
 
@@ -90,8 +92,7 @@ export function CourseHero() {
 
                 {hasSampleLesson && (
                   <Button
-                    href={siteConfig.urls.sampleLesson}
-                    isExternal
+                    href="#sample-lessons"
                     variant="outline"
                     size="lg"
                   >
@@ -103,39 +104,24 @@ export function CourseHero() {
             </Reveal>
           </div>
 
-          {/* Right Column: Physical Book Placeholder */}
+          {/* Right Column: Physical Book Reveal Reel */}
           <div className="lg:col-span-5">
             <Reveal direction="left">
               <div className="relative mx-auto max-w-sm">
-                <div className="aspect-[3/4] rounded-2xl bg-gradient-to-tr from-[#17354B] via-[#244C68] to-[#367D78] p-8 text-white shadow-2xl flex flex-col justify-between border-4 border-white/20 relative overflow-hidden">
-                  <div className="space-y-1 relative z-10">
-                    <span className="text-[10px] uppercase tracking-widest font-mono text-[#D96B60] font-semibold">
-                      Course Companion
-                    </span>
-                    <div className="h-0.5 w-12 bg-[#D96B60]" />
-                  </div>
+                <NativeReelPlayer
+                  videoSrc="/videos/book-reveal.mp4"
+                  posterSrc="/images/instagram_reel_thumb.jpg"
+                  title={bookReel.title}
+                  subtitle={bookReel.subtitle}
+                  instagramUrl={bookReel.url}
+                />
 
-                  <div className="my-auto space-y-3 relative z-10 text-center py-6">
-                    <div className="w-14 h-14 mx-auto rounded-full bg-white/10 flex items-center justify-center border border-white/20 mb-2">
-                      <BookOpen className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold tracking-tight text-white leading-tight">
-                      Absolute Guide to ECG Interpretation
-                    </h3>
-                    <p className="text-xs text-white/80 font-sans">
-                      Physical Reference Manual
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/20 relative z-10 text-center">
-                    <p className="text-xs uppercase tracking-wider text-white/60">By Dr. Wasim Adil Khan</p>
-                    <p className="text-[11px] text-[#4A9E98]">Managing Director, National Hospital</p>
-                  </div>
-                </div>
-
-                <div className="mt-3 text-center">
-                  <p className="text-[11px] text-[#5A6E7D]">
-                    {content.bookImageAlt} &bull; Physical book delivered to learner address
+                <div className="mt-3 text-center space-y-1">
+                  <p className="text-xs font-semibold text-[#17354B]">
+                    Absolute Guide to ECG Interpretation
+                  </p>
+                  <p className="text-[11px] font-mono text-[#5A6E7D]">
+                    Physical companion book delivered to your postal address (no PDF)
                   </p>
                 </div>
               </div>

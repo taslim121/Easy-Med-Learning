@@ -11,7 +11,7 @@ export function SiteFooter() {
   const hasWhatsApp = Boolean(siteConfig.urls.whatsapp);
 
   return (
-    <footer className="w-full bg-[#17354B] text-[#F6F4EE] border-t border-[#17354B]/20 pt-16 pb-12">
+    <footer className="w-full bg-[#0A1622] text-[#FAF9F6] border-t border-white/10 pt-16 pb-12">
       <Container size="wide">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand Column */}
@@ -21,23 +21,23 @@ export function SiteFooter() {
               className="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-[#367D78] rounded-md inline-flex"
             >
               <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white">
-                <Activity className="w-4 h-4 text-[#D96B60]" />
+                <Activity className="w-4 h-4 text-[#2DD4BF]" />
               </div>
               <span className="text-xl font-bold tracking-tight text-white">
-                Easy<span className="text-[#4A9E98]">Med</span>Learning
+                Easy<span className="text-[#2DD4BF]">Med</span>Learning
               </span>
             </Link>
-            <p className="text-sm text-[#F6F4EE]/70 max-w-sm leading-relaxed">
+            <p className="text-sm text-[#FAF9F6]/70 max-w-sm leading-relaxed">
               {siteContent.footer.tagline}
             </p>
-            <p className="text-xs text-[#F6F4EE]/50">
+            <p className="text-xs font-mono text-[#FAF9F6]/50">
               Instructor: Dr. Wasim Adil Khan (BUMS, PGDEMS)
             </p>
           </div>
 
           {/* Quick Links Column */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#4A9E98]">
+            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#2DD4BF]">
               Navigation
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -45,7 +45,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[#F6F4EE]/75 hover:text-white transition-colors focus-visible:outline-1 focus-visible:outline-[#367D78] rounded"
+                    className="text-[#FAF9F6]/75 hover:text-white transition-colors focus-visible:outline-1 focus-visible:outline-[#367D78] rounded"
                   >
                     {item.label}
                   </Link>
@@ -56,7 +56,7 @@ export function SiteFooter() {
 
           {/* Social Channels Column */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#4A9E98]">
+            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#2DD4BF]">
               Follow & Connect
             </h3>
             <div className="flex flex-wrap items-center gap-3">

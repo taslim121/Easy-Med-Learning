@@ -3,6 +3,7 @@ import './globals.css';
 import { siteConfig } from '@/content/site-config';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { PageRails } from '@/components/layout/page-rails';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.urls.site || 'https://easymedlearning.com'),
@@ -76,12 +77,18 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F6F4EE] text-[#17354B] antialiased">
+      <body className="min-h-screen flex flex-col bg-[#FAF9F6] text-[#17354B] antialiased">
         {/* Skip to main content link for keyboard accessibility */}
         <a
           href="#main-content"
@@ -90,11 +97,13 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        <SiteHeader />
-        <main id="main-content" className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <SiteFooter />
+        <PageRails>
+          <SiteHeader />
+          <main id="main-content" className="flex-1 flex flex-col">
+            {children}
+          </main>
+          <SiteFooter />
+        </PageRails>
       </body>
     </html>
   );

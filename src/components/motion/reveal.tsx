@@ -11,16 +11,20 @@ interface RevealProps {
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
 }
 
+/**
+ * Layout-Safe Scroll Reveal
+ * Prevents horizontal layout shifts by eliminating horizontal translation on grids.
+ * Uses subtle vertical ease and preserves full container height.
+ */
 export function Reveal({
   children,
-  className,
+  className = '',
   delay = 0,
   direction = 'up',
 }: RevealProps) {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check user preference for reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion || direction === 'none') {
       return;
@@ -31,32 +35,27 @@ export function Reveal({
     const el = elementRef.current;
     if (!el) return;
 
-    let initialX = 0;
+    // Use gentle vertical elevation (12px) without horizontal shifts
     let initialY = 0;
-
-    if (direction === 'up') initialY = 24;
-    if (direction === 'down') initialY = -24;
-    if (direction === 'left') initialX = 24;
-    if (direction === 'right') initialX = -24;
+    if (direction === 'up') initialY = 14;
+    if (direction === 'down') initialY = -14;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
         {
           opacity: 0,
-          x: initialX,
           y: initialY,
         },
         {
           opacity: 1,
-          x: 0,
           y: 0,
-          duration: 0.8,
+          duration: 0.6,
           delay,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 88%',
+            start: 'top 92%',
             toggleActions: 'play none none none',
             once: true,
           },

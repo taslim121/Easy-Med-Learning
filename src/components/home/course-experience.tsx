@@ -1,122 +1,161 @@
-import React from 'react';
-import { CheckCircle2, BookOpen, Video, FileText, ArrowRight } from 'lucide-react';
+'use client';
+
+import React, { useState } from 'react';
+import { ArrowRight, BookOpen, Video, Stethoscope, CheckCircle2 } from 'lucide-react';
 import { siteContent } from '@/content/site-content';
 import { siteConfig } from '@/content/site-config';
 import { Container } from '@/components/ui/container';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/motion/reveal';
+import { NativeReelPlayer } from '@/components/ui/native-reel-player';
 
 export function CourseExperience() {
   const content = siteContent.home.experience;
+  const bookReel = siteConfig.reels.bookReveal;
+  const [activeReelKey, setActiveReelKey] = useState<'book' | 'teaser'>('book');
 
   return (
-    <section className="py-16 sm:py-24 bg-white border-t border-[#17354B]/10 overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white relative border-b border-[#17354B]/10 overflow-hidden">
       <Container size="wide">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Book Artwork / Physical Companion Placeholder */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
-            <Reveal direction="right">
-              <div className="relative mx-auto max-w-sm">
-                {/* 3D-styled editorial book cover card */}
-                <div className="aspect-[3/4] rounded-xl bg-gradient-to-tr from-[#17354B] via-[#244C68] to-[#367D78] p-8 text-white shadow-2xl flex flex-col justify-between border-4 border-white/20 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#D96B60]/20 rounded-full blur-2xl" />
-                  
-                  {/* Book header */}
-                  <div className="space-y-1 relative z-10">
-                    <span className="text-[10px] uppercase tracking-widest font-mono text-[#D96B60] font-semibold">
-                      Physical Reference Companion
-                    </span>
-                    <div className="h-0.5 w-12 bg-[#D96B60]" />
-                  </div>
+        {/* Section Header with Monospace Clinical Eyebrow */}
+        <div className="max-w-3xl mb-16 sm:mb-20">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#367D78] font-semibold mb-3">
+            Multimodal Medical Pedagogy
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#17354B] leading-[1.12] mb-4">
+            Bridging complex electrophysiology with{' '}
+            <em className="font-editorial italic font-normal text-[#367D78]">bedside clinical practice.</em>
+          </h2>
+          <p className="text-base sm:text-lg text-[#5A6E7D] leading-relaxed">
+            {content.intro}
+          </p>
+        </div>
 
-                  {/* Book Title */}
-                  <div className="my-auto space-y-3 relative z-10 text-center py-6">
-                    <div className="w-14 h-14 mx-auto rounded-full bg-white/10 flex items-center justify-center border border-white/20 mb-2">
-                      <BookOpen className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold tracking-tight text-white leading-tight">
-                      Absolute Guide to ECG Interpretation
-                    </h3>
-                    <p className="text-xs text-white/80 font-sans">
-                      With Original Clinical Illustrations &amp; Case Scenarios
-                    </p>
-                  </div>
+        {/* Quiet Bento Layout: Sticky Video Stage + Fluid Editorial Pillars */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Sticky Floating Reel Stage */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <Reveal direction="up">
+              <div className="space-y-4">
+                <NativeReelPlayer
+                  videoSrc="/videos/book-reveal.mp4"
+                  posterSrc="/images/instagram_reel_thumb.jpg"
+                  title={bookReel.title}
+                  subtitle={bookReel.subtitle}
+                  instagramUrl={bookReel.url}
+                />
 
-                  {/* Book Author */}
-                  <div className="pt-4 border-t border-white/20 relative z-10 text-center">
-                    <p className="text-xs uppercase tracking-wider text-white/60">Author</p>
-                    <p className="text-sm font-semibold text-white">Dr. Wasim Adil Khan</p>
-                    <p className="text-[11px] text-[#4A9E98]">BUMS, PGDEMS</p>
-                  </div>
+                {/* Minimal Multi-Reel Switcher Dock (Vibrant + Aceternity style) */}
+                <div className="flex items-center justify-center gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setActiveReelKey('book')}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                      activeReelKey === 'book'
+                        ? 'bg-[#17354B] text-white shadow-sm font-semibold'
+                        : 'bg-[#17354B]/5 text-[#5A6E7D] hover:text-[#17354B]'
+                    }`}
+                  >
+                    📖 Book Reveal (Playing)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveReelKey('teaser')}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                      activeReelKey === 'teaser'
+                        ? 'bg-[#17354B] text-white shadow-sm font-semibold'
+                        : 'bg-[#17354B]/5 text-[#5A6E7D] hover:text-[#17354B]'
+                    }`}
+                  >
+                    🚀 Course Teaser (Coming Soon)
+                  </button>
                 </div>
 
-                {/* Companion details caption */}
-                <div className="mt-4 text-center space-y-1">
-                  <p className="text-xs font-medium text-[#17354B]">
-                    Delivered directly to your postal address
+                {/* Physical Companion Dispatch Assurance */}
+                <div className="text-center pt-2 space-y-1">
+                  <p className="text-xs font-semibold text-[#17354B]">
+                    Delivered directly to your postal address across India
                   </p>
-                  <p className="text-[11px] text-[#5A6E7D]">
-                    Printed physical book only &bull; No PDF version
+                  <p className="text-[11px] font-mono text-[#5A6E7D]">
+                    Physical printed reference manual &bull; No PDF version
                   </p>
                 </div>
               </div>
             </Reveal>
           </div>
 
-          {/* Right Column: Experience Details */}
-          <div className="lg:col-span-7 order-1 lg:order-2 space-y-8">
-            <Reveal direction="left">
-              <SectionHeading
-                eyebrow="Multimodal Medical Pedagogy"
-                title={content.title}
-                description={content.intro}
-              />
-
-              <div className="space-y-4 pt-2">
-                {content.points.map((point) => (
-                  <div key={point} className="flex items-start gap-3.5">
-                    <div className="mt-1 p-1 rounded-full bg-[#367D78]/15 text-[#367D78] shrink-0">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <span className="text-base sm:text-lg text-[#17354B] font-medium">
-                      {point}
-                    </span>
+          {/* Right Column: Unboxed Editorial Feature Flow (No Boxy Card Soup) */}
+          <div className="lg:col-span-7 space-y-10">
+            {/* Core Pedagogy Points */}
+            <div className="space-y-3 pb-6">
+              {content.points.map((point) => (
+                <div key={point} className="flex items-start gap-3.5">
+                  <div className="mt-1 p-1 rounded-full bg-[#367D78]/15 text-[#367D78] shrink-0">
+                    <CheckCircle2 className="w-4 h-4" />
                   </div>
-                ))}
-              </div>
-
-              {/* Multimodal feature cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
-                <div className="p-4 rounded-xl bg-[#F6F4EE] border border-[#17354B]/10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Video className="w-5 h-5 text-[#367D78]" />
-                    <span className="text-sm font-bold text-[#17354B]">Structured Video Modules</span>
-                  </div>
-                  <p className="text-xs text-[#5A6E7D] leading-relaxed">
-                    Step-by-step visual explanations breaking down rate, rhythm, axis, and ischemia.
-                  </p>
+                  <span className="text-base sm:text-lg text-[#17354B] font-medium">
+                    {point}
+                  </span>
                 </div>
+              ))}
+            </div>
 
-                <div className="p-4 rounded-xl bg-[#F6F4EE] border border-[#17354B]/10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <FileText className="w-5 h-5 text-[#17354B]" />
-                    <span className="text-sm font-bold text-[#17354B]">Printed Study Companion</span>
-                  </div>
-                  <p className="text-xs text-[#5A6E7D] leading-relaxed">
-                    A durable, tangible study manual to annotate and consult during clinical rotations.
-                  </p>
+            {/* Editorial Features with Hairline Dividers (Vault & Apple Style) */}
+            <div className="border-t border-[#17354B]/10 divide-y divide-[#17354B]/10 pt-4">
+              {/* Feature 1: Physical Book */}
+              <div className="py-8 first:pt-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-mono text-xs text-[#367D78] uppercase tracking-wider font-semibold">
+                    01 &bull; Physical Companion Book
+                  </span>
                 </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17354B] mb-2 tracking-tight">
+                  Tangible Study Manual with Original Clinical Diagrams
+                </h3>
+                <p className="text-sm sm:text-base text-[#5A6E7D] leading-relaxed">
+                  A high-production printed companion featuring full-colour anatomical conduction illustrations, calibrated ECG grid paper exercises, and emergency diagnostic algorithms you can mark and carry on ward rounds.
+                </p>
               </div>
 
-              {/* Course Page Link */}
-              <div className="pt-4">
-                <Button href="/courses" variant="outline" size="md">
-                  <span>Explore Course Modules &amp; Scope</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
+              {/* Feature 2: Structured Video Modules */}
+              <div className="py-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-mono text-xs text-[#17354B] uppercase tracking-wider font-semibold">
+                    02 &bull; Video Lectures in Hinglish
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17354B] mb-2 tracking-tight">
+                  Foundations to Complex Arrhythmias
+                </h3>
+                <p className="text-sm sm:text-base text-[#5A6E7D] leading-relaxed">
+                  Step-by-step visual modules explaining cardiac electrophysiology, hexaxial lead placement, ischemic patterns, and bundle branch blocks in intuitive, natural Hinglish without rote memorization.
+                </p>
               </div>
-            </Reveal>
+
+              {/* Feature 3: Bedside Readiness */}
+              <div className="py-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-mono text-xs text-[#D96B60] uppercase tracking-wider font-semibold">
+                    03 &bull; Clinical Bedside Confidence
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17354B] mb-2 tracking-tight">
+                  Real Hospital Case Studies &amp; Night-Shift Protocols
+                </h3>
+                <p className="text-sm sm:text-base text-[#5A6E7D] leading-relaxed">
+                  Gain the decisiveness required when interpreting an emergency 12-lead ECG under pressure. Differentiate subtle STEMI equivalents, localized ischemia, and life-threatening tachycardias.
+                </p>
+              </div>
+            </div>
+
+            {/* Course Scope Action */}
+            <div className="pt-4">
+              <Button href="/courses" variant="primary" size="lg">
+                <span>View Full Curriculum &amp; Modules</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </div>
         </div>
       </Container>

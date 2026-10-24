@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
-import { Award, Building2, Stethoscope, ArrowRight, UserCheck } from 'lucide-react';
+import Image from 'next/image';
+import { Award, Building2, Stethoscope, ArrowRight } from 'lucide-react';
 import { siteContent } from '@/content/site-content';
 import { Container } from '@/components/ui/container';
 import { SectionHeading } from '@/components/ui/section-heading';
@@ -17,37 +17,45 @@ export function InstructorPreview() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#F6F4EE]">
+    <section className="py-20 lg:py-28 bg-[#FAFAF8] relative border-b border-[#17354B]/10">
       <Container size="wide">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Credentials & Bio Summary */}
           <div className="lg:col-span-7 space-y-8">
             <Reveal direction="up">
-              <SectionHeading
-                eyebrow="Clinical Leadership &amp; Pedagogy"
-                title={content.title}
-                description={content.intro}
-              />
+              <div>
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#367D78] font-semibold mb-3">
+                  Clinical Leadership &amp; Pedagogy
+                </p>
+                <h2 className="text-3xl sm:text-5xl font-extrabold text-[#17354B] tracking-tight leading-[1.12] mb-4">
+                  Learn directly from an active clinician and{' '}
+                  <em className="font-editorial italic font-normal text-[#367D78]">medical educator.</em>
+                </h2>
+                <p className="text-base sm:text-lg text-[#5A6E7D] leading-relaxed">
+                  {content.intro}
+                </p>
+              </div>
 
-              <div className="space-y-6 pt-2">
+              {/* Unboxed Editorial Credentials with Hairline Dividers */}
+              <div className="divide-y divide-[#17354B]/10 border-y border-[#17354B]/10 my-8">
                 {content.credentials.map((cred, idx) => (
                   <div
                     key={cred.label}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-white border border-[#17354B]/10 shadow-sm"
+                    className="py-5 flex items-start gap-4 group"
                   >
-                    <div className="p-3 rounded-lg bg-[#F6F4EE] border border-[#17354B]/5 shrink-0">
+                    <div className="p-2.5 rounded-full bg-[#17354B]/5 group-hover:bg-[#367D78]/10 transition-colors shrink-0 mt-0.5">
                       {statIcons[idx]}
                     </div>
-                    <div>
-                      <div className="flex items-baseline gap-2">
+                    <div className="space-y-1">
+                      <div className="flex flex-wrap items-baseline gap-2">
                         <span className="text-lg font-bold text-[#17354B]">
                           {cred.value}
                         </span>
-                        <span className="text-sm font-semibold text-[#367D78]">
-                          {cred.label}
+                        <span className="text-xs font-mono uppercase tracking-wider text-[#367D78] font-semibold">
+                          &bull; {cred.label}
                         </span>
                       </div>
-                      <p className="text-sm text-[#5A6E7D] mt-1 leading-relaxed">
+                      <p className="text-sm text-[#5A6E7D] leading-relaxed">
                         {cred.detail}
                       </p>
                     </div>
@@ -55,49 +63,42 @@ export function InstructorPreview() {
                 ))}
               </div>
 
-              <div className="pt-4">
-                <Button href={content.ctaHref} variant="primary" size="md">
+              <div>
+                <Button href={content.ctaHref} variant="primary" size="lg">
                   <span>{content.ctaText}</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
             </Reveal>
           </div>
 
-          {/* Right Column: Seated Clinic Portrait Placeholder */}
+          {/* Right Column: Instructor Portrait Frame */}
           <div className="lg:col-span-5">
-            <Reveal direction="left">
+            <Reveal direction="up" delay={0.1}>
               <div className="relative mx-auto max-w-sm">
-                <div className="aspect-[4/5] rounded-2xl bg-white border border-[#17354B]/15 shadow-xl p-8 flex flex-col justify-between relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-[#367D78]/5 rounded-bl-full pointer-events-none" />
+                <div className="aspect-[4/5] rounded-3xl bg-[#17354B] border border-[#17354B]/15 shadow-2xl shadow-[#17354B]/20 flex flex-col justify-end relative overflow-hidden">
+                  {/* Instructor Photo (100% Bright, Clean, No Top Overlay) */}
+                  <Image
+                    src="/images/instructor-hero.jpg"
+                    alt={content.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover object-top"
+                  />
 
-                  <div className="flex items-center justify-between relative z-10">
-                    <span className="text-xs font-semibold text-[#367D78] uppercase tracking-wider">
-                      Instructor Profile
-                    </span>
-                    <span className="px-2.5 py-1 rounded bg-[#17354B]/5 text-[11px] font-mono text-[#17354B]">
-                      National Hospital, Pune
-                    </span>
-                  </div>
+                  {/* Subtle Bottom Scrim Only (Under Name & Qualifications) */}
+                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0F2332] via-[#0F2332]/75 to-transparent pointer-events-none" />
 
-                  <div className="my-auto py-8 text-center relative z-10">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-[#17354B]/5 border-2 border-[#17354B]/15 flex items-center justify-center mb-4 text-[#17354B]">
-                      <UserCheck className="w-12 h-12 text-[#367D78]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#17354B]">
+                  {/* Bottom Instructor Details */}
+                  <div className="relative z-10 text-white p-6 space-y-1">
+                    <h3 className="text-2xl font-bold tracking-tight text-white drop-shadow-sm">
                       Dr. Wasim Adil Khan
                     </h3>
-                    <p className="text-xs font-medium text-[#367D78] mt-1">
-                      BUMS, PGDEMS
+                    <p className="text-xs font-mono uppercase tracking-wider text-[#4A9E98] font-medium">
+                      BUMS &bull; PGDEMS (Pune)
                     </p>
-                    <p className="text-xs text-[#5A6E7D] mt-2 max-w-xs mx-auto">
-                      Managing Director &bull; Two Hospital Branches &bull; Critical Care &amp; ICU Foundation
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#17354B]/10 text-center relative z-10">
-                    <p className="text-[11px] text-[#5A6E7D]">
-                      {content.imageAlt} &bull; Image placeholder
+                    <p className="text-xs text-white/80">
+                      Clinician, Author &amp; Managing Director
                     </p>
                   </div>
                 </div>

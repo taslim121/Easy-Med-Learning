@@ -15,7 +15,7 @@ export function SiteHeader() {
   const hasCourseUrl = Boolean(siteConfig.urls.learnystCourse);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#F6F4EE]/90 backdrop-blur-md border-b border-[#17354B]/10 transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#17354B]/10 transition-colors">
       <Container size="wide">
         <div className="flex h-16 sm:h-20 items-center justify-between">
           {/* Brand Logo / Wordmark */}

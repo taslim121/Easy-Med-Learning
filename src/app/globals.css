@@ -2,27 +2,32 @@
 
 @layer base {
   :root {
-    --color-ivory: #F6F4EE;
-    --color-ivory-light: #FAF9F5;
-    --color-ivory-dark: #EAE6DB;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-editorial: 'Fraunces', Garamond, 'Times New Roman', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+
+    --color-ivory: #FAF9F6;
+    --color-ivory-light: #FFFFFF;
+    --color-ivory-dark: #F3F1EC;
     --color-navy: #17354B;
+    --color-navy-midnight: #0A1622;
     --color-navy-deep: #0F2332;
     --color-navy-light: #244C68;
     --color-teal: #367D78;
+    --color-teal-glow: #2DD4BF;
     --color-teal-light: #4A9E98;
     --color-teal-dark: #275D59;
     --color-coral: #D96B60;
     --color-coral-light: #E5867C;
     --color-coral-dark: #BD5349;
-    --color-sand: #E5DFC8;
     --color-slate: #5A6E7D;
-    --color-border: #E0DAD0;
+    --color-border: rgba(23, 53, 75, 0.12);
   }
 
   body {
     background-color: var(--color-ivory);
     color: var(--color-navy);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -41,41 +46,107 @@
   }
 }
 
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+/* Typography Utility Classes */
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Atmospheric Spotlight & Glow Effects */
+.aceternity-spotlight {
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    rgba(54, 125, 120, 0.15),
+    transparent 80%
+  );
+}
+
+.radial-clinical-glow {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(54, 125, 120, 0.22) 0%,
+    rgba(15, 35, 50, 0.4) 50%,
+    transparent 80%
+  );
+}
+
+/* Animated moving border effect */
+@keyframes moving-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-moving-border {
+  animation: moving-border 6s linear infinite;
+}
+
+/* Aceternity Spotlight Animation */
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
   }
 }
 
-/* Custom utility classes */
-.bg-ivory { background-color: var(--color-ivory); }
-.bg-ivory-light { background-color: var(--color-ivory-light); }
-.bg-ivory-dark { background-color: var(--color-ivory-dark); }
-.bg-navy { background-color: var(--color-navy); }
-.bg-navy-deep { background-color: var(--color-navy-deep); }
-.bg-navy-light { background-color: var(--color-navy-light); }
-.bg-teal { background-color: var(--color-teal); }
-.bg-coral { background-color: var(--color-coral); }
+.animate-spotlight {
+  animation: spotlight 1.6s ease-out 0.2s 1 forwards;
+}
 
-.text-navy { color: var(--color-navy); }
-.text-navy-deep { color: var(--color-navy-deep); }
-.text-teal { color: var(--color-teal); }
-.text-coral { color: var(--color-coral); }
-.text-slate { color: var(--color-slate); }
-.text-ivory { color: var(--color-ivory); }
+/* Always-Animating Live ECG Monitor Sweep */
+@keyframes ecg-sweep {
+  0% {
+    stroke-dashoffset: 125;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 
-.border-subtle { border-color: var(--color-border); }
-.border-teal { border-color: var(--color-teal); }
-.border-coral { border-color: var(--color-coral); }
+.animate-ecg-pulse {
+  stroke-dasharray: 25 100;
+  animation: ecg-sweep 2.4s linear infinite;
+}
 
-/* Decorative grid pattern */
+/* Vault-style slow marquee ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Decorative clinical ECG grid */
 .bg-clinical-grid {
-  background-size: 24px 24px;
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(23, 53, 75, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 53, 75, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(23, 53, 75, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 53, 75, 0.05) 1px, transparent 1px);
+}
+
+.bg-clinical-grid-dark {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Smooth horizontal edge fading masks */
+.mask-marquee {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
