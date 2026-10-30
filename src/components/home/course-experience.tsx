@@ -13,7 +13,10 @@ import { NativeReelPlayer } from '@/components/ui/native-reel-player';
 export function CourseExperience() {
   const content = siteContent.home.experience;
   const bookReel = siteConfig.reels.bookReveal;
+  const introReel = siteConfig.reels.courseLaunchIntro;
   const [activeReelKey, setActiveReelKey] = useState<'book' | 'teaser'>('book');
+
+  const currentReel = activeReelKey === 'book' ? bookReel : introReel;
 
   return (
     <section className="py-20 lg:py-28 bg-white relative border-b border-[#17354B]/10 overflow-hidden">
@@ -39,14 +42,15 @@ export function CourseExperience() {
             <Reveal direction="up">
               <div className="space-y-4">
                 <NativeReelPlayer
-                  videoSrc="/videos/book-reveal.mp4"
-                  posterSrc="/images/instagram_reel_thumb.jpg"
-                  title={bookReel.title}
-                  subtitle={bookReel.subtitle}
-                  instagramUrl={bookReel.url}
+                  key={activeReelKey}
+                  videoSrc={currentReel.videoSrc}
+                  posterSrc={currentReel.thumbnail}
+                  title={currentReel.title}
+                  subtitle={currentReel.subtitle}
+                  instagramUrl={currentReel.url}
                 />
 
-                {/* Minimal Multi-Reel Switcher Dock (Vibrant + Aceternity style) */}
+                {/* Minimal Multi-Reel Switcher Dock */}
                 <div className="flex items-center justify-center gap-2 pt-2">
                   <button
                     type="button"
@@ -57,7 +61,7 @@ export function CourseExperience() {
                         : 'bg-[#17354B]/5 text-[#5A6E7D] hover:text-[#17354B]'
                     }`}
                   >
-                    📖 Book Reveal (Playing)
+                    📖 Book Reveal {activeReelKey === 'book' ? '(Playing)' : ''}
                   </button>
                   <button
                     type="button"
@@ -68,7 +72,7 @@ export function CourseExperience() {
                         : 'bg-[#17354B]/5 text-[#5A6E7D] hover:text-[#17354B]'
                     }`}
                   >
-                    🚀 Course Teaser (Coming Soon)
+                    🚀 Course Launch (Nov 2026) {activeReelKey === 'teaser' ? '(Playing)' : ''}
                   </button>
                 </div>
 

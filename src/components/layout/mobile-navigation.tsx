@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ExternalLink, BookOpen, MonitorPlay, ChevronRight, Activity } from 'lucide-react';
+import { Menu, X, ExternalLink, BookOpen, MonitorPlay, ChevronRight, Award } from 'lucide-react';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Button } from '@/components/ui/button';
@@ -13,6 +14,7 @@ export function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const brand = siteConfig.branding;
 
   useEffect(() => {
     setMounted(true);
@@ -58,14 +60,25 @@ export function MobileNavigation() {
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
-          className="flex items-center gap-2.5"
+          className="flex items-center gap-3"
         >
-          <div className="w-8 h-8 rounded-lg bg-[#17354B] flex items-center justify-center text-white">
-            <Activity className="w-4 h-4 text-[#2DD4BF]" />
+          <div className="relative w-8 h-8 shrink-0 flex items-center justify-center">
+            <Image
+              src={brand.logoMark}
+              alt={brand.name}
+              width={32}
+              height={32}
+              className="w-full h-full object-contain"
+            />
           </div>
-          <span className="text-xl font-bold tracking-tight text-[#17354B]">
-            Easy<span className="text-[#367D78]">Med</span>Learning
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold tracking-tight text-[#17354B] leading-none">
+              {brand.prefix}<span className="text-[#D96B78]">{brand.accent}</span>{brand.suffix}
+            </span>
+            <span className="text-[10px] font-mono tracking-wider uppercase text-[#5A6E7D] mt-0.5">
+              {brand.mobileSubtitle}
+            </span>
+          </div>
         </Link>
 
         <button
@@ -128,16 +141,16 @@ export function MobileNavigation() {
           </Link>
 
           <Link
-            href="/courses"
+            href="/seminars/bharti-vidyapeeth-ecg-masterclass"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-[#17354B]/10 shadow-sm hover:border-[#367D78]/30 transition-colors"
           >
-            <div className="p-2.5 rounded-xl bg-[#17354B]/10 text-[#17354B] shrink-0">
-              <BookOpen className="w-5 h-5" />
+            <div className="p-2.5 rounded-xl bg-[#D96B78]/10 text-[#D96B78] shrink-0">
+              <Award className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-sm font-bold text-[#17354B]">Physical Companion Book</div>
-              <div className="text-xs text-[#5A6E7D]">Full-colour textbook delivered across India</div>
+              <div className="text-sm font-bold text-[#17354B]">Institutional Seminars</div>
+              <div className="text-xs text-[#5A6E7D]">Bharati Vidyapeeth Medical College lecture &amp; certificates</div>
             </div>
           </Link>
         </div>

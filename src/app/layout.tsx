@@ -1,17 +1,45 @@
 import type { Metadata } from 'next';
+import { Plus_Jakarta_Sans, Fraunces, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/content/site-config';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { PageRails } from '@/components/layout/page-rails';
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-plus-jakarta-sans',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+  style: ['normal', 'italic'],
+  weight: ['300', '400', '500', '600'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+  weight: ['400', '500', '600'],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.urls.site || 'https://easymedlearning.com'),
   title: {
-    default: 'Learn ECG Interpretation Online | EasyMedLearning',
+    default: 'EasyMedLearning | Clinical Medical Education Platform',
     template: '%s | EasyMedLearning',
   },
-  description: siteConfig.description,
+  description:
+    'Modern medical learning platform by Dr. Wasim Adil Khan. Flagship Course: Absolute Guide to ECG Interpretation with physical companion book and structured video lectures.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   keywords: [
     'ECG interpretation course',
     'learn ECG online',
@@ -75,14 +103,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en-IN" className="scroll-smooth">
+    <html
+      lang="en-IN"
+      className={`scroll-smooth ${plusJakartaSans.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

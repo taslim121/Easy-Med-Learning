@@ -28,6 +28,12 @@ Before making changes, read all three project briefs:
 - Do not introduce Three.js, Web Workers, WASM or service workers
   without a demonstrated requirement.
 
+## Production Integrity & Operational Guardrails
+- **Zero Content Invention**: Every single piece of website copy must derive strictly from `02_CONTENT_SOURCE_OF_TRUTH.md` or founder-supplied statements. Never invent clinical explanations, physiological mechanisms, or unapproved course topics.
+- **Zero Prototype Badges**: Do not display developer placeholders or prototype labels (e.g. "Live Scroll Progress", "Demo", "Interactive Scrub") in production UI.
+- **Strict Git Boundary**: Never run git mutating commands (`git add`, `git reset`, `git commit`, `git checkout`, `git restore`, `git stash`). Only read-only commands (`git status` and `git diff`) are permitted.
+- **Scroll Trigger Integrity**: Never trigger animations before previous content has finished its viewport lifecycle. Triggers must respect natural scroll progression.
+
 ## Execution
 1. Inspect the existing project before changing files.
 2. Produce a concise implementation plan.

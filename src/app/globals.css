@@ -2,9 +2,9 @@
 
 @layer base {
   :root {
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-editorial: 'Fraunces', Garamond, 'Times New Roman', Georgia, serif;
-    --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+    --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-editorial: var(--font-fraunces), 'Fraunces', Garamond, 'Times New Roman', Georgia, serif;
+    --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', 'Geist Mono', monospace;
 
     --color-ivory: #FAF9F6;
     --color-ivory-light: #FFFFFF;

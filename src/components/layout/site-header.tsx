@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Activity, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Container } from '@/components/ui/container';
@@ -13,22 +14,35 @@ import { MobileNavigation } from './mobile-navigation';
 export function SiteHeader() {
   const pathname = usePathname();
   const hasCourseUrl = Boolean(siteConfig.urls.learnystCourse);
+  const brand = siteConfig.branding;
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#17354B]/10 transition-colors">
       <Container size="wide">
         <div className="flex h-16 sm:h-20 items-center justify-between">
-          {/* Brand Logo / Wordmark */}
+          {/* Official Brand Logo / Wordmark (Config-driven, zero hardcoded values) */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-[#367D78] rounded-md py-1"
+            className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#367D78] rounded-md py-1"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#17354B] flex items-center justify-center text-white shadow-sm group-hover:bg-[#244C68] transition-colors">
-              <Activity className="w-4 h-4 text-[#D96B60]" />
+            <div className="relative w-9 h-9 shrink-0 flex items-center justify-center">
+              <Image
+                src={brand.logoMark}
+                alt={brand.name}
+                width={36}
+                height={36}
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                priority
+              />
             </div>
-            <span className="text-xl font-bold tracking-tight text-[#17354B]">
-              Easy<span className="text-[#367D78]">Med</span>Learning
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold tracking-tight text-[#17354B] leading-none">
+                {brand.prefix}<span className="text-[#D96B78]">{brand.accent}</span>{brand.suffix}
+              </span>
+              <span className="text-[10px] font-mono tracking-wider uppercase text-[#5A6E7D] mt-0.5 hidden xs:block">
+                {brand.subtitle}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

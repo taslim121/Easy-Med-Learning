@@ -11,6 +11,19 @@ export const siteConfig = {
     'Learn ECG interpretation with video lectures, case studies and a book by Dr. Wasim Adil Khan. Hinglish course with a tentative launch date of 15 November 2026.',
   locale: 'en-IN',
   
+  // Centralized Brand Assets & Identity (Zero hardcoded image paths)
+  branding: {
+    name: 'EasyMedLearning',
+    prefix: 'Easy',
+    accent: 'Med',
+    suffix: 'Learning',
+    subtitle: 'Clinical Medical Platform',
+    mobileSubtitle: 'Clinical Platform',
+    logoMark: '/images/logo-mark.webp',
+    logoHorizontal: '/images/logo-horizontal.webp',
+    logoStacked: '/images/logo-stacked.webp',
+  },
+
   // External destinations (environment configurable)
   urls: {
     site: process.env.NEXT_PUBLIC_SITE_URL || 'https://easymedlearning.com',
@@ -43,17 +56,31 @@ export const siteConfig = {
     },
   ],
 
-  // Book & Course Reveal Reels (Instagram / Social Previews)
+  // Book & Course Reveal Reels (Native Video & Social Previews)
   reels: {
     bookReveal: {
       id: 'Dd22lyVI9eo',
       url: 'https://www.instagram.com/reel/Dd22lyVI9eo/',
       embedUrl: 'https://www.instagram.com/reel/Dd22lyVI9eo/embed/',
+      videoSrc: '/videos/book-reveal.mp4',
       title: 'Physical Companion Book Reveal',
       subtitle: 'Absolute Guide to ECG Interpretation',
+      badge: 'Printed Companion',
       description:
-        'Dr. Wasim Adil Khan unveils the physical companion reference book, featuring original clinical illustrations and practical case breakdowns.',
-      thumbnail: '/images/instagram_reel_thumb.jpg',
+        'Dr. Wasim Adil Khan unveils the physical companion reference book, featuring original clinical illustrations and practical case breakdowns delivered straight to learners.',
+      thumbnail: '/images/reels/book-reveal-poster.jpg',
+    },
+    courseLaunchIntro: {
+      id: 'De9mYeAoXhP',
+      url: 'https://www.instagram.com/easy_medlearning/reel/De9mYeAoXhP/',
+      embedUrl: 'https://www.instagram.com/reel/De9mYeAoXhP/embed/',
+      videoSrc: '/videos/course-intro-launch.mp4',
+      title: 'Complete ECG Course Announcement',
+      subtitle: 'Launching November 2026',
+      badge: 'Official Launch Teaser',
+      description:
+        'Step-by-step ECG interpretation from basic to advanced concepts, featuring original self-designed illustrations unavailable anywhere else on the web.',
+      thumbnail: '/images/reels/course-intro-poster.webp',
     },
     upcoming: [] as Array<{
       id: string;
@@ -80,6 +107,7 @@ export const siteConfig = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Courses', href: '/courses' },
+    { label: 'Seminars', href: '/seminars' },
     { label: 'Contact', href: '/contact' },
   ],
 

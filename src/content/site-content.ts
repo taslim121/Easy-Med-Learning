@@ -23,12 +23,12 @@ export const siteContent = {
   // Home Page (/)
   home: {
     meta: {
-      title: 'Learn ECG Interpretation Online | EasyMedLearning',
+      title: 'EasyMedLearning | Clinical Medical Platform & ECG Masterclass',
       description:
-        'Learn ECG interpretation with video lectures, case studies and a book by Dr. Wasim Adil Khan. Hinglish course with a tentative launch date of 15 November 2026.',
+        'Master ECG interpretation with structured video lectures, original self-designed diagrams, and companion textbook by Dr. Wasim Adil Khan.',
     },
     hero: {
-      eyebrow: 'ECG Education for Medical Professionals',
+      eyebrow: 'Clinical Medical Education Platform • Flagship Masterclass',
       h1: 'Learn ECG Interpretation with Clarity, Confidence and Real-World Practice',
       supportingText:
         'Learn from Dr. Wasim Adil Khan through structured video lectures, original illustrations, case-based teaching and his book.',

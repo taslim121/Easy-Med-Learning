@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, MessageCircle, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import { MessageCircle, ExternalLink } from 'lucide-react';
 import { InstagramIcon, YouTubeIcon } from '@/components/ui/icons';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
@@ -9,23 +10,35 @@ import { Container } from '@/components/ui/container';
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
   const hasWhatsApp = Boolean(siteConfig.urls.whatsapp);
+  const brand = siteConfig.branding;
 
   return (
     <footer className="w-full bg-[#0A1622] text-[#FAF9F6] border-t border-white/10 pt-16 pb-12">
       <Container size="wide">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          {/* Brand Column */}
+          {/* Brand Column (Zero hardcoded values) */}
           <div className="md:col-span-2 space-y-4">
             <Link
               href="/"
-              className="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-[#367D78] rounded-md inline-flex"
+              className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#367D78] rounded-md inline-flex"
             >
-              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white">
-                <Activity className="w-4 h-4 text-[#2DD4BF]" />
+              <div className="relative w-9 h-9 shrink-0 flex items-center justify-center bg-white/10 rounded-xl p-1">
+                <Image
+                  src={brand.logoMark}
+                  alt={brand.name}
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-contain brightness-110"
+                />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">
-                Easy<span className="text-[#2DD4BF]">Med</span>Learning
-              </span>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold tracking-tight text-white leading-none">
+                  {brand.prefix}<span className="text-[#2DD4BF]">{brand.accent}</span>{brand.suffix}
+                </span>
+                <span className="text-[10px] font-mono tracking-wider uppercase text-[#FAF9F6]/50 mt-1">
+                  {brand.subtitle}
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-[#FAF9F6]/70 max-w-sm leading-relaxed">
               {siteContent.footer.tagline}
