@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { siteConfig } from '@/content/site-config';
 import { getAllSeminars } from '@/content/seminars';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.urls.site || 'https://easymedlearning.com';
   const currentDate = new Date().toISOString();
