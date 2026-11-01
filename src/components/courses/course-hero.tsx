@@ -110,7 +110,7 @@ export function CourseHero() {
               <div className="relative mx-auto max-w-sm">
                 <NativeReelPlayer
                   videoSrc="/videos/book-reveal.mp4"
-                  posterSrc="/images/instagram_reel_thumb.jpg"
+                  posterSrc={bookReel.thumbnail}
                   title={bookReel.title}
                   subtitle={bookReel.subtitle}
                   instagramUrl={bookReel.url}

@@ -1,26 +1,22 @@
 import type { Metadata } from 'next';
-import { siteContent } from '@/content/site-content';
+import { homeContent } from '@/content/home-content';
 import { HomeHero } from '@/components/home/home-hero';
-import { ClinicalMarquee } from '@/components/home/clinical-marquee';
-import { ClinicalMediaTheater } from '@/components/home/clinical-media-theater';
-import { LearningHighlights } from '@/components/home/learning-highlights';
-import { WhyLearnEcg } from '@/components/home/why-learn-ecg';
-import { InstructorPreview } from '@/components/home/instructor-preview';
+import { CourseShowcase } from '@/components/home/course-showcase';
+import { FeaturesGrid } from '@/components/home/features-grid';
+import { HomeContact } from '@/components/home/home-contact';
 
 export const metadata: Metadata = {
-  title: siteContent.home.meta.title,
-  description: siteContent.home.meta.description,
+  title: homeContent.meta.title,
+  description: homeContent.meta.description,
 };
 
 export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <ClinicalMarquee />
-      <ClinicalMediaTheater />
-      <LearningHighlights />
-      <WhyLearnEcg />
-      <InstructorPreview />
+      <CourseShowcase />
+      <FeaturesGrid />
+      <HomeContact />
     </>
   );
 }
