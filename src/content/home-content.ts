@@ -142,7 +142,7 @@ export const homeContent: HomeContent = {
     educator: {
       name: 'Dr. Wasim Adil Khan',
       role: 'Lead Medical Educator & Clinician',
-      portraitSrc: '/images/instructor-hero.jpg',
+      portraitSrc: '/images/instructor-hero.webp',
       badgeText: 'Lead Clinical Educator',
     },
   },

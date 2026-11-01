@@ -67,7 +67,7 @@ export function AboutHero() {
               <div className="relative mx-auto max-w-[280px] lg:max-w-none">
                 <div className="aspect-square rounded-2xl p-4 shadow-xl border border-[#17354B]/15 bg-[#17354B] relative overflow-hidden">
                   <Image
-                    src="/images/instructor-hero.jpg"
+                    src="/images/instructor-hero.webp"
                     alt="Dr. Wasim Adil Khan"
                     fill
                     sizes="(max-width: 768px) 280px, 320px"
