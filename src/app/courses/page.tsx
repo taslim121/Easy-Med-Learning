@@ -1,30 +1,20 @@
 import type { Metadata } from 'next';
-import { siteContent } from '@/content/site-content';
-import { CourseHero } from '@/components/courses/course-hero';
-import { CourseLaunchSpotlight } from '@/components/courses/course-launch-spotlight';
-import { CourseOverview } from '@/components/courses/course-overview';
-import { LearningOutcomes } from '@/components/courses/learning-outcomes';
-import { AudienceList } from '@/components/courses/audience-list';
-import { IncludedPlanned } from '@/components/courses/included-planned';
-import { SampleLesson } from '@/components/courses/sample-lesson';
-import { FutureSpecialtiesRoadmap } from '@/components/courses/future-specialties-roadmap';
+import { coursesPageContent } from '@/content/courses-content';
+import { CoursesHero } from '@/components/courses/courses-hero';
+import { HandbookShowcase } from '@/components/courses/handbook-showcase';
+import { CourseSyllabus } from '@/components/courses/course-syllabus';
 
 export const metadata: Metadata = {
-  title: siteContent.courses.meta.title,
-  description: siteContent.courses.meta.description,
+  title: coursesPageContent.meta.title,
+  description: coursesPageContent.meta.description,
 };
 
 export default function CoursesPage() {
   return (
-    <>
-      <CourseHero />
-      <CourseLaunchSpotlight />
-      <CourseOverview />
-      <LearningOutcomes />
-      <AudienceList />
-      <IncludedPlanned />
-      <SampleLesson />
-      <FutureSpecialtiesRoadmap />
-    </>
+    <main className="min-h-screen bg-[#FAF9F6]">
+      <CoursesHero />
+      <HandbookShowcase />
+      <CourseSyllabus />
+    </main>
   );
 }

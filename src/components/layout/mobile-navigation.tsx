@@ -170,7 +170,7 @@ export function MobileNavigation() {
                   </Link>
                 ) : (
                   <Link
-                    href="/courses"
+                    href="/courses#syllabus"
                     onClick={() => setOpen(false)}
                     className="block w-full"
                   >

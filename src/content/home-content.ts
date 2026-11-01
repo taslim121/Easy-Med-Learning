@@ -184,8 +184,8 @@ export const homeContent: HomeContent = {
     mission:
       'Our Mission: To make ECG simple and easy for everyone. We want you to understand the concepts, build diagnostic confidence, and master ECG interpretation bedside.',
     cta: {
-      label: 'Explore the ECG Course',
-      href: '/courses',
+      label: 'Explore the ECG Syllabus',
+      href: '/courses#syllabus',
     },
     video: {
       heading: 'Get to Know Your Course',
