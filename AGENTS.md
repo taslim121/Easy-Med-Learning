@@ -29,10 +29,22 @@ Before making changes, read all three project briefs:
   without a demonstrated requirement.
 
 ## Production Integrity & Operational Guardrails
+- **100% Pure SSG (Static Site Generation)**: The entire website is strictly a 100% static HTML export (`output: 'export'`) hosted on static CDN (Cloudflare Pages). Never introduce dynamic Node.js server runtimes, server-side cookies/headers, or persistent server API dependencies. All pages and assets must compile cleanly into `out/` via `npm run build`.
 - **Zero Content Invention**: Every single piece of website copy must derive strictly from `02_CONTENT_SOURCE_OF_TRUTH.md` or founder-supplied statements. Never invent clinical explanations, physiological mechanisms, or unapproved course topics.
 - **Zero Prototype Badges**: Do not display developer placeholders or prototype labels (e.g. "Live Scroll Progress", "Demo", "Interactive Scrub") in production UI.
 - **Strict Git Boundary**: Never run git mutating commands (`git add`, `git reset`, `git commit`, `git checkout`, `git restore`, `git stash`). Only read-only commands (`git status` and `git diff`) are permitted.
 - **Scroll Trigger Integrity**: Never trigger animations before previous content has finished its viewport lifecycle. Triggers must respect natural scroll progression.
+
+<!-- BEGIN:nextjs-agent-rules -->
+## Next.js 15+ App Router Conventions & Official Reference
+- **100% SSG Architecture (`output: 'export'`)**: The site is completely static. Always configure `generateStaticParams()` on dynamic routes, `export const dynamic = 'force-static'` on route handlers (`robots.ts`, `sitemap.ts`), and `images: { unoptimized: true }` in `next.config.ts`. All interactive components (forms, video embeds, players) must function purely on the client without requiring a running Next.js backend server.
+- **Asynchronous Route Params**: Dynamic route `params` and `searchParams` in Next.js 15+ pages, layouts, and `generateMetadata` must always be awaited as Promises: `const { slug } = await params;`.
+- **Modern Navigation**: Always import routing utilities from `next/navigation` (`useRouter`, `usePathname`, `useSearchParams`, `notFound`), never legacy `next/router`.
+- **UI Animation & Skills**:
+  - Use `.agents/skills/magic-ui/SKILL.md` for polished UI components (e.g. `BlurFade`, `BorderBeam`, `BentoGrid`). Preserve clinical calm and brand colors (`#17354B`, `#367D78`, `#FAF9F6`).
+  - Use `.agents/skills/gsap-*/SKILL.md` (`gsap-core`, `gsap-react`, `gsap-scrolltrigger`, `gsap-timeline`) for any timeline synchronization and React cleanup via `useGSAP` or `gsap.context()`.
+- **Official Documentation**: Query `https://nextjs.org/docs/llms.txt` and append `.md` to any Next.js doc URL to retrieve the latest canonical guidance.
+<!-- END:nextjs-agent-rules -->
 
 ## Execution
 1. Inspect the existing project before changing files.

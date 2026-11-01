@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2, Mail } from 'lucide-react';
 import { homeContent } from '@/content/home-content';
 import { Container } from '@/components/ui/container';
-import { Reveal } from '@/components/motion/reveal';
+import { BlurFade } from '@/components/magicui/blur-fade';
 
 export function HomeContact() {
   const { contact } = homeContent;
@@ -71,28 +71,28 @@ export function HomeContact() {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
-          <Reveal direction="down">
+          <BlurFade delay={0.05} yOffset={-8}>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-mono font-semibold tracking-wider uppercase bg-[#367D78]/10 text-[#367D78] border border-[#367D78]/20">
               <Mail className="w-3.5 h-3.5" />
               Direct Support &amp; Enquiries
             </span>
-          </Reveal>
+          </BlurFade>
 
-          <Reveal direction="up" delay={0.1}>
+          <BlurFade delay={0.12} yOffset={10}>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#17354B] font-editorial leading-tight">
               {contact.heading}
             </h2>
-          </Reveal>
+          </BlurFade>
 
-          <Reveal direction="up" delay={0.2}>
+          <BlurFade delay={0.18} yOffset={10}>
             <p className="text-sm sm:text-base text-[#5A6E7D] leading-relaxed">
               {contact.description}
             </p>
-          </Reveal>
+          </BlurFade>
         </div>
 
         {/* Centered Form Card */}
-        <Reveal direction="up" delay={0.25}>
+        <BlurFade delay={0.24} yOffset={12}>
           <div className="max-w-xl mx-auto rounded-3xl bg-white border border-[#17354B]/10 p-6 sm:p-10 shadow-[0_20px_50px_-12px_rgba(23,53,75,0.08)]">
             
             {submitStatus === 'success' ? (
@@ -218,7 +218,7 @@ export function HomeContact() {
             )}
 
           </div>
-        </Reveal>
+        </BlurFade>
 
       </Container>
     </section>
