@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'coral';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'coral' | 'link';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   isExternal?: boolean;
+  asChild?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', href, isExternal, children, disabled, ...props }, ref) => {
+  ({ className, variant = 'primary', size = 'md', href, isExternal, asChild, children, disabled, ...props }, ref) => {
     const baseStyles =
       'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
 
@@ -25,6 +26,8 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
         'border border-[#17354B]/20 bg-transparent text-[#17354B] hover:bg-[#17354B]/5 hover:border-[#17354B]/40 active:scale-[0.99] focus-visible:outline-[#17354B]',
       ghost:
         'bg-transparent text-[#17354B] hover:bg-[#17354B]/5 active:scale-[0.99] focus-visible:outline-[#367D78]',
+      link:
+        'bg-transparent text-[#367D78] hover:text-[#17354B] underline-offset-4 hover:underline p-0 h-auto',
     };
 
     const sizes = {
@@ -34,6 +37,13 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
     };
 
     const combinedClassName = cn(baseStyles, variants[variant], sizes[size], className);
+
+    if (asChild && React.isValidElement(children)) {
+      return React.cloneElement(children as React.ReactElement<any>, {
+        className: cn(combinedClassName, (children as React.ReactElement<any>).props.className),
+        ...props,
+      });
+    }
 
     if (href) {
       if (isExternal) {

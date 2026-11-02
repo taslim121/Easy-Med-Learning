@@ -16,7 +16,8 @@ import {
 import { homeContent } from '@/content/home-content';
 import { Container } from '@/components/ui/container';
 import { BlurFade } from '@/components/magicui/blur-fade';
-import { MagicCard } from '@/components/magicui/magic-card';
+import { BentoGrid, BentoCard } from '@/components/ui/bento-grid';
+import { EcgTrace } from '@/components/ui/ecg-trace';
 
 const iconMap: Record<string, LucideIcon> = {
   Video,
@@ -33,13 +34,175 @@ const iconMap: Record<string, LucideIcon> = {
 export function FeaturesGrid() {
   const { features } = homeContent;
 
+  // Features structured following the official Magic UI Bento Grid pattern.
+  // Explicitly ordered to pack 3 columns per row without ANY unfilled gaps:
+  // Row 1: physical-books (2 cols) + live-classes (1 col) = 3 cols
+  // Row 2: forums (1 col) + video-lectures (2 cols) = 3 cols
+  // Row 3: trusted-content (1 col) + affordable-pricing (1 col) + mobile-learning (1 col) = 3 cols
+  // Row 4: anytime-anywhere (2 cols) + alerts (1 col) = 3 cols
+  const bentoFeatures = [
+    {
+      id: 'physical-books',
+      className: 'col-span-3 lg:col-span-2',
+      href: '/courses#syllabus',
+      cta: 'Explore Handbook',
+      badge: 'Hardcopy Included',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#367D78]/15 via-[#2DD4BF]/10 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)]">
+          <div className="absolute top-6 right-6 opacity-15 text-[#367D78]">
+            <BookOpen className="w-36 h-36" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#367D78]/10 text-[#367D78] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#367D78]/20">
+            Hardcopy Included
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'live-classes',
+      className: 'col-span-3 lg:col-span-1',
+      href: '/contact',
+      cta: 'Inquire on Sessions',
+      badge: 'Interactive Sessions',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#17354B]/10 via-[#367D78]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#17354B]">
+            <Video className="w-28 h-28" />
+          </div>
+          <div className="absolute top-6 left-6 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-700 text-[11px] font-mono font-semibold tracking-wider uppercase border border-emerald-500/20">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            Interactive Sessions
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'forums',
+      className: 'col-span-3 lg:col-span-1',
+      href: '/contact',
+      cta: 'Join Community',
+      badge: 'Peer Discussion',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#367D78]/10 via-[#2DD4BF]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#367D78]">
+            <MessagesSquare className="w-28 h-28" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#367D78]/10 text-[#367D78] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#367D78]/20">
+            Peer Discussion
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'video-lectures',
+      className: 'col-span-3 lg:col-span-2',
+      href: '/courses#syllabus',
+      cta: 'View Syllabus',
+      badge: 'Structured Curriculum',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#17354B]/15 via-[#367D78]/10 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)]">
+          <div className="absolute top-8 right-0 w-80 opacity-25">
+            <EcgTrace color="#367D78" glowColor="#2DD4BF" strokeWidth={2} />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#17354B]/10 text-[#17354B] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#17354B]/20">
+            Structured Curriculum
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'trusted-content',
+      className: 'col-span-3 lg:col-span-1',
+      href: '/about',
+      cta: 'About Educator',
+      badge: 'Verified Teaching',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#367D78]/10 via-emerald-500/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#367D78]">
+            <ShieldCheck className="w-28 h-28" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-700 text-[11px] font-mono font-semibold tracking-wider uppercase border border-emerald-500/20">
+            Verified Teaching
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'affordable-pricing',
+      className: 'col-span-3 lg:col-span-1',
+      href: '/contact',
+      cta: 'Pricing Details',
+      badge: 'Student Friendly',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D96B60]/10 via-[#D96B60]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#D96B60]">
+            <Sparkles className="w-28 h-28" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#D96B60]/10 text-[#D96B60] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#D96B60]/20">
+            Student Friendly
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'mobile-learning',
+      className: 'col-span-3 lg:col-span-1',
+      href: '/courses',
+      cta: 'Device Support',
+      badge: 'Any Device',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/10 via-[#367D78]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#2DD4BF]">
+            <Smartphone className="w-28 h-28" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#2DD4BF]/10 text-[#248277] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#2DD4BF]/20">
+            Any Device
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'anytime-anywhere',
+      className: 'col-span-3 lg:col-span-2',
+      href: '/courses',
+      cta: 'Study Anywhere',
+      badge: 'Self-Paced Access',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#367D78]/15 via-[#2DD4BF]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#367D78]">
+            <Clock className="w-32 h-32" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#367D78]/10 text-[#367D78] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#367D78]/20">
+            Self-Paced Access
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'alerts',
+      className: 'col-span-3 lg:col-span-1',
+      href: '/contact',
+      cta: 'Get Updates',
+      badge: 'Instant Updates',
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#17354B]/10 via-[#367D78]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
+          <div className="absolute top-6 right-6 opacity-15 text-[#17354B]">
+            <Bell className="w-28 h-28" />
+          </div>
+          <div className="absolute top-6 left-6 px-2.5 py-1 rounded-md bg-[#17354B]/10 text-[#17354B] text-[11px] font-mono font-semibold tracking-wider uppercase border border-[#17354B]/20">
+            Instant Updates
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <section
-      className="py-16 sm:py-24 bg-white text-[#17354B] border-b border-[#17354B]/10 relative overflow-hidden"
+      className="py-16 sm:py-24 bg-[#FAF9F6] text-[#17354B] border-b border-[#17354B]/10 relative overflow-hidden"
       aria-label="What Makes Easy Med Learning Different"
     >
-      <Container size="wide">
-        
+      <Container size="wide" className="max-w-7xl 2xl:max-w-[1400px]">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 space-y-3">
           <BlurFade delay={0.05} yOffset={-8}>
@@ -62,40 +225,27 @@ export function FeaturesGrid() {
           </BlurFade>
         </div>
 
-        {/* 3x3 Feature Grid with MagicCard Spotlight */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {features.cards.map((card, idx) => {
+        {/* Official Magic UI Bento Grid - Rendered in exact 3-column row sequence with zero holes */}
+        <BentoGrid>
+          {bentoFeatures.map((config) => {
+            const card = features.cards.find((c) => c.id === config.id);
+            if (!card) return null;
             const Icon = iconMap[card.iconName] || Sparkles;
 
             return (
-              <BlurFade key={card.id} delay={0.04 * idx} yOffset={12}>
-                <MagicCard
-                  gradientColor="rgba(54, 125, 120, 0.12)"
-                  gradientSize={260}
-                  className="h-full p-6 sm:p-7 rounded-2xl bg-[#FAF9F6] border border-[#17354B]/8 hover:border-[#367D78]/30 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div className="space-y-4">
-                    {/* Icon Box */}
-                    <div className="w-12 h-12 rounded-xl bg-white border border-[#17354B]/10 flex items-center justify-center text-[#367D78] shadow-sm group-hover:scale-105 group-hover:bg-[#367D78] group-hover:text-white transition-all duration-300">
-                      <Icon className="w-6 h-6" />
-                    </div>
-
-                    {/* Card Title & Description */}
-                    <div className="space-y-2">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#17354B] tracking-tight">
-                        {card.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#5A6E7D] leading-relaxed">
-                        {card.description}
-                      </p>
-                    </div>
-                  </div>
-                </MagicCard>
-              </BlurFade>
+              <BentoCard
+                key={card.id}
+                name={card.title}
+                description={card.description}
+                Icon={Icon}
+                href={config.href}
+                cta={config.cta}
+                className={config.className}
+                background={config.background}
+              />
             );
           })}
-        </div>
-
+        </BentoGrid>
       </Container>
     </section>
   );

@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Fraunces, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Geist } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/content/site-config';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { PageRails } from '@/components/layout/page-rails';
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -101,7 +104,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`scroll-smooth ${plusJakartaSans.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
+      className={cn("scroll-smooth", plusJakartaSans.variable, fraunces.variable, jetbrainsMono.variable, "font-sans", geist.variable)}
     >
       <head>
         <script
