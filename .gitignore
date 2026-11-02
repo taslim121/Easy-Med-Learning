@@ -1,4 +1,32 @@
-.next
-out
-.agents
+# Dependencies
 /node_modules
+/.pnp
+.pnp.js
+
+# Testing & agent sandboxes
+.agents
+
+# Next.js build outputs
+/.next/
+/out/
+
+# Production builds
+build
+
+# Local Environment Files (NEVER COMMIT)
+.env*.local
+.env
+
+# Debug & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+*.pem
+
+# TypeScript cache
+*.tsbuildinfo
