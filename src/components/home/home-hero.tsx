@@ -30,18 +30,19 @@ export function HomeHero() {
             {/* Live Launch Announcement Pill */}
             <BlurFade delay={0.05} yOffset={-8}>
               <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-md text-xs font-mono tracking-wider text-[#99F6E4]">
-                <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse" aria-hidden="true" />
+                <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse shrink-0" aria-hidden="true" />
                 <span className="uppercase font-semibold">{hero.eyebrow}</span>
               </div>
             </BlurFade>
 
-            {/* Main Platform Headline */}
+            {/* Main Platform Headline with Modern Clean Sans Typography */}
             <BlurFade delay={0.12} yOffset={12}>
-              <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-extrabold tracking-[-0.035em] text-white leading-[1.08] font-editorial">
-                Learn with{' '}
-                <em className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] via-[#5EEAD4] to-white not-italic">
-                  Easy Med Learning.
-                </em>
+              <h1 className="text-4xl sm:text-6xl lg:text-[62px] font-extrabold tracking-[-0.035em] text-white leading-[1.12] font-sans">
+                Beyond Learning.{' '}
+                <span className="block sm:inline">Together in Practice.{' '}</span>
+                <span className="inline-block mt-1 sm:mt-0 text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] via-[#5EEAD4] to-white">
+                  With EasyMedLearning
+                </span>
               </h1>
             </BlurFade>
 
@@ -97,7 +98,7 @@ export function HomeHero() {
 
                 {/* Supporting Line Below CTA */}
                 <p className="text-xs sm:text-sm font-mono text-[#64748B] flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]/60" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]/60 shrink-0" />
                   <span>{hero.supportingMicrocopy}</span>
                 </p>
               </div>

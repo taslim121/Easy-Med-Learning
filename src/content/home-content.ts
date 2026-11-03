@@ -119,9 +119,9 @@ export const homeContent: HomeContent = {
   // =========================================================================
   hero: {
     eyebrow: 'Official Launch Announcement',
-    heading: 'Learn with Easy Med Learning.',
+    heading: 'Beyond Learning. Together in Practice. With EasyMedLearning',
     description:
-      'Your journey towards smarter medical learning starts here. Explore high-quality, structured courses, learn from experienced educators, and get the learning resources you need — including professionally designed physical books delivered to your doorstep.',
+      'Your journey towards better medical learning and professional growth starts here. Explore structured educational courses, access valuable learning resources, connect with fellow medical professionals, and participate in meaningful discussions that encourage knowledge sharing and collaboration.',
     launchAnnouncement: {
       kicker: 'NOW INTRODUCING OUR FIRST COURSE',
       title: 'ECG Made Easy',
@@ -138,7 +138,7 @@ export const homeContent: HomeContent = {
         href: '/courses',
       },
     },
-    supportingMicrocopy: 'Learn together. Grow together. Make learning easier.',
+    supportingMicrocopy: 'Learn. Connect. Grow.',
     educator: {
       name: 'Dr. Wasim Adil Khan',
       role: 'Lead Medical Educator & Clinician',

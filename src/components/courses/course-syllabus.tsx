@@ -12,7 +12,7 @@ export function CourseSyllabus() {
   const { syllabus } = coursesPageContent;
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter chapters based on search query only (strictly 1 to 52, zero artificial categories)
+  // Filter chapters based on search query only (strictly 1 to 51, zero artificial categories)
   const filteredChapters = useMemo(() => {
     if (!searchQuery.trim()) {
       return syllabus.chapters;
@@ -64,7 +64,7 @@ export function CourseSyllabus() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder='Search 52 chapters... e.g. "Heart Blocks", "CAD", "T Wave", "Vectors"'
+                placeholder={`Search ${syllabus.totalChapters} chapters... e.g. "Heart Blocks", "CAD", "T Wave", "Vectors"`}
                 className="w-full pl-11 pr-10 py-3.5 rounded-xl bg-white border border-[#17354B]/15 text-[#17354B] placeholder:text-[#5A6E7D]/60 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[#2DD4BF]/50 focus:border-[#2DD4BF] transition-all"
               />
               {searchQuery && (
@@ -80,7 +80,7 @@ export function CourseSyllabus() {
             </div>
 
             <div className="flex items-center justify-between pt-2 px-1 text-xs font-mono text-[#5A6E7D]">
-              <span>Chapters 01 – 52 in Sequential Order</span>
+              <span>Chapters 01 – {syllabus.totalChapters < 10 ? `0${syllabus.totalChapters}` : syllabus.totalChapters} in Sequential Order</span>
               <span>
                 Showing <strong className="text-[#17354B]">{filteredChapters.length}</strong> of {syllabus.totalChapters}
               </span>
@@ -88,7 +88,7 @@ export function CourseSyllabus() {
           </div>
         </BlurFade>
 
-        {/* Shadcn ScrollArea Container for 52 Chapters */}
+        {/* Shadcn ScrollArea Container for 51 Chapters */}
         <div className="max-w-4xl mx-auto">
           <div className="p-3 sm:p-5 rounded-2xl bg-white border border-[#17354B]/15 shadow-sm">
             {filteredChapters.length === 0 ? (

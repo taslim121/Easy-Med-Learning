@@ -108,6 +108,7 @@ export const siteConfig = {
     { label: 'About', href: '/about' },
     { label: 'Courses', href: '/courses' },
     { label: 'Seminars', href: '/seminars' },
+    { label: 'Community', href: '/community' },
     { label: 'Contact', href: '/contact' },
   ],
 

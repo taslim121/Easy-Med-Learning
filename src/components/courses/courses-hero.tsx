@@ -70,7 +70,7 @@ export function CoursesHero() {
             <div className="flex flex-wrap gap-2.5 pt-2">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#17354B]/10 shadow-xs text-xs font-mono text-[#17354B]">
                 <BookOpen className="w-3.5 h-3.5 text-[#2DD4BF]" />
-                <span>52 Chapters</span>
+                <span>{coursesPageContent.syllabus.totalChapters} Chapters</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#17354B]/10 shadow-xs text-xs font-mono text-[#17354B]">
                 <BookOpen className="w-3.5 h-3.5 text-[#D96B60]" />
