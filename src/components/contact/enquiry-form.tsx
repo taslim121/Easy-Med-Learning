@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { siteContent } from '@/content/site-content';
 import { Button } from '@/components/ui/button';
-import { ContactFormData, ContactApiResponse } from '@/types/site';
+import { ContactFormData } from '@/types/site';
+import { validateContactForm } from '@/lib/contact-schema';
+import { submitToGoogleForm } from '@/lib/google-form';
 
 export function EnquiryForm() {
   const formContent = siteContent.contact.form;
@@ -12,6 +14,7 @@ export function EnquiryForm() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
+    degree: '',
     phone: '',
     message: '',
     honeypot: '',
@@ -44,25 +47,38 @@ export function EnquiryForm() {
     setErrors({});
     setServerMessage('');
 
+    // Validate using client schema
+    const validation = validateContactForm(formData);
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Bot trap check
+    if (formData.honeypot && formData.honeypot.trim() !== '') {
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      setServerMessage(formContent.successMessage);
+      return;
+    }
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      const res = await submitToGoogleForm({
+        name: formData.name,
+        email: formData.email,
+        degree: formData.degree || '',
+        phone: formData.phone,
+        message: formData.message,
       });
 
-      const data: ContactApiResponse = await response.json();
-
-      if (response.ok && data.success) {
+      if (res.success) {
         setSubmitStatus('success');
-        setServerMessage(data.message || formContent.successMessage);
-        setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+        setServerMessage(formContent.successMessage);
+        setFormData({ name: '', email: '', degree: '', phone: '', message: '', honeypot: '' });
       } else {
         setSubmitStatus('error');
-        setServerMessage(data.message || formContent.errorMessage);
-        if (data.errors) {
-          setErrors(data.errors);
-        }
+        setServerMessage(res.error || formContent.errorMessage);
       }
     } catch {
       setSubmitStatus('error');
@@ -97,7 +113,7 @@ export function EnquiryForm() {
             variant="outline"
             size="sm"
             onClick={() => setSubmitStatus('idle')}
-            className="mt-2"
+            className="mt-2 cursor-pointer"
           >
             Send Another Message
           </Button>
@@ -187,6 +203,37 @@ export function EnquiryForm() {
             )}
           </div>
 
+          {/* Degree / Qualification Field */}
+          <div>
+            <label
+              htmlFor="degree"
+              className="block text-xs font-semibold uppercase tracking-wider text-[#17354B] mb-1.5"
+            >
+              {formContent.fields.degree.label} <span className="text-[#D96B60]">*</span>
+            </label>
+            <input
+              id="degree"
+              name="degree"
+              type="text"
+              required
+              placeholder={formContent.fields.degree.placeholder}
+              value={formData.degree || ''}
+              onChange={handleChange}
+              aria-invalid={Boolean(errors.degree)}
+              aria-describedby={errors.degree ? 'degree-error' : undefined}
+              className={`w-full px-4 py-3 rounded-xl border text-sm text-[#17354B] bg-[#F6F4EE]/30 focus:bg-white transition-colors ${
+                errors.degree
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-[#17354B]/15 focus:border-[#367D78]'
+              }`}
+            />
+            {errors.degree && (
+              <p id="degree-error" className="text-xs text-red-600 mt-1">
+                {errors.degree}
+              </p>
+            )}
+          </div>
+
           {/* Phone Field (Optional) */}
           <div>
             <label
@@ -200,7 +247,7 @@ export function EnquiryForm() {
               name="phone"
               type="tel"
               placeholder={formContent.fields.phone.placeholder}
-              value={formData.phone}
+              value={formData.phone || ''}
               onChange={handleChange}
               aria-invalid={Boolean(errors.phone)}
               aria-describedby={errors.phone ? 'phone-error' : undefined}
@@ -255,7 +302,7 @@ export function EnquiryForm() {
               variant="primary"
               size="lg"
               disabled={isSubmitting}
-              className="w-full justify-center"
+              className="w-full justify-center cursor-pointer"
             >
               {isSubmitting ? (
                 <>

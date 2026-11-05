@@ -80,6 +80,7 @@ export interface ContactContent {
     title: string;
     namePlaceholder: string;
     emailPlaceholder: string;
+    degreePlaceholder: string;
     phonePlaceholder: string;
     messagePlaceholder: string;
     submitLabel: string;
@@ -151,7 +152,7 @@ export const homeContent: HomeContent = {
   // SECTION 02: Introducing Our Medical Courses (ECG Launch Showcase)
   // =========================================================================
   courseLaunch: {
-    badge: 'NOW INTRODUCING OUR FIRST COURSE',
+    badge: 'Official Launch Announcement',
     sectionHeading: 'Medical Learning, Made Easier.',
     sectionSubtitle:
       'Explore structured medical courses designed to simplify complex concepts and make learning more effective.',
@@ -284,7 +285,8 @@ export const homeContent: HomeContent = {
       title: 'Send a Direct Message',
       namePlaceholder: 'Full Name',
       emailPlaceholder: 'Email Address',
-      phonePlaceholder: 'Phone Number',
+      degreePlaceholder: 'Degree / Qualification (e.g. MBBS, MD, Student)',
+      phonePlaceholder: 'Phone Number (Optional)',
       messagePlaceholder: 'Your Message',
       submitLabel: 'Send Message',
       submittingLabel: 'Sending...',

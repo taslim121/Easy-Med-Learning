@@ -38,6 +38,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   phone?: string;
+  degree?: string;
   message: string;
   honeypot?: string;
 }

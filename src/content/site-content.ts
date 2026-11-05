@@ -361,6 +361,11 @@ export const siteContent = {
           placeholder: 'doctor@example.com',
           required: true,
         },
+        degree: {
+          label: 'Degree / Qualification',
+          placeholder: 'e.g. MBBS, MD, BUMS, Student',
+          required: true,
+        },
         phone: {
           label: 'Phone Number',
           placeholder: '+91 98765 43210 (Optional)',

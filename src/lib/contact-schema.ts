@@ -26,6 +26,13 @@ export function validateContactForm(data: Partial<ContactFormData>): ValidationR
     errors.email = 'Please provide a valid email address.';
   }
 
+  // Degree validation (required)
+  if (!data.degree || data.degree.trim().length === 0) {
+    errors.degree = 'Please enter your medical degree or qualification.';
+  } else if (data.degree.trim().length > 100) {
+    errors.degree = 'Degree / Qualification must be 100 characters or fewer.';
+  }
+
   // Optional phone validation
   if (data.phone && data.phone.trim().length > 0) {
     const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{7,15}$/;

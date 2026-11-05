@@ -132,7 +132,7 @@ export const coursesPageContent: CoursesContent = {
       'The official physical handbook will be provided alongside the course for desk reference and bedside clinical application upon launch.',
     author: 'Dr. Wasim Adil Khan',
     guidance: 'Under the guidance of Honorable Dr. Bhushan Bari, D.N.B (Cardiology)',
-    developmentTime: '7 Years in Development',
+    developmentTime: '7 Years in Research and Development',
     features: [
       'Handmade and compiled over 7 years of clinical teaching and practice',
       'Written under the guidance of Dr. Bhushan Bari, D.N.B (Cardiology)',

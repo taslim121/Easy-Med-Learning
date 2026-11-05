@@ -105,7 +105,7 @@ export const siteConfig = {
   // Navigation
   navigation: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
+    { label: 'Our Instructor', href: '/about' },
     { label: 'Courses', href: '/courses' },
     { label: 'Seminars', href: '/seminars' },
     { label: 'Community', href: '/community' },

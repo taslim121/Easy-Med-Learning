@@ -28,12 +28,12 @@ export function HomeHero() {
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
             
             {/* Live Launch Announcement Pill */}
-            <BlurFade delay={0.05} yOffset={-8}>
+            {/* <BlurFade delay={0.05} yOffset={-8}>
               <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-md text-xs font-mono tracking-wider text-[#99F6E4]">
                 <span className="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse shrink-0" aria-hidden="true" />
                 <span className="uppercase font-semibold">{hero.eyebrow}</span>
               </div>
-            </BlurFade>
+            </BlurFade> */}
 
             {/* Main Platform Headline with Modern Clean Sans Typography */}
             <BlurFade delay={0.12} yOffset={12}>
