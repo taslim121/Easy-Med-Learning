@@ -2,12 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Stethoscope, UserCheck } from 'lucide-react';
-import { siteContent } from '@/content/site-content';
+import { ourInstructorContent } from '@/content/our-instructor-content';
 import { Container } from '@/components/ui/container';
 import { Reveal } from '@/components/motion/reveal';
 
 export function AboutHero() {
-  const content = siteContent.about.hero;
+  const content = ourInstructorContent.hero;
+  const breadcrumbLabel = ourInstructorContent.breadcrumbLabel;
 
   return (
     <section className="pt-10 pb-12 sm:pt-16 sm:pb-16 bg-clinical-grid border-b border-[#17354B]/10">
@@ -24,7 +25,7 @@ export function AboutHero() {
               <ChevronRight className="w-3.5 h-3.5 text-[#5A6E7D]/60" />
             </li>
             <li className="text-[#17354B] font-semibold" aria-current="page">
-              About
+              {breadcrumbLabel}
             </li>
           </ol>
         </nav>
@@ -34,7 +35,7 @@ export function AboutHero() {
             <Reveal direction="down">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#367D78]/10 text-[#367D78] text-xs font-semibold uppercase tracking-wider">
                 <Stethoscope className="w-3.5 h-3.5" />
-                <span>Medical Educator &amp; Clinician</span>
+                <span>{content.roleTag}</span>
               </div>
             </Reveal>
 
@@ -54,10 +55,10 @@ export function AboutHero() {
               <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-[#5A6E7D] font-medium">
                 <span className="flex items-center gap-1.5">
                   <UserCheck className="w-4 h-4 text-[#367D78]" />
-                  BUMS, PGDEMS
+                  {content.degrees}
                 </span>
                 <span>&bull;</span>
-                <span>Managing Director, National Hospital, Pune</span>
+                <span>{content.currentRole}</span>
               </div>
             </Reveal>
           </div>
@@ -67,16 +68,16 @@ export function AboutHero() {
               <div className="relative mx-auto max-w-[280px] lg:max-w-none">
                 <div className="aspect-square rounded-2xl p-4 shadow-xl border border-[#17354B]/15 bg-[#17354B] relative overflow-hidden">
                   <Image
-                    src="/images/instructor-hero.webp"
-                    alt="Dr. Wasim Adil Khan"
+                    src={content.imageSrc}
+                    alt={content.imageAlt}
                     fill
                     sizes="(max-width: 768px) 280px, 320px"
                     className="object-cover object-top"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0F2332]/90 via-[#0F2332]/60 to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <p className="text-sm font-bold">Dr. Wasim Adil Khan</p>
-                    <p className="text-[11px] text-[#4A9E98]">BUMS, PGDEMS</p>
+                    <p className="text-sm font-bold">{content.doctorName}</p>
+                    <p className="text-[11px] text-[#4A9E98]">{content.degrees}</p>
                   </div>
                 </div>
               </div>

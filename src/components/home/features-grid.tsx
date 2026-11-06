@@ -113,8 +113,8 @@ export function FeaturesGrid() {
     {
       id: 'trusted-content',
       className: 'col-span-3 lg:col-span-1',
-      href: '/about',
-      cta: 'About Educator',
+      href: '/our-instructor',
+      cta: 'Meet Instructor',
       badge: 'Verified Teaching',
       background: (
         <div className="absolute inset-0 bg-gradient-to-br from-[#367D78]/10 via-emerald-500/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">

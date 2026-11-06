@@ -1,120 +1,113 @@
 import React from 'react';
-import { Presentation, GraduationCap, AlertCircle, Quote } from 'lucide-react';
-import { siteContent } from '@/content/site-content';
+import { ourInstructorContent } from '@/content/our-instructor-content';
 import { Container } from '@/components/ui/container';
-import { SectionHeading } from '@/components/ui/section-heading';
 import { Reveal } from '@/components/motion/reveal';
+import { DotPattern } from '@/components/ui/dot-pattern';
 
 export function InstructorStory() {
-  const { story, whyTeach, problemToSolve } = siteContent.about;
+  const { story, whyTeach, problemToSolve } = ourInstructorContent;
 
   return (
-    <div className="py-16 sm:py-24 space-y-20 bg-white">
+    <section className="pt-16 sm:pt-20  bg-white relative overflow-hidden">
       <Container size="wide">
-        {/* Section 1: My Journey */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <Reveal direction="up">
-              <SectionHeading
-                eyebrow="Background &amp; Clinical Leadership"
-                title={story.title}
-              />
-              <div className="space-y-4 text-base sm:text-lg text-[#17354B]/90 leading-relaxed font-normal">
-                {story.paragraphs.map((para, i) => (
-                  <p key={i} className="border-l-2 border-[#367D78] pl-4 italic bg-[#F6F4EE]/40 py-2 rounded-r">
-                    &ldquo;{para}&rdquo;
-                  </p>
-                ))}
-              </div>
-            </Reveal>
+        <div className="space-y-14 sm:space-y-18">
+          
+          {/* Top Two Sections Side-by-Side: My Journey (60% width) and Why I Teach ECG (40% width) */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-stretch">
+            
+            {/* Left Card: My Journey (60% width) */}
+            <div className="lg:col-span-3 flex flex-col">
+              <Reveal direction="up" className="h-full flex flex-col">
+                <div className="h-full flex flex-col">
+                  {/* Eyebrow & Title */}
+                  <div className="mb-4 sm:mb-5">
+                    <span className="inline-block text-xs uppercase tracking-wider font-semibold text-[#367D78] mb-1.5 sm:mb-2">
+                      {story.eyebrow}
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#17354B] leading-tight">
+                      {story.title}
+                    </h2>
+                  </div>
+
+                  {/* Clean Editorial Panel with Left Border Only (No rounded enclosing box) */}
+                  <div className="flex-1 flex flex-col justify-center border-l-3 border-[#367D78] pl-5 sm:pl-6 py-4 sm:py-5 pr-4 sm:pr-6 bg-[#FAF9F6]/80 rounded-r-xl">
+                    <div className="space-y-3">
+                      {story.paragraphs.map((para, i) => (
+                        <p key={i} className="text-base sm:text-lg text-[#17354B]/90 leading-relaxed font-normal">
+                          &ldquo;{para}&rdquo;
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right Card: Why I Teach ECG (40% width) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <Reveal direction="up" delay={0.1} className="h-full flex flex-col">
+                <div className="h-full flex flex-col">
+                  {/* Eyebrow & Title */}
+                  <div className="mb-4 sm:mb-5">
+                    <span className="inline-block text-xs uppercase tracking-wider font-semibold text-[#D96B60] mb-1.5 sm:mb-2">
+                      {whyTeach.eyebrow}
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#17354B] leading-tight">
+                      {whyTeach.title}
+                    </h2>
+                  </div>
+
+                  {/* Clean Editorial Panel with Left Border Only (No rounded enclosing box) */}
+                  <div className="flex-1 flex flex-col justify-center border-l-3 border-[#D96B60] pl-5 sm:pl-6 py-4 sm:py-5 pr-4 sm:pr-6 bg-[#FAF9F6]/80 rounded-r-xl">
+                    <div className="space-y-3">
+                      {whyTeach.paragraphs.map((para, i) => (
+                        <p key={i} className="text-base sm:text-lg text-[#17354B]/90 leading-relaxed font-normal">
+                          &ldquo;{para}&rdquo;
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
           </div>
 
-          <div className="lg:col-span-5">
-            <Reveal direction="left">
-              {/* Seminar Teaching Photo Placeholder */}
-              <div className="aspect-[4/3] rounded-2xl bg-[#17354B] p-6 text-white flex flex-col justify-between shadow-xl relative overflow-hidden">
-                <div className="flex items-center justify-between text-xs text-white/70">
-                  <span className="font-semibold text-[#4A9E98]">National Masterclasses</span>
-                  <span>Jammu &amp; Kashmir to Pune</span>
-                </div>
-                <div className="my-auto text-center py-4">
-                  <Presentation className="w-12 h-12 mx-auto text-[#4A9E98] mb-3" />
-                  <p className="text-sm font-semibold text-white">5 Years of ECG Seminars</p>
-                  <p className="text-xs text-white/70 mt-1 max-w-xs mx-auto">
-                    Training clinicians, resident doctors, and healthcare professionals nationwide.
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-white/10 text-center">
-                  <p className="text-[11px] text-white/50">{story.imageAlt}</p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
+          {/* Section 3: The Problem I Want to Solve (Dotted Pattern, Refined Weight & Balanced Spacing) */}
+          <div className="pt-10 sm:pt-12 pb-2 sm:pb-3 border-t border-[#17354B]/10 relative overflow-hidden">
+            {/* Background Clinical Dot Pattern - Properly Aligned to Container */}
+            <DotPattern
+              width={24}
+              height={24}
+              cx={2}
+              cy={2}
+              cr={1.4}
+              className="text-[#367D78]/35 opacity-70 [mask-image:radial-gradient(ellipse_at_center,white_40%,transparent_85%)]"
+            />
 
-        {/* Section 2: Why I Teach ECG */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-16 border-t border-[#17354B]/10">
-          <div className="lg:col-span-5 order-2 lg:order-1">
-            <Reveal direction="right">
-              {/* ECG Screen Presentation Placeholder */}
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#244C68] to-[#17354B] p-6 text-white flex flex-col justify-between shadow-xl relative overflow-hidden">
-                <div className="flex items-center justify-between text-xs text-white/70">
-                  <span className="font-semibold text-[#D96B60]">Pedagogical Spark</span>
-                  <span>Peer Mentorship</span>
-                </div>
-                <div className="my-auto text-center py-4">
-                  <GraduationCap className="w-12 h-12 mx-auto text-[#D96B60] mb-3" />
-                  <p className="text-sm font-semibold text-white">Simplifying Complex Waveforms</p>
-                  <p className="text-xs text-white/70 mt-1 max-w-xs mx-auto">
-                    Transforming abstract electrophysiology into intuitive bedside decisions.
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-white/10 text-center">
-                  <p className="text-[11px] text-white/50">{whyTeach.imageAlt}</p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
+            {/* Subtle Ambient Radial Glow */}
+            <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[380px] rounded-full bg-[#367D78]/8 blur-[100px]" />
 
-          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
-            <Reveal direction="up">
-              <SectionHeading
-                eyebrow="The Turning Point"
-                title={whyTeach.title}
-              />
-              <div className="space-y-4 text-base sm:text-lg text-[#17354B]/90 leading-relaxed font-normal">
-                {whyTeach.paragraphs.map((para, i) => (
-                  <p key={i} className="border-l-2 border-[#D96B60] pl-4 italic bg-[#F6F4EE]/40 py-2 rounded-r">
-                    &ldquo;{para}&rdquo;
-                  </p>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Section 3: The Problem I Want to Solve */}
-        <div className="pt-16 border-t border-[#17354B]/10">
-          <Reveal direction="up">
-            <div className="p-8 sm:p-12 rounded-3xl bg-[#F6F4EE] border border-[#17354B]/10 relative overflow-hidden">
-              <div className="max-w-3xl space-y-4 relative z-10">
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#17354B]">
-                  <AlertCircle className="w-4 h-4 text-[#D96B60]" />
-                  <span>The Learning Gap in Medical Education</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#17354B]">
+            {/* Content Container */}
+            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
+              <Reveal direction="up">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#17354B] tracking-tight leading-snug">
                   {problemToSolve.title}
                 </h3>
-                <div className="space-y-4 text-base sm:text-lg text-[#5A6E7D] leading-relaxed">
+              </Reveal>
+
+              <Reveal direction="up" delay={0.1}>
+                <div className="space-y-4 text-base sm:text-lg text-[#5A6E7D] leading-relaxed pt-1">
                   {problemToSolve.paragraphs.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             </div>
-          </Reveal>
+          </div>
+
         </div>
       </Container>
-    </div>
+    </section>
   );
 }

@@ -290,7 +290,7 @@ export const communityPageContent: CommunityContent = {
     bio: 'Dr. Wasim Adil Khan (BUMS, PGDEMS) has 15 years of clinical experience and has taught ECG in seminars across India for five years. He started EasyMedLearning to make medical learning simple, and he wants this community to be where students find guidance and colleagues find support.',
     optionalQuoteNote: '',
     ctaText: "Read Dr. Wasim's Story",
-    ctaHref: '/about',
+    ctaHref: '/our-instructor',
     standards: [
       {
         title: 'Reviewed members',

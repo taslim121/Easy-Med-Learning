@@ -132,7 +132,7 @@ export const homeContent: HomeContent = {
     ctas: {
       primary: {
         label: 'Join Our Community',
-        href: '/contact',
+        href: '/community',
       },
       secondary: {
         label: 'Explore Courses',
@@ -303,7 +303,7 @@ export const homeContent: HomeContent = {
       'Easy Med Learning – Making learning simpler, smarter, and more accessible.',
     navLinks: [
       { label: 'Home', href: '/' },
-      { label: 'About Us', href: '/about' },
+      { label: 'Our Instructor', href: '/our-instructor' },
       { label: 'Courses', href: '/courses' },
       { label: 'Community', href: '/contact' },
       { label: 'Contact Us', href: '/contact' },

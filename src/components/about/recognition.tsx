@@ -1,94 +1,107 @@
 import React from 'react';
-import { Award, BookCheck, ExternalLink, AlertCircle } from 'lucide-react';
-import { siteContent } from '@/content/site-content';
-import { siteConfig } from '@/content/site-config';
+import Image from 'next/image';
+import { Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ourInstructorContent } from '@/content/our-instructor-content';
 import { Container } from '@/components/ui/container';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/motion/reveal';
 
 export function Recognition() {
-  const content = siteContent.about.recognition;
-  const cta = siteContent.about.cta;
-  const hasCourseUrl = Boolean(siteConfig.urls.learnystCourse);
+  const content = ourInstructorContent.recognition;
 
   return (
-    <section className="py-16 sm:py-24 bg-white border-t border-[#17354B]/10">
+    <section className="py-16 sm:py-24 bg-white border-t border-[#17354B]/10 relative overflow-hidden">
       <Container size="wide">
         <SectionHeading
-          eyebrow="Credentials &amp; Service"
+          eyebrow={content.eyebrow}
           title={content.title}
-          description="Authoring reference material and serving on the frontline of public health administration."
+          description={content.description}
           align="center"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
-          {/* Item 1: Book Authorship */}
-          <Reveal direction="up" delay={0.1}>
-            <div className="h-full p-8 rounded-2xl bg-[#F6F4EE] border border-[#17354B]/10 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#367D78] mb-4">
-                  <BookCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-[#17354B] mb-2">
-                  {content.items[0].title}
-                </h3>
-                <p className="text-sm text-[#5A6E7D] leading-relaxed">
-                  {content.items[0].description}
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#17354B]/10 text-xs font-medium text-[#367D78]">
-                Delivered in print with the course
-              </div>
-            </div>
-          </Reveal>
+        {/* Open-Ended 2-Column Editorial Split with Central Vertical Hairline Divider */}
+        <div className="mt-14 sm:mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative">
+            {/* Desktop Central Vertical Hairline Divider (Matching Community Page) */}
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#17354B]/15 to-transparent -translate-x-1/2" />
 
-          {/* Item 2: Corona Warrior Recognition */}
-          <Reveal direction="up" delay={0.2}>
-            <div className="h-full p-8 rounded-2xl bg-[#F6F4EE] border border-[#17354B]/10 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#D96B60] mb-4">
-                  <Award className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-[#17354B] mb-2">
-                  {content.items[1].title}
-                </h3>
-                <p className="text-sm text-[#5A6E7D] leading-relaxed">
-                  {content.items[1].description}
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#17354B]/10 flex items-center gap-1.5 text-xs text-[#5A6E7D]">
-                <AlertCircle className="w-3.5 h-3.5 text-[#D96B60] shrink-0" />
-                <span>Awarding body &amp; year pending founder confirmation</span>
-              </div>
-            </div>
-          </Reveal>
-        </div>
+            {content.awards.map((award, index) => {
+              const isFirst = index === 0;
+              return (
+                <div
+                  key={award.id}
+                  className={`flex flex-col justify-between space-y-6 ${
+                    isFirst
+                      ? 'lg:pr-10'
+                      : 'lg:pl-10 pt-10 lg:pt-0 border-t lg:border-t-0 border-[#17354B]/10'
+                  }`}
+                >
+                  <Reveal direction="up" delay={0.1 * (index + 1)}>
+                    <div className="space-y-5">
+                      {/* Header Strip */}
+                      <div className="flex items-center justify-between pb-4 border-b border-[#17354B]/10">
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`size-11 rounded-xl flex items-center justify-center border shadow-xs ${
+                              isFirst
+                                ? 'bg-[#367D78]/10 text-[#367D78] border-[#367D78]/20'
+                                : 'bg-[#D96B60]/10 text-[#D96B60] border-[#D96B60]/20'
+                            }`}
+                          >
+                            {isFirst ? (
+                              <ShieldCheck className="size-5" />
+                            ) : (
+                              <Award className="size-5" />
+                            )}
+                          </div>
+                          <span
+                            className={`text-xs font-mono font-bold uppercase tracking-wider ${
+                              isFirst ? 'text-[#367D78]' : 'text-[#D96B60]'
+                            }`}
+                          >
+                            {award.badgeTag}
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-mono text-[#5A6E7D]">
+                          {award.category}
+                        </span>
+                      </div>
 
-        {/* Modest Course CTA */}
-        <div className="mt-16 text-center">
-          <Reveal direction="up" delay={0.3}>
-            <div className="p-8 rounded-2xl bg-[#17354B] text-white max-w-2xl mx-auto shadow-lg space-y-4">
-              <h3 className="text-xl font-bold">{cta.title}</h3>
-              <div>
-                {hasCourseUrl ? (
-                  <Button
-                    href={siteConfig.urls.learnystCourse}
-                    isExternal
-                    variant="coral"
-                    size="md"
-                  >
-                    <span>{cta.buttonText}</span>
-                    <ExternalLink className="w-4 h-4 ml-1 opacity-80" />
-                  </Button>
-                ) : (
-                  <div className="inline-block text-xs font-medium text-white/70 bg-white/10 px-4 py-2 rounded-lg">
-                    {siteContent.header.primaryCtaPendingText}
+                      {/* Photo Frame */}
+                      <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-2xl overflow-hidden border border-[#17354B]/12 bg-[#FAF9F6] shadow-sm group">
+                        <Image
+                          src={award.imageSrc}
+                          alt={award.imageAlt}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 600px"
+                          className="object-contain p-3 group-hover:scale-[1.02] transition-transform duration-300"
+                        />
+                      </div>
+
+                      {/* Title & Description */}
+                      <div className="space-y-2 pt-1">
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-[#17354B] tracking-tight">
+                          {award.title}
+                        </h3>
+                        <p className="text-sm sm:text-base text-[#5A6E7D] leading-relaxed">
+                          {award.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Reveal>
+
+                  {/* Award Footer Tag */}
+                  <div className="pt-4 border-t border-[#17354B]/10 flex items-center justify-between text-xs font-mono text-[#5A6E7D]">
+                    <span className="flex items-center gap-1.5 text-[#367D78] font-semibold">
+                      <CheckCircle2 className="size-3.5" />
+                      {award.footerTag}
+                    </span>
+                    <span>{award.footerDetail}</span>
                   </div>
-                )}
-              </div>
-            </div>
-          </Reveal>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>
