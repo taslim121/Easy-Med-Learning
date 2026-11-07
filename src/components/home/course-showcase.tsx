@@ -56,7 +56,7 @@ export function CourseShowcase() {
       aria-label="Course Introduction"
     >
       {/* Section Header */}
-      <Container size="wide" className="max-w-7xl 2xl:max-w-[1440px] mb-10 sm:mb-14">
+      <Container size="wide" className="mb-10 sm:mb-14">
         <div className="max-w-3xl space-y-3">
           <BlurFade delay={0.05} yOffset={-8}>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-mono font-semibold tracking-wider uppercase bg-[#367D78]/10 text-[#367D78] border border-[#367D78]/20">
@@ -100,7 +100,7 @@ export function CourseShowcase() {
           borderWidth={2}
         />
 
-        <Container size="wide" className="relative z-10 max-w-7xl 2xl:max-w-[1440px]">
+        <Container size="wide" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Course Narrative & The 4 Special Pillars */}

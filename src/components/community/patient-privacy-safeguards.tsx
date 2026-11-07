@@ -15,7 +15,7 @@ export function PatientPrivacySafeguards() {
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[650px] rounded-full bg-[#367D78]/15 blur-[150px]" />
       <div className="pointer-events-none absolute inset-0 bg-clinical-grid-dark opacity-25" />
 
-      <Container size="wide" className="relative z-10 max-w-7xl 2xl:max-w-[1400px]">
+      <Container size="wide" className="relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] border border-white/15 text-[#99F6E4] text-xs font-mono font-semibold tracking-wider uppercase">

@@ -25,7 +25,7 @@ export function HandbookShowcase() {
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#2DD4BF]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <Container>
+      <Container size="wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Physical Handbook Cover Display with BorderBeam */}
           <div className="lg:col-span-5 flex justify-center">

@@ -17,7 +17,7 @@ export function CommunityHowItWorks() {
 
   return (
     <section id="how-it-works" className="py-16 sm:py-24 bg-white border-b border-[#17354B]/10 scroll-mt-20 relative overflow-hidden">
-      <Container size="wide" className="max-w-7xl 2xl:max-w-[1400px]">
+      <Container size="wide">
         {/* Section Heading */}
         <SectionHeading
           eyebrow={eyebrow}

@@ -147,7 +147,7 @@ export function CommunityCapabilities() {
       className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-[#17354B]/10 relative overflow-hidden"
       aria-label="Community Features"
     >
-      <Container size="wide" className="max-w-7xl 2xl:max-w-[1400px]">
+      <Container size="wide">
         {/* Section Heading */}
         <div className="mb-12 sm:mb-16">
           <SectionHeading

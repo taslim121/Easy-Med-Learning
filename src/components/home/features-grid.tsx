@@ -202,7 +202,7 @@ export function FeaturesGrid() {
       className="py-16 sm:py-24 bg-[#FAF9F6] text-[#17354B] border-b border-[#17354B]/10 relative overflow-hidden"
       aria-label="What Makes Easy Med Learning Different"
     >
-      <Container size="wide" className="max-w-7xl 2xl:max-w-[1400px]">
+      <Container size="wide">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 space-y-3">
           <BlurFade delay={0.05} yOffset={-8}>

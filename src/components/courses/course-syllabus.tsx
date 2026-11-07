@@ -47,7 +47,7 @@ export function CourseSyllabus() {
       {/* Subtle Ambient Radial Glow */}
       <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-[#2DD4BF]/8 blur-[140px]" />
 
-      <Container className="relative z-10">
+      <Container size="wide" className="relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-8 sm:mb-10">
           <BlurFade delay={0.05} yOffset={8}>

@@ -21,7 +21,7 @@ export function CoursesHero() {
         <EcgTrace color="#D96B60" glowColor="#FF6B6B" strokeWidth={2} />
       </div>
 
-      <Container className="relative z-10">
+      <Container size="wide" className="relative z-10">
         {/* Compact Breadcrumb */}
         <BlurFade delay={0.05} yOffset={6}>
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-mono text-[#5A6E7D] mb-6">

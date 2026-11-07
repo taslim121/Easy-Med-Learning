@@ -18,7 +18,7 @@ export function HospitalTourVideo() {
   const { hospitalTour } = ourInstructorContent;
 
   // Strict device-based source resolution on client:
-  // Mobile devices ONLY load the 2.9 MB mobile video; desktop ONLY loads the 7.9 MB desktop video.
+  // Mobile devices ONLY load the 2.9 MB mobile video; desktop ONLY loads the 5.26 MB desktop video.
   // There is ZERO preloading or overlapping downloads of the other device's file.
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 640px)');
@@ -170,9 +170,9 @@ export function HospitalTourVideo() {
   };
 
   return (
-    <div className="w-full py-6 sm:py-10">
-      {/* 1. Section Heading: Aligned within current content width */}
+    <div className="w-full py-8 sm:py-12">
       <Container size="wide">
+        {/* 1. Section Heading: Aligned within content width */}
         <Reveal direction="up">
           <div className="mb-4 sm:mb-6">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#17354B] leading-tight">
@@ -180,34 +180,32 @@ export function HospitalTourVideo() {
             </h2>
           </div>
         </Reveal>
-      </Container>
 
-      {/* 2. Full-Width Video: Spans complete width edge-to-edge (no card borders, no rounded corners) */}
-      <div
-        ref={containerRef}
-        onClick={() => toggleMute()}
-        className="group relative w-full aspect-video sm:aspect-[21/9] lg:aspect-[16/7] overflow-hidden bg-[#0A1622] rounded-none border-0 shadow-none cursor-pointer select-none"
-      >
-        {/* Continuous Ambient Background Video: dynamically bound to single device source */}
-        <video
-          ref={videoRef}
-          src={activeSrc || undefined}
-          poster={hospitalTour.posterSrc}
-          playsInline
-          loop
-          preload="none"
-          className="w-full h-full object-cover"
-        />
-
-        {/* Desktop Gradient Scrim (Hidden on mobile so mobile video remains 100% visible) */}
+        {/* 2. Video Frame: Aligned inside Container with other sections */}
         <div
-          aria-hidden="true"
-          className="hidden sm:block pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"
-        />
+          ref={containerRef}
+          onClick={() => toggleMute()}
+          className="group relative w-full aspect-video sm:aspect-[21/9] lg:aspect-[16/7] overflow-hidden bg-[#0A1622] rounded-2xl sm:rounded-3xl shadow-xl ring-1 ring-[#17354B]/10 cursor-pointer select-none"
+        >
+          {/* Continuous Ambient Background Video: dynamically bound to single device source */}
+          <video
+            ref={videoRef}
+            src={activeSrc || undefined}
+            poster={hospitalTour.posterSrc}
+            playsInline
+            loop
+            preload="none"
+            className="w-full h-full object-cover"
+          />
 
-        {/* Overlaid Controls & Desktop Description: Aligned within current content width */}
-        <div className="pointer-events-none absolute inset-0 z-20">
-          <Container size="wide" className="h-full relative flex flex-col justify-between py-4 sm:py-6 lg:py-8">
+          {/* Desktop Gradient Scrim (Hidden on mobile so mobile video remains 100% visible) */}
+          <div
+            aria-hidden="true"
+            className="hidden sm:block pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"
+          />
+
+          {/* Overlaid Controls & Desktop Description */}
+          <div className="pointer-events-none absolute inset-0 z-20 flex flex-col justify-between p-4 sm:p-6 lg:p-8">
             {/* Top-Left Audio Toggle (Only Control on Video) */}
             <div className="self-start pointer-events-auto">
               <button
@@ -236,13 +234,11 @@ export function HospitalTourVideo() {
                 {hospitalTour.description}
               </p>
             </div>
-          </Container>
+          </div>
         </div>
-      </div>
 
-      {/* 3. Mobile Description: Positioned below the video within current content width */}
-      <Container size="wide" className="block sm:hidden">
-        <div className="pt-3.5 px-0.5">
+        {/* 3. Mobile Description: Positioned below the video within current content width */}
+        <div className="block sm:hidden pt-3.5 px-0.5">
           <p className="text-sm text-[#5A6E7D] leading-relaxed font-normal">
             {hospitalTour.description}
           </p>

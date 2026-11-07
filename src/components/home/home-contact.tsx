@@ -84,7 +84,7 @@ export function HomeContact() {
       className="py-16 sm:py-24 bg-[#FAF9F6] text-[#17354B] relative overflow-hidden"
       aria-label="Contact Us"
     >
-      <Container size="narrow">
+      <Container size="wide">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">

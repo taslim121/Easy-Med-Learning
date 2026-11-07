@@ -21,7 +21,7 @@ export function TwoWaysToTakePart() {
         className="text-[#17354B]/15 opacity-40 [mask-image:radial-gradient(ellipse_at_center,white_20%,transparent_70%)]"
       />
 
-      <Container size="wide" className="relative z-10 max-w-7xl 2xl:max-w-[1400px]">
+      <Container size="wide" className="relative z-10">
         {/* Section Heading */}
         <SectionHeading
           eyebrow={eyebrow}

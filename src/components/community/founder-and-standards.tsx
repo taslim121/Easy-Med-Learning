@@ -18,7 +18,7 @@ export function FounderAndStandards() {
 
   return (
     <section className="py-16 sm:py-24 bg-white border-b border-[#17354B]/10 relative">
-      <Container size="wide" className="max-w-7xl 2xl:max-w-[1400px]">
+      <Container size="wide">
         
         {/* Upper Segment: Open-Ended Founder Editorial Profile (Zero Boxy Enclosure) */}
         <div className="max-w-6xl mx-auto">
