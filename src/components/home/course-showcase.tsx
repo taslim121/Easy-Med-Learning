@@ -84,7 +84,7 @@ export function CourseShowcase() {
         
         {/* Generous Floating 3D Bubbles / Particles Spanning Edge-to-Edge */}
         <Floating3DParticles
-          quantity={340}
+          quantity={140}
           color="#367D78"
           size={5.5}
           opacity={0.3}

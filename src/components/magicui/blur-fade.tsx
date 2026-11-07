@@ -24,7 +24,7 @@ export function BlurFade({
   duration = 0.5,
   delay = 0,
   yOffset = 14,
-  inViewMargin = '-40px',
+  inViewMargin = '60px',
   blur = '6px',
 }: BlurFadeProps) {
   const ref = useRef<HTMLDivElement>(null);

@@ -134,7 +134,7 @@ export function Floating3DParticles({
   const ioRef = React.useRef<IntersectionObserver | null>(null)
   const stateRef = React.useRef({
     mounted: false,
-    paused: false,
+    paused: true,
     reducedMotion: false,
     rafId: null as number | null,
   })
@@ -150,7 +150,7 @@ export function Floating3DParticles({
 
     const s = stateRef.current
     s.mounted = true
-    s.paused = false
+    s.paused = true
 
     let width = 0
     let height = 0
@@ -191,10 +191,8 @@ export function Floating3DParticles({
     }
 
     const tick = () => {
-      if (!s.mounted) return
-
-      if (s.paused) {
-        s.rafId = requestAnimationFrame(tick)
+      if (!s.mounted || s.paused) {
+        s.rafId = null
         return
       }
 
@@ -203,7 +201,7 @@ export function Floating3DParticles({
           staticDirty = false
           staticFrame()
         }
-        s.rafId = requestAnimationFrame(tick)
+        s.rafId = null
         return
       }
 
@@ -253,7 +251,9 @@ export function Floating3DParticles({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
       const isMobile = window.innerWidth < MOBILE_BREAKPOINT
-      const count = isMobile ? Math.round(quantity * 0.25) : quantity
+      const count = isMobile
+        ? Math.min(35, Math.max(8, Math.round(quantity * 0.15)))
+        : Math.min(220, quantity)
 
       particles = Array.from({ length: Math.max(0, count) }, () =>
         spawnParticle(width, height, size, opacity)
@@ -263,7 +263,13 @@ export function Floating3DParticles({
     }
 
     const onVisibilityChange = () => {
-      s.paused = document.hidden
+      if (document.hidden) {
+        s.paused = true
+        if (s.rafId !== null) {
+          cancelAnimationFrame(s.rafId)
+          s.rafId = null
+        }
+      }
     }
 
     const ro =
@@ -277,18 +283,35 @@ export function Floating3DParticles({
     if (typeof IntersectionObserver !== "undefined") {
       ioRef.current = new IntersectionObserver(
         ([entry]) => {
-          if (entry) s.paused = document.hidden || !entry.isIntersecting
+          if (!entry || !s.mounted) return
+          const isVisible = entry.isIntersecting && !document.hidden
+          if (isVisible) {
+            if (s.paused) {
+              s.paused = false
+              if (s.rafId === null) {
+                s.rafId = requestAnimationFrame(tick)
+              }
+            }
+          } else {
+            s.paused = true
+            if (s.rafId !== null) {
+              cancelAnimationFrame(s.rafId)
+              s.rafId = null
+            }
+          }
         },
-        { threshold: 0 }
+        { threshold: 0, rootMargin: "100px" }
       )
       ioRef.current.observe(canvas)
+    } else {
+      s.paused = false
+      s.rafId = requestAnimationFrame(tick)
     }
 
     document.addEventListener("visibilitychange", onVisibilityChange)
     mq.addEventListener("change", syncReducedMotion)
 
     resize()
-    s.rafId = requestAnimationFrame(tick)
 
     return () => {
       s.mounted = false

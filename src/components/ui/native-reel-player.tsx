@@ -31,18 +31,44 @@ export function NativeReelPlayer({
     const video = videoRef.current;
     if (!video) return;
 
-    // Attempt automatic playback
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          setIsPlaying(true);
-          setHasStarted(true);
-        })
-        .catch(() => {
-          // Autoplay policy prevented playback until user interaction
-          setIsPlaying(false);
-        });
+    if (typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!video) return;
+          if (entry.isIntersecting && !document.hidden) {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  setIsPlaying(true);
+                  setHasStarted(true);
+                })
+                .catch(() => {
+                  setIsPlaying(false);
+                });
+            }
+          } else {
+            video.pause();
+            setIsPlaying(false);
+          }
+        },
+        { threshold: 0.25 }
+      );
+
+      observer.observe(video);
+      return () => observer.disconnect();
+    } else {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            setHasStarted(true);
+          })
+          .catch(() => {
+            setIsPlaying(false);
+          });
+      }
     }
   }, [videoSrc]);
 

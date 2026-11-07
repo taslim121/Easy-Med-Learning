@@ -41,7 +41,6 @@ export function HandbookShowcase() {
                       src={handbook.image.src}
                       alt={handbook.image.alt}
                       fill
-                      priority
                       sizes="(max-width: 768px) 340px, 380px"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
