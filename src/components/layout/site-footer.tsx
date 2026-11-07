@@ -22,7 +22,7 @@ export function SiteFooter() {
               href="/"
               className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#367D78] rounded-md inline-flex"
             >
-              <div className="relative w-9 h-9 shrink-0 flex items-center justify-center bg-white/10 rounded-xl p-1">
+              <div className="relative w-9 h-9 shrink-0 flex items-center justify-center bg-white rounded-xl p-1">
                 <Image
                   src={brand.logoMark}
                   alt={brand.name}
@@ -33,10 +33,7 @@ export function SiteFooter() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold tracking-tight text-white leading-none">
-                  {brand.prefix}<span className="text-[#2DD4BF]">{brand.accent}</span>{brand.suffix}
-                </span>
-                <span className="text-[10px] font-mono tracking-wider uppercase text-[#FAF9F6]/50 mt-1">
-                  {brand.subtitle}
+                  {brand.prefix}<span className="text-[#D96B78]">{brand.accent}</span>{brand.suffix}
                 </span>
               </div>
             </Link>
@@ -44,7 +41,7 @@ export function SiteFooter() {
               {siteContent.footer.tagline}
             </p>
             <p className="text-xs font-mono text-[#FAF9F6]/50">
-              Instructor: Dr. Wasim Adil Khan (BUMS, PGDEMS)
+              Instructor: Dr. Wasim Adil Khan
             </p>
           </div>
 
@@ -124,15 +121,7 @@ export function SiteFooter() {
           <p>
             &copy; {currentYear} {siteConfig.name}. {siteContent.footer.rightsReserved}
           </p>
-          <div className="flex items-center gap-4">
-            <span className="text-[#F6F4EE]/40" title="Legal documentation pending owner review">
-              Privacy Policy (Pending Review)
-            </span>
-            <span>&middot;</span>
-            <span className="text-[#F6F4EE]/40" title="Legal documentation pending owner review">
-              Terms & Conditions (Pending Review)
-            </span>
-          </div>
+          
         </div>
       </Container>
     </footer>

@@ -67,7 +67,7 @@ export function SiteHeader() {
 
           {/* Header Action & Mobile Trigger */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:block">
+            {/* <div className="hidden sm:block">
               {hasCourseUrl ? (
                 <Button
                   href={siteConfig.urls.learnystCourse}
@@ -83,7 +83,7 @@ export function SiteHeader() {
                   {siteContent.header.primaryCtaPendingText}
                 </span>
               )}
-            </div>
+            </div> */}
 
             <MobileNavigation />
           </div>

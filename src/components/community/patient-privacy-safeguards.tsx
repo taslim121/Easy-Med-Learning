@@ -65,14 +65,6 @@ export function PatientPrivacySafeguards() {
               <AlertTriangle className="size-4 text-[#EF4444] shrink-0" />
               <span>{enforcementNotice}</span>
             </div>
-
-            <Link
-              href="#apply-form"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#2DD4BF] hover:text-[#5EEAD4] font-semibold underline underline-offset-4 transition-colors"
-            >
-              <FileWarning className="size-3.5" />
-              <span>{guidelinesLinkText}</span>
-            </Link>
           </div>
         </div>
       </Container>

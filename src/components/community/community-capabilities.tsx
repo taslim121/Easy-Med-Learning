@@ -52,7 +52,7 @@ export function CommunityCapabilities() {
       description: askItem.description,
       className: 'col-span-3 lg:col-span-1',
       href: '#apply-form',
-      cta: 'Ask a Clinician',
+      cta: 'Ask a Physician',
       Icon: Stethoscope,
       background: (
         <div className="absolute inset-0 bg-gradient-to-br from-[#17354B]/10 via-[#367D78]/5 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none">
@@ -89,8 +89,8 @@ export function CommunityCapabilities() {
       name: resourcesItem.title,
       description: resourcesItem.description,
       className: 'col-span-3 lg:col-span-2',
-      href: '#apply-form',
-      cta: 'Follow Clinical Resources',
+      href: '/courses',
+      cta: 'Follow Resources',
       Icon: BookOpen,
       background: (
         <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/15 via-[#367D78]/10 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)]">

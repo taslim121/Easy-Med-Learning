@@ -82,7 +82,7 @@ export function CoursesHero() {
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#17354B]/10 shadow-xs text-xs font-mono text-[#17354B]">
                 <Award className="w-3.5 h-3.5 text-amber-500" />
-                <span>Lead Clinician Mentored</span>
+                <span>Lead Physician Mentored</span>
               </div>
             </div>
           </BlurFade>

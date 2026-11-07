@@ -100,7 +100,7 @@ export function HandbookShowcase() {
                 <div className="flex items-center justify-between border-b border-[#17354B]/10 pb-2.5">
                   <div>
                     <span className="text-[10px] font-mono text-[#5A6E7D] uppercase tracking-wider block">
-                      Author & Clinician
+                      Author & Physician
                     </span>
                     <span className="text-base font-bold text-[#17354B]">
                       {handbook.author}
@@ -129,14 +129,20 @@ export function HandbookShowcase() {
 
             {/* Feature Highlights Grid */}
             <BlurFade delay={0.35} yOffset={12}>
-              <div className="flex flex-wrap justify-center gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {handbook.features.map((feature, idx) => (
                   <MagicCard
                     key={idx}
                     gradientColor="rgba(45, 212, 191, 0.12)"
-                    className="w-full sm:w-[calc(50%-6px)] p-4 rounded-xl border border-[#17354B]/10 bg-white/80 shadow-sm hover:shadow-md transition-shadow"
+                    className={`p-4 rounded-xl border border-[#17354B]/10 bg-white/80 shadow-sm hover:shadow-md transition-shadow ${
+                      idx === 4 ? 'sm:col-span-2' : ''
+                    }`}
                   >
-                    <div className="flex items-start gap-3">
+                    <div
+                      className={`h-full flex gap-3 ${
+                        idx === 4 ? 'items-center' : 'items-start'
+                      }`}
+                    >
                       <div className="p-2 rounded-lg bg-[#FAF9F6] border border-[#17354B]/10 shrink-0">
                         {featureIcons[idx % featureIcons.length]}
                       </div>

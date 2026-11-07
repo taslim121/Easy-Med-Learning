@@ -152,10 +152,10 @@ export const communityPageContent: CommunityContent = {
       'A professional network where doctors discuss clinical questions with colleagues and medical students get guidance from people already in practice. Membership is by application.',
     primaryCta: 'Apply to Join',
     secondaryCta: 'See How It Works',
-    trustNote: 'Founded by Dr. Wasim Adil Khan (BUMS, PGDEMS). Every application is reviewed.',
+    trustNote: 'Founded by Dr. Wasim Adil Khan . Every application is reviewed.',
     trustNoteConfirmation: '',
     networkNodes: [
-      { id: 'doctor', label: 'Doctor', role: 'Practising Clinician', isPrimary: true },
+      { id: 'doctor', label: 'Doctor', role: 'Practising Physician', isPrimary: true },
       { id: 'student', label: 'Student', role: 'Medical Student' },
       { id: 'mentor', label: 'Mentor', role: 'Senior Consultant' },
       { id: 'intern', label: 'Intern', role: 'Clinical Intern' },
@@ -167,7 +167,7 @@ export const communityPageContent: CommunityContent = {
     title: 'One community, two ways to take part',
     doctors: {
       title: 'For doctors and practising professionals',
-      audienceTag: 'Clinicians & Specialists',
+      audienceTag: 'Physicians & Specialists',
       points: [
         'Discuss clinical questions with colleagues across specialties',
         'Ask for a second opinion on a de-identified case',
@@ -180,7 +180,7 @@ export const communityPageContent: CommunityContent = {
       audienceTag: 'Students & Interns',
       points: [
         'Ask practising professionals for guidance',
-        'See how clinicians reason through real, de-identified cases',
+        'See how Physicians reason through real, de-identified cases',
         'Get study and career advice',
         'Meet mentors beyond your own college',
       ],
@@ -272,7 +272,7 @@ export const communityPageContent: CommunityContent = {
       'Do not use the community to attract patients or advertise a practice.',
     ],
     enforcementNotice: 'Members who break these rules are removed.',
-    guidelinesLinkText: 'Read the Community Guidelines',
+    guidelinesLinkText: '',
   },
   sampleQuestions: {
     eyebrow: 'Discussion Preview',
@@ -286,8 +286,8 @@ export const communityPageContent: CommunityContent = {
   },
   founder: {
     eyebrow: 'Founder Vision',
-    title: 'Built by a practising clinician',
-    bio: 'Dr. Wasim Adil Khan (BUMS, PGDEMS) has 15 years of clinical experience and has taught ECG in seminars across India for five years. He started EasyMedLearning to make medical learning simple, and he wants this community to be where students find guidance and colleagues find support.',
+    title: 'Built by a practising Physician',
+    bio: 'Dr. Wasim Adil Khan has 15 years of clinical experience and has taught ECG in seminars across India for five years. He started EasyMedLearning to make medical learning simple, and he wants this community to be where students find guidance and colleagues find support.',
     optionalQuoteNote: '',
     ctaText: "Read Dr. Wasim's Story",
     ctaHref: '/our-instructor',
@@ -411,7 +411,7 @@ export const communityPageContent: CommunityContent = {
     checkboxes: {
       guidelines: 'I have read and agree to the Community Guidelines.',
       privacy:
-        'I agree that EasyMedLearning may use these details to verify my application. See the Privacy Policy.',
+        'I agree that EasyMedLearning may use these details to verify my application.',
       updates:
         'I agree to receive community-related updates and announcements from EasyMedLearnings through WhatsApp.',
     },

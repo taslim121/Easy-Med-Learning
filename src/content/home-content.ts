@@ -125,7 +125,7 @@ export const homeContent: HomeContent = {
       'Your journey towards better medical learning and professional growth starts here. Explore structured educational courses, access valuable learning resources, connect with fellow medical professionals, and participate in meaningful discussions that encourage knowledge sharing and collaboration.',
     launchAnnouncement: {
       kicker: 'NOW INTRODUCING OUR FIRST COURSE',
-      title: 'ECG Made Easy',
+      title: 'Absolute Guide to ECG Interpretation',
       description:
         'Learn to understand, interpret, and approach ECGs with greater clarity and confidence.',
     },
@@ -142,7 +142,7 @@ export const homeContent: HomeContent = {
     supportingMicrocopy: 'Learn. Connect. Grow.',
     educator: {
       name: 'Dr. Wasim Adil Khan',
-      role: 'Lead Medical Educator & Clinician',
+      role: 'Lead Medical Educator & Physician',
       portraitSrc: '/images/instructor-hero.webp',
       badgeText: 'Lead Clinical Educator',
     },
@@ -183,7 +183,7 @@ export const homeContent: HomeContent = {
       },
     ],
     mission:
-      'Our Mission: To make ECG simple and easy for everyone. We want you to understand the concepts, build diagnostic confidence, and master ECG interpretation bedside.',
+      'Our Mission: To make ECG simple and easy for everyone. We want you to understand the concepts, build diagnostic confidence, and master ECG master interpretation at the bedside.',
     cta: {
       label: 'Explore the ECG Syllabus',
       href: '/courses#syllabus',

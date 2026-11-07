@@ -15,7 +15,7 @@ export const siteContent = {
   },
 
   footer: {
-    tagline: 'Making ECG learning simple and practical for medical professionals.',
+    tagline: 'Making Medical learning simple and practical for healthcare professionals.',
     rightsReserved: 'All rights reserved.',
     legalNote: 'Legal pages (Privacy Policy & Terms) are subject to owner legal review prior to final publication.',
   },
@@ -28,14 +28,14 @@ export const siteContent = {
         'Master ECG interpretation with structured video lectures, original self-designed diagrams, and companion textbook by Dr. Wasim Adil Khan.',
     },
     hero: {
-      eyebrow: 'Clinical Medical Education Platform • Flagship Masterclass',
+      eyebrow: 'Clinical medical Education Platform • Flagship Masterclass',
       h1: 'Learn ECG Interpretation with Clarity, Confidence and Real-World Practice',
       supportingText:
         'Learn from Dr. Wasim Adil Khan through structured video lectures, original illustrations, case-based teaching and his book.',
       primaryCta: 'View the ECG Course',
       secondaryCta: 'Watch Introduction',
       tentativeLaunchNotice: 'Expected launch: 15 November 2026 (tentative)',
-      instructorPortraitAlt: 'Dr. Wasim Adil Khan, ECG educator and clinician',
+      instructorPortraitAlt: 'Dr. Wasim Adil Khan, ECG educator and Physician',
     },
     highlights: [
       {
@@ -96,7 +96,7 @@ export const siteContent = {
     instructorPreview: {
       title: 'Meet Your Instructor',
       intro:
-        'Learn from Dr. Wasim Adil Khan (BUMS, PGDEMS), an experienced clinician, hospital administrator and ECG educator.',
+        'Learn from Dr. Wasim Adil Khan (BUMS, PGDEMS), an experienced Physician, hospital administrator and ECG educator.',
       credentials: [
         {
           value: '15 Years',
@@ -125,15 +125,15 @@ export const siteContent = {
     meta: {
       title: 'Our Instructor - Dr. Wasim Adil Khan | EasyMedLearning',
       description:
-        'Meet Dr. Wasim Adil Khan, clinician, hospital administrator, and ECG educator passionate about making ECG interpretation simple and practical.',
+        'Meet Dr. Wasim Adil Khan, Physician, hospital administrator, and ECG educator passionate about making ECG interpretation simple and practical.',
     },
     breadcrumb: 'Home > Our Instructor',
     breadcrumbLabel: 'Our Instructor',
     hero: {
-      roleTag: 'Medical Educator & Clinician',
+      roleTag: 'Medical Educator & Physician',
       h1: 'About Dr. Wasim Adil Khan',
       tagline:
-        'Clinician. Educator. Hospital administrator. Passionate about making ECG interpretation simple and practical for every medical learner.',
+        'Physician. Educator. Hospital administrator. Passionate about making ECG interpretation simple and practical for every medical learner.',
       degrees: 'BUMS, PGDEMS',
       currentRole: 'Managing Director, National Hospital, Pune',
       doctorName: 'Dr. Wasim Adil Khan',
@@ -428,7 +428,7 @@ export const siteContent = {
       },
     ],
     form: {
-      title: 'Send Us a Message',
+      title: 'Contact Us...',
       intro: "Fill in the form and we'll get back to you.",
       fields: {
         name: {
@@ -443,7 +443,7 @@ export const siteContent = {
         },
         degree: {
           label: 'Degree / Qualification',
-          placeholder: 'e.g. MBBS, MD, BUMS, Student',
+          placeholder: 'e.g. MBBS, MD,BUMS , Student',
           required: true,
         },
         phone: {
