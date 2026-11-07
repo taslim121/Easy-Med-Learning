@@ -7,6 +7,7 @@ import { coursesPageContent } from '@/content/courses-content';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Floating3DParticles } from '@/components/magicui/floating-3d-particles';
 
 export function CourseSyllabus() {
   const { syllabus } = coursesPageContent;
@@ -30,9 +31,23 @@ export function CourseSyllabus() {
   return (
     <section
       id="syllabus"
-      className="py-16 sm:py-20 lg:py-24 bg-[#F4F6F8] border-b border-[#17354B]/10 relative scroll-mt-20"
+      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#FAF9F6] via-[#F4F6F8] to-[#FAF9F6] border-b border-[#17354B]/10 relative overflow-hidden scroll-mt-20"
     >
-      <Container>
+      {/* Floating 3D Particles Ambient Backdrop - High Visibility & Deep 3D Motion */}
+      <Floating3DParticles
+        className="absolute inset-0 pointer-events-none"
+        quantity={700}
+        color="#2DD4BF"
+        size={6}
+        opacity={0.52}
+        drift={0.45}
+        depth={0.8}
+      />
+
+      {/* Subtle Ambient Radial Glow */}
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-[#2DD4BF]/8 blur-[140px]" />
+
+      <Container className="relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-8 sm:mb-10">
           <BlurFade delay={0.05} yOffset={8}>
@@ -88,62 +103,60 @@ export function CourseSyllabus() {
           </div>
         </BlurFade>
 
-        {/* Shadcn ScrollArea Container for 51 Chapters */}
+        {/* Shadcn ScrollArea Container for 51 Chapters (Open Floating Cards Layout) */}
         <div className="max-w-4xl mx-auto">
-          <div className="p-3 sm:p-5 rounded-2xl bg-white border border-[#17354B]/15 shadow-sm">
-            {filteredChapters.length === 0 ? (
-              <div className="text-center py-12 px-4">
-                <BookOpen className="w-8 h-8 text-[#5A6E7D] mx-auto mb-2 opacity-50" />
-                <p className="text-sm font-semibold text-[#17354B]">
-                  No chapters match &ldquo;{searchQuery}&rdquo;
-                </p>
-                <p className="text-xs text-[#5A6E7D] mt-1">
-                  Try searching for terms like &ldquo;Hypertrophy&rdquo;, &ldquo;Ischemia&rdquo;, or &ldquo;Vectors&rdquo;.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="mt-4 px-4 py-1.5 rounded-lg bg-[#17354B] text-white text-xs font-mono font-semibold"
-                >
-                  Reset Search
-                </button>
-              </div>
-            ) : (
-              <ScrollArea className="h-[460px] sm:h-[520px] pr-3">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pb-2">
-                  {filteredChapters.map((chapter) => {
-                    const formattedNum =
-                      chapter.number < 10 ? `0${chapter.number}` : `${chapter.number}`;
+          {filteredChapters.length === 0 ? (
+            <div className="text-center py-12 px-4 rounded-2xl bg-white border border-[#17354B]/15 shadow-sm">
+              <BookOpen className="w-8 h-8 text-[#5A6E7D] mx-auto mb-2 opacity-50" />
+              <p className="text-sm font-semibold text-[#17354B]">
+                No chapters match &ldquo;{searchQuery}&rdquo;
+              </p>
+              <p className="text-xs text-[#5A6E7D] mt-1">
+                Try searching for terms like &ldquo;Hypertrophy&rdquo;, &ldquo;Ischemia&rdquo;, or &ldquo;Vectors&rdquo;.
+              </p>
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="mt-4 px-4 py-1.5 rounded-lg bg-[#17354B] text-white text-xs font-mono font-semibold"
+              >
+                Reset Search
+              </button>
+            </div>
+          ) : (
+            <ScrollArea className="h-[480px] sm:h-[540px] pr-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-3">
+                {filteredChapters.map((chapter) => {
+                  const formattedNum =
+                    chapter.number < 10 ? `0${chapter.number}` : `${chapter.number}`;
 
-                    return (
-                      <MagicCard
-                        key={chapter.number}
-                        gradientColor="rgba(45, 212, 191, 0.08)"
-                        className="p-3 rounded-xl border border-[#17354B]/10 bg-[#FAF9F6] hover:bg-white shadow-xs hover:border-[#2DD4BF]/40 transition-colors"
-                      >
-                        <div className="flex items-center gap-3">
-                          {/* Monospace Serial Badge */}
-                          <span className="w-8 h-8 rounded-lg bg-[#17354B]/5 text-[#17354B] font-mono font-bold text-xs flex items-center justify-center shrink-0 border border-[#17354B]/10">
-                            {formattedNum}
+                  return (
+                    <MagicCard
+                      key={chapter.number}
+                      gradientColor="rgba(45, 212, 191, 0.14)"
+                      className="p-3.5 sm:p-4 rounded-xl border border-[#17354B]/12 bg-white/95 hover:bg-white shadow-xs hover:border-[#2DD4BF]/50 hover:shadow-md transition-all duration-200 min-h-[68px] flex flex-col justify-center"
+                    >
+                      <div className="flex items-start gap-3">
+                        {/* Monospace Serial Badge */}
+                        <span className="size-8 rounded-lg bg-[#17354B]/5 text-[#17354B] font-mono font-bold text-xs flex items-center justify-center shrink-0 border border-[#17354B]/10 mt-0.5">
+                          {formattedNum}
+                        </span>
+
+                        {/* Chapter Title & Number (No truncation, full visibility) */}
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs sm:text-[13px] font-semibold text-[#17354B] leading-snug break-words">
+                            {chapter.title}
+                          </p>
+                          <span className="text-[10px] font-mono text-[#5A6E7D] block mt-0.5">
+                            Chapter {formattedNum}
                           </span>
-
-                          {/* Chapter Title */}
-                          <div className="flex-1 min-w-0">
-                            <p className="text-xs sm:text-sm font-semibold text-[#17354B] truncate">
-                              {chapter.title}
-                            </p>
-                            <span className="text-[10px] font-mono text-[#5A6E7D]">
-                              Chapter {formattedNum}
-                            </span>
-                          </div>
                         </div>
-                      </MagicCard>
-                    );
-                  })}
-                </div>
-              </ScrollArea>
-            )}
-          </div>
+                      </div>
+                    </MagicCard>
+                  );
+                })}
+              </div>
+            </ScrollArea>
+          )}
         </div>
       </Container>
     </section>

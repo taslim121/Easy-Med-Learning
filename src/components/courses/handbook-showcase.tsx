@@ -130,12 +130,12 @@ export function HandbookShowcase() {
 
             {/* Feature Highlights Grid */}
             <BlurFade delay={0.35} yOffset={12}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="flex flex-wrap justify-center gap-3 pt-2">
                 {handbook.features.map((feature, idx) => (
                   <MagicCard
                     key={idx}
                     gradientColor="rgba(45, 212, 191, 0.12)"
-                    className="p-4 rounded-xl border border-[#17354B]/10 bg-white/80 shadow-sm hover:shadow-md transition-shadow"
+                    className="w-full sm:w-[calc(50%-6px)] p-4 rounded-xl border border-[#17354B]/10 bg-white/80 shadow-sm hover:shadow-md transition-shadow"
                   >
                     <div className="flex items-start gap-3">
                       <div className="p-2 rounded-lg bg-[#FAF9F6] border border-[#17354B]/10 shrink-0">
