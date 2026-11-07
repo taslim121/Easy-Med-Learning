@@ -10,7 +10,7 @@ export interface SeminarPost {
   title: string;
   badge: string;
   institution: string;
-  felicitatedBy: string;
+  felicitatedBy?: string;
   eventDate: string;
   summary: string;
   paragraphs: string[];
@@ -21,7 +21,9 @@ export interface SeminarPost {
   }>;
   conclusion: string;
   closingCall: string;
-  videoUrl: string;
+  imageUrl: string;
+  insideImageUrl?: string;
+  youtubeVideos?: string[];
   featured: boolean;
 }
 
@@ -63,8 +65,52 @@ export const seminarsData: SeminarPost[] = [
       'This is more than just an ECG course. It’s our effort to make ECG learning accessible, practical, and less intimidating for every medical student.',
     closingCall:
       'We are just getting started. Join us on this journey to master ECG, one concept at a time!',
-    videoUrl: '/videos/seminars/bharti-vidyapeeth-lecture.mp4',
+    imageUrl: '/images/seminars/bharti-vidyapeeth-cert-ceremony.webp',
+    insideImageUrl: '/images/seminars/bharti-vidyapeeth-lecture-session.webp',
+    youtubeVideos: ['43U6LpWF1MM', 'x30aZ85cU8M'],
     featured: true,
+  },
+  {
+    id: 'kashmir-ecg-workshops',
+    slug: 'kashmir-ecg-workshops',
+    title: 'ECG Workshops in Kashmir | A Journey of Teaching & Learning',
+    badge: 'ECG Workshops',
+    institution: 'Kashmir Institute of Medical Sciences & Technology and Govt. Unani Medical College, Nawabagh, Ganderbal',
+    eventDate: 'Kashmir',
+    summary:
+      'A memorable experience of sharing knowledge, simplifying ECG, and connecting with future healthcare professionals in the beautiful valley of Kashmir!',
+    paragraphs: [
+      'A memorable experience of sharing knowledge, simplifying ECG, and connecting with future healthcare professionals in the beautiful valley of Kashmir!',
+      'We had the wonderful opportunity to conduct ECG Workshops for medical students at Kashmir Institute of Medical Sciences and Technology and Govt. Unani Medical College, Nawabagh, Ganderbal.',
+      'These workshops were all about making ECG interpretation simple, practical, and interesting. Interacting with students, explaining complex concepts, and seeing their enthusiasm towards learning ECG made this experience truly special.',
+    ],
+    mission:
+      'Our course is built around a simple mission — to make ECG easy for every medical student. Our goal is not just to teach ECG, but to help every student develop the confidence to interpret ECGs independently.',
+    differentiators: [
+      {
+        title: 'Self-designed images and diagrams',
+        description:
+          'Simplify complex ECG concepts and are uniquely created by us.',
+      },
+      {
+        title: 'Experience-based teaching',
+        description:
+          'With step-by-step explanations.',
+      },
+      {
+        title: 'A concept-oriented approach',
+        description:
+          'Helps students understand ECG rather than simply memorise it.',
+      },
+    ],
+    conclusion:
+      'From classrooms to workshops, we are taking one step closer to our mission.',
+    closingCall:
+      'This is just the beginning. The journey of making ECG simple and accessible continues!',
+    imageUrl: '/images/seminars/kashmir-ecg-workshops.webp',
+    insideImageUrl: '',
+    youtubeVideos: [],
+    featured: false,
   },
 ];
 

@@ -382,14 +382,13 @@ export const communityPageContent: CommunityContent = {
         placeholder: '+91 98765 43210',
       },
       role: {
-        label: 'I am a',
+        label: 'Degree',
         placeholder: 'Choose one',
         options: [
           'Doctor / Practising Consultant',
           'Resident Doctor (MD / MS / DNB)',
           'Medical Intern',
           'Medical Student (MBBS / Undergraduate)',
-          'AYUSH Practitioner / Student (BUMS / BAMS / BHMS)',
           'Nursing Professional / Nursing Student',
           'Paramedic / Physiotherapist / Pharmacist',
           'Other Healthcare Learner / Educator',

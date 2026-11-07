@@ -1,15 +1,15 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
-  GraduationCap,
   Calendar,
   ArrowRight,
   CheckCircle2,
   Sparkles,
   ArrowLeft,
-  Heart,
+  Award,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { getAllSeminars, getSeminarBySlug } from '@/content/seminars';
@@ -49,6 +49,8 @@ export default async function SeminarDetailPage({ params }: SeminarPageProps) {
     notFound();
   }
 
+  const videos = seminar.youtubeVideos || [];
+
   return (
     <article className="py-12 sm:py-20 bg-[#FAF9F6]">
       <Container size="wide">
@@ -70,11 +72,19 @@ export default async function SeminarDetailPage({ params }: SeminarPageProps) {
 
         {/* Title Header */}
         <header className="max-w-4xl space-y-4 mb-10">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#5A6E7D]">
-            <Calendar className="w-4 h-4 text-[#367D78]" />
-            <span>{seminar.eventDate}</span>
+          <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs font-mono text-[#5A6E7D]">
+            <span className="flex items-center gap-1.5 text-[#367D78]">
+              <Calendar className="w-4 h-4" />
+              {seminar.eventDate}
+            </span>
             <span>•</span>
             <span className="text-[#17354B] font-semibold">{seminar.institution}</span>
+            {seminar.felicitatedBy && (
+              <>
+                <span>•</span>
+                <span>Felicitated by {seminar.felicitatedBy}</span>
+              </>
+            )}
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#17354B] font-editorial leading-[1.15]">
@@ -85,28 +95,78 @@ export default async function SeminarDetailPage({ params }: SeminarPageProps) {
         {/* Media & Story Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14 pb-14 border-b border-[#17354B]/10">
           
-          {/* Autoplaying Portrait Video (No Thumbnail Image) */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[350px] aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-2xl ring-1 ring-[#17354B]/10">
-              <video
-                src={seminar.videoUrl}
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls
-                className="w-full h-full object-cover"
-              />
-            </div>
+          {/* Left Column: Video(s) or Single Featured Image if no videos */}
+          <div className="lg:col-span-5 flex flex-col items-center space-y-6">
+            {videos.length > 0 ? (
+              videos.map((vid, idx) => (
+                <div
+                  key={idx}
+                  className="relative w-full max-w-[350px] aspect-[9/16] rounded-3xl overflow-hidden bg-black shadow-2xl ring-1 ring-[#17354B]/10"
+                >
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${vid}?rel=0&modestbranding=1`}
+                    title={`${seminar.title} video ${idx + 1}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="w-full h-full border-0"
+                  />
+                </div>
+              ))
+            ) : seminar.imageUrl ? (
+              <div className="relative w-full max-w-[380px] aspect-[3/4] rounded-3xl overflow-hidden bg-[#17354B]/5 border border-[#17354B]/10 shadow-xl">
+                <Image
+                  src={seminar.imageUrl}
+                  alt={seminar.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 380px"
+                  className="object-contain p-2"
+                  priority
+                />
+              </div>
+            ) : (
+              <div className="w-full max-w-[350px] aspect-[9/16] rounded-3xl bg-[#17354B]/5 flex items-center justify-center text-[#5A6E7D]">
+                <Award className="w-16 h-16 text-[#367D78]/30" />
+              </div>
+            )}
           </div>
 
-          {/* Authentic Description Text (Exact Founder Text) */}
+          {/* Right Column: Authentic Description Text & Contained Photos */}
           <div className="lg:col-span-7 space-y-6">
             
             <div className="space-y-4 text-base sm:text-lg text-[#17354B] leading-relaxed">
-              <p>{seminar.paragraphs[0]}</p>
-              <p>{seminar.paragraphs[1]}</p>
+              {seminar.paragraphs.map((p, idx) => (
+                <p key={idx}>{p}</p>
+              ))}
             </div>
+
+            {/* Event Photographs (Only when there are videos on the left AND photos available) */}
+            {Boolean(videos.length > 0 && (seminar.imageUrl || seminar.insideImageUrl)) && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {seminar.imageUrl && (
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-[#17354B]/5 border border-[#17354B]/10 shadow-sm">
+                    <Image
+                      src={seminar.imageUrl}
+                      alt={seminar.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 360px"
+                      className="object-contain p-2"
+                    />
+                  </div>
+                )}
+                {seminar.insideImageUrl && (
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-[#17354B]/5 border border-[#17354B]/10 shadow-sm">
+                    <Image
+                      src={seminar.insideImageUrl}
+                      alt={seminar.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 360px"
+                      className="object-contain p-2"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Mission Statement */}
             <div className="p-5 rounded-2xl bg-white border border-[#17354B]/10 shadow-sm space-y-1.5">
