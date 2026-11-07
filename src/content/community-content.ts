@@ -412,7 +412,8 @@ export const communityPageContent: CommunityContent = {
       guidelines: 'I have read and agree to the Community Guidelines.',
       privacy:
         'I agree that EasyMedLearning may use these details to verify my application. See the Privacy Policy.',
-      updates: 'I would like to receive updates about courses and events.',
+      updates:
+        'I agree to receive community-related updates and announcements from EasyMedLearnings through WhatsApp.',
     },
     submitButton: 'Apply to Join',
     successMessage: {

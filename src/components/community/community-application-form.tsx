@@ -18,6 +18,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { ShimmerButton } from '@/components/magicui/shimmer-button';
 import { communityPageContent } from '@/content/community-content';
+import { submitCommunityToGoogleForm } from '@/lib/google-form';
 
 interface FormState {
   fullName: string;
@@ -54,6 +55,7 @@ export function CommunityApplicationForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -67,6 +69,7 @@ export function CommunityApplicationForm() {
         return next;
       });
     }
+    if (submitError) setSubmitError(null);
   };
 
   const handleCheckboxChange = (name: keyof FormState, checked: boolean) => {
@@ -78,6 +81,7 @@ export function CommunityApplicationForm() {
         return next;
       });
     }
+    if (submitError) setSubmitError(null);
   };
 
   const validate = (): boolean => {
@@ -118,22 +122,27 @@ export function CommunityApplicationForm() {
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          message: `[Community Application] Role: ${formData.role} | Institution: ${formData.institution} | Specialty: ${formData.specialty || 'N/A'} | Goals: ${formData.goals || 'N/A'}`,
-        }),
-      }).catch(() => null);
+      const res = await submitCommunityToGoogleForm({
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        role: formData.role,
+        institution: formData.institution,
+        specialty: formData.specialty,
+        goals: formData.goals,
+        receiveUpdates: formData.receiveUpdates,
+      });
 
-      setIsSuccess(true);
+      if (res.success) {
+        setIsSuccess(true);
+      } else {
+        setSubmitError(res.error || 'Failed to submit application. Please try again.');
+      }
     } catch {
-      setIsSuccess(true);
+      setSubmitError('Unable to submit your application at this moment. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -439,6 +448,14 @@ export function CommunityApplicationForm() {
                   </div>
 
                 </div>
+
+                {/* Error Banner if submission fails */}
+                {submitError && (
+                  <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/25 flex items-start gap-2.5 text-xs sm:text-sm text-red-700 font-medium">
+                    <AlertCircle className="size-4 shrink-0 text-red-600 mt-0.5" />
+                    <span>{submitError}</span>
+                  </div>
+                )}
 
                 {/* Submit Button with ShimmerButton */}
                 <div className="pt-4">
