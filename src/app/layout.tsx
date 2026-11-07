@@ -23,21 +23,19 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.urls.site || 'https://easymedlearning.com'),
   title: {
-    default: 'EasyMedLearning | Clinical Medical Education Platform',
+    default: 'EasyMedLearning | Learn ECG Interpretation Online with Dr. Wasim Adil Khan',
     template: '%s | EasyMedLearning',
   },
-  description:
-    'Modern medical learning platform by Dr. Wasim Adil Khan. Flagship Course: Absolute Guide to ECG Interpretation with physical companion book and structured video lectures.',
+  description: siteConfig.description,
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-icon.png',
   },
   keywords: [
-    'ECG interpretation course',
-    'learn ECG online',
-    'ECG course for medical students',
-    'ECG in Hinglish',
-    'Dr Wasim Adil Khan ECG',
+    'EasyMedLearning',
+    'Easy Med Learning',
+    'Dr Wasim Adil Khan',
+    'ECG interpretation',
     'Absolute Guide to ECG Interpretation',
   ],
   authors: [{ name: 'Dr. Wasim Adil Khan' }],
@@ -52,14 +50,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: siteConfig.urls.site,
-    siteName: siteConfig.name,
-    title: 'Learn ECG Interpretation Online | EasyMedLearning',
+    siteName: 'EasyMedLearning',
+    title: 'EasyMedLearning | Learn ECG Interpretation Online with Dr. Wasim Adil Khan',
     description: siteConfig.description,
+    images: [
+      {
+        url: `${siteConfig.urls.site}/images/logo-horizontal.webp`,
+        width: 1200,
+        height: 630,
+        alt: 'EasyMedLearning',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Learn ECG Interpretation Online | EasyMedLearning',
+    title: 'EasyMedLearning | Learn ECG Interpretation Online with Dr. Wasim Adil Khan',
     description: siteConfig.description,
+    images: [`${siteConfig.urls.site}/images/logo-horizontal.webp`],
   },
   robots: {
     index: true,
@@ -72,26 +79,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // JSON-LD Structured Data
+  const siteUrl = siteConfig.urls.site || 'https://easymedlearning.com';
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
-    name: siteConfig.name,
-    url: siteConfig.urls.site,
+    name: 'EasyMedLearning',
+    alternateName: ['Easy Med Learning', 'easymedlearning'],
+    url: siteUrl,
+    logo: `${siteUrl}/images/logo-horizontal.webp`,
     description: siteConfig.description,
     founder: {
       '@type': 'Person',
       name: 'Dr. Wasim Adil Khan',
-      jobTitle: 'Managing Director & Medical Educator',
-      alumniOf: [
-        { '@type': 'EducationalOrganization', name: 'Bachelor of Unani Medicine and Surgery (BUMS)' },
-        { '@type': 'EducationalOrganization', name: 'Post Graduate Diploma in Emergency Medical Services (PGDEMS)' },
-      ],
     },
     sameAs: [
       siteConfig.urls.instagram,
       siteConfig.urls.youtube,
-    ],
+    ].filter(Boolean),
   };
 
   return (
