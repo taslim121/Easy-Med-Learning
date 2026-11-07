@@ -4,6 +4,7 @@ import './globals.css';
 import { siteConfig } from '@/content/site-config';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { FloatingWhatsApp } from '@/components/layout/floating-whatsapp';
 import { PageRails } from '@/components/layout/page-rails';
 import { cn } from "@/lib/utils";
 
@@ -119,6 +120,7 @@ export default function RootLayout({
             {children}
           </main>
           <SiteFooter />
+          <FloatingWhatsApp />
         </PageRails>
       </body>
     </html>

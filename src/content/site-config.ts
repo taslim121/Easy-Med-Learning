@@ -33,7 +33,7 @@ export const siteConfig = {
     sampleLesson2: 'https://www.youtube.com/watch?v=s4s_qoVXxNM',
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/easy_medlearning',
     youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://youtube.com/@easymedlearnings',
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || '',
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/message/7TEIZRAIMHNZK1',
   },
 
   // Student lecture previews for authentic course evaluation
@@ -62,7 +62,7 @@ export const siteConfig = {
       id: 'Dd22lyVI9eo',
       url: 'https://www.instagram.com/reel/Dd22lyVI9eo/',
       embedUrl: 'https://www.instagram.com/reel/Dd22lyVI9eo/embed/',
-      videoSrc: '/videos/book-reveal.mp4',
+     
       title: 'Physical Companion Book Reveal',
       subtitle: 'Absolute Guide to ECG Interpretation',
       badge: 'Printed Companion',

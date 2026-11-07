@@ -1,6 +1,6 @@
 import React from 'react';
-import { MessageCircle, ExternalLink, AlertCircle } from 'lucide-react';
-import { InstagramIcon, YouTubeIcon } from '@/components/ui/icons';
+import { ExternalLink, AlertCircle } from 'lucide-react';
+import { InstagramIcon, YouTubeIcon, WhatsAppIcon } from '@/components/ui/icons';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Reveal } from '@/components/motion/reveal';
@@ -77,26 +77,26 @@ export function ContactMethods() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with EasyMedLearning on WhatsApp"
-              className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#17354B]/10 hover:border-emerald-600/30 shadow-sm transition-all group"
+              className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-[#17354B]/10 hover:border-[#25D366]/40 shadow-sm hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#17354B]/5 flex items-center justify-center text-[#17354B] group-hover:bg-emerald-600 group-hover:text-white transition-colors shrink-0">
-                <MessageCircle className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors shrink-0">
+                <WhatsAppIcon className="w-6 h-6" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#17354B] text-base group-hover:text-emerald-700 transition-colors">
-                    Chat on WhatsApp
+                  <span className="font-bold text-[#17354B] text-base group-hover:text-[#1FAF54] transition-colors">
+                    Connect on WhatsApp
                   </span>
-                  <ExternalLink className="w-4 h-4 text-[#5A6E7D] opacity-60" />
+                  <ExternalLink className="w-4 h-4 text-[#5A6E7D] opacity-60 group-hover:opacity-100" />
                 </div>
                 <p className="text-xs text-[#5A6E7D] mt-1">
-                  Send a message for course enquiries.
+                  Send a message for enquiries.
                 </p>
               </div>
             </a>
           ) : (
             <div className="p-5 rounded-2xl bg-[#F6F4EE] border border-[#17354B]/10 flex items-start gap-3">
-              <MessageCircle className="w-5 h-5 text-[#5A6E7D] shrink-0 mt-0.5" />
+              <WhatsAppIcon className="w-5 h-5 text-[#5A6E7D] shrink-0 mt-0.5" />
               <div className="text-xs text-[#5A6E7D]">
                 <span className="font-semibold text-[#17354B]">WhatsApp Support:</span> Dedicated business channel will activate once the confirmed 10-digit number is provisioned.
               </div>

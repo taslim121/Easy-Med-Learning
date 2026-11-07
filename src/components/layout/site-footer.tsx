@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MessageCircle, ExternalLink } from 'lucide-react';
-import { InstagramIcon, YouTubeIcon } from '@/components/ui/icons';
+import { ExternalLink } from 'lucide-react';
+import { InstagramIcon, YouTubeIcon, WhatsAppIcon } from '@/components/ui/icons';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Container } from '@/components/ui/container';
@@ -96,9 +96,9 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat with EasyMedLearning on WhatsApp (opens in new tab)"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition-colors text-white focus-visible:outline-2 focus-visible:outline-[#367D78]"
+                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-colors text-white focus-visible:outline-2 focus-visible:outline-[#25D366]"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                 </a>
               ) : (
                 <span
@@ -106,12 +106,12 @@ export function SiteFooter() {
                   className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/30 cursor-not-allowed"
                   aria-hidden="true"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                 </span>
               )}
             </div>
-            <p className="text-xs text-[#F6F4EE]/50">
-              Check handles with founder before official broadcast.
+            <p className="text-xs text-[#FAF9F6]/50">
+              Official clinical education channels &amp; course support.
             </p>
           </div>
         </div>

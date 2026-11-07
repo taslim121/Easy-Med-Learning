@@ -154,6 +154,19 @@ export const siteContent = {
         'While studying and practising medicine, I realised how much I enjoyed ECG interpretation. When I explained ECG topics to my friends, they understood them more easily. That encouraged me to start teaching ECG to others.',
       ],
     },
+    hospitalTour: {
+      eyebrow: 'Clinical Leadership & Environment',
+      heading: 'A Look Inside National Hospital, Pune',
+      description:
+        'Take a short cinematic tour of National Hospital, Pune, the hospital I lead as Managing Director. See the spaces where care happens every day and the environment that shaped how I practise and teach.',
+      videoSrc: '/videos/national-hospital-tour.mp4',
+      mobileVideoSrc: '/videos/national-hospital-tour-mobile.mp4',
+      posterSrc: '/videos/national-hospital-tour-poster.webp',
+      badges: [
+        { label: 'Leadership', value: 'Managing Director (13+ Years)' },
+        { label: 'Facilities', value: '2 Branches in Pune' },
+      ],
+    },
     problemToSolve: {
       eyebrow: 'The Learning Gap in Medical Education',
       title: 'The Problem I Want to Solve',
