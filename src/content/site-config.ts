@@ -62,7 +62,6 @@ export const siteConfig = {
       id: 'Dd22lyVI9eo',
       url: 'https://www.instagram.com/reel/Dd22lyVI9eo/',
       embedUrl: 'https://www.instagram.com/reel/Dd22lyVI9eo/embed/',
-     
       title: 'Physical Companion Book Reveal',
       subtitle: 'Absolute Guide to ECG Interpretation',
       badge: 'Printed Companion',
@@ -74,7 +73,6 @@ export const siteConfig = {
       id: 'De9mYeAoXhP',
       url: 'https://www.instagram.com/easy_medlearning/reel/De9mYeAoXhP/',
       embedUrl: 'https://www.instagram.com/reel/De9mYeAoXhP/embed/',
-      videoSrc: '/videos/course-intro-launch.mp4',
       title: 'Complete ECG Course Announcement',
       subtitle: 'Launching November 2026',
       badge: 'Official Launch Teaser',

@@ -55,7 +55,6 @@ export interface CourseLaunchContent {
     youtubeId: string;
     youtubeUrl: string;
     embedUrl: string;
-    localFallbackSrc: string;
     posterSrc: string;
   };
 }
@@ -195,7 +194,6 @@ export const homeContent: HomeContent = {
       youtubeId: 'KAgfYFO-qK8',
       youtubeUrl: 'https://youtube.com/shorts/KAgfYFO-qK8',
       embedUrl: 'https://www.youtube-nocookie.com/embed/KAgfYFO-qK8',
-      localFallbackSrc: '/videos/course-intro-launch.mp4',
       posterSrc: '/images/reels/course-intro-poster.webp',
     },
   },
