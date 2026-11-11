@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   Sparkles,
@@ -18,7 +18,6 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { Floating3DParticles } from '@/components/magicui/floating-3d-particles';
-import { Text3DFlip } from '@/components/magicui/text-3d-flip';
 
 const pillarMeta = [
   {
@@ -49,6 +48,7 @@ const pillarMeta = [
 
 export function CourseShowcase() {
   const { courseLaunch } = homeContent;
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   return (
     <section
@@ -82,9 +82,10 @@ export function CourseShowcase() {
       {/* Open-Ended Full-Width Showcase — White Background Touching Screen Sides */}
       <div className="relative w-full bg-white border-y border-[#17354B]/10 shadow-[0_20px_50px_-12px_rgba(23,53,75,0.06)] overflow-hidden py-10 sm:py-14 lg:py-16">
         
-        {/* Generous Floating 3D Bubbles / Particles Spanning Edge-to-Edge */}
+        {/* Generous Floating 3D Bubbles / Particles Spanning Edge-to-Edge (Desktop/Tablet for 95+ Mobile Core Web Vitals) */}
         <Floating3DParticles
-          quantity={140}
+          className="hidden md:block absolute inset-0 pointer-events-none"
+          quantity={100}
           color="#367D78"
           size={5.5}
           opacity={0.3}
@@ -151,16 +152,11 @@ export function CourseShowcase() {
                             </span>
                           </div>
 
-                          {/* 3D Flip Interactive Title */}
+                          {/* Pillar Title */}
                           <div className="pt-1">
-                            <Text3DFlip
-                              as="h5"
-                              className="text-sm sm:text-base font-bold text-[#17354B] tracking-tight"
-                              rotateDirection="right"
-                              staggerDuration={0.03}
-                            >
+                            <h5 className="text-sm sm:text-base font-bold text-[#17354B] tracking-tight transition-colors duration-200 group-hover:text-[#367D78]">
                               {pillar.title}
-                            </Text3DFlip>
+                            </h5>
                           </div>
 
                           {/* Pillar Description */}
@@ -215,14 +211,52 @@ export function CourseShowcase() {
                   <div className="absolute -inset-2 bg-gradient-to-t from-[#367D78]/25 to-[#2DD4BF]/15 rounded-3xl blur-xl opacity-60 group-hover/player:opacity-90 transition-opacity pointer-events-none -z-10" />
 
                   <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-[#17354B]/20 ring-1 ring-white/10">
-                    <iframe
-                      src={courseLaunch.video.embedUrl}
-                      title="Easy Med Learning Course Introduction"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="w-full h-full border-0"
-                      loading="lazy"
-                    />
+                    {isVideoPlaying ? (
+                      <iframe
+                        src={`${courseLaunch.video.embedUrl}?autoplay=1`}
+                        title="Easy Med Learning Course Introduction"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full border-0"
+                      />
+                    ) : (
+                      <div
+                        className="relative w-full h-full group/facade cursor-pointer"
+                        onClick={() => setIsVideoPlaying(true)}
+                      >
+                        {/* Official YouTube Thumbnail (Fetched directly from YouTube CDN) */}
+                        <img
+                          src={
+                            courseLaunch.video.posterSrc ||
+                            `https://i.ytimg.com/vi/${courseLaunch.video.youtubeId}/maxresdefault.jpg`
+                          }
+                          alt="Easy Med Learning Course Introduction Video Thumbnail"
+                          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover/facade:scale-105"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        {/* Film contrast vignette */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/40 group-hover/facade:via-black/15 transition-colors" />
+
+                        {/* Interactive Play Button */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center z-10">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsVideoPlaying(true);
+                            }}
+                            aria-label="Play course launch video by Dr. Wasim Adil Khan"
+                            className="w-16 h-16 rounded-full bg-[#2DD4BF] text-[#0A1622] flex items-center justify-center shadow-xl shadow-[#2DD4BF]/40 group-hover/facade:scale-110 group-hover/facade:bg-[#5EEAD4] transition-all transform-gpu focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2DD4BF]"
+                          >
+                            <Play className="w-7 h-7 fill-[#0A1622] text-[#0A1622] translate-x-0.5" />
+                          </button>
+                          <span className="mt-3.5 text-xs font-mono font-bold uppercase tracking-wider text-white drop-shadow bg-black/60 px-3 py-1 rounded-full border border-white/20">
+                            Watch Video
+                          </span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 

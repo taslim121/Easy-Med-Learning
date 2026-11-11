@@ -27,6 +27,7 @@ export interface HeroContent {
     name: string;
     role: string;
     portraitSrc: string;
+    portraitMobileSrc: string;
     badgeText: string;
   };
 }
@@ -143,6 +144,7 @@ export const homeContent: HomeContent = {
       name: 'Dr. Wasim Adil Khan',
       role: 'Lead Medical Educator & Physician',
       portraitSrc: '/images/instructor-hero.webp',
+      portraitMobileSrc: '/images/instructor-hero-mobile.webp',
       badgeText: 'Lead Clinical Educator',
     },
   },
@@ -194,7 +196,7 @@ export const homeContent: HomeContent = {
       youtubeId: 'KAgfYFO-qK8',
       youtubeUrl: 'https://youtube.com/shorts/KAgfYFO-qK8',
       embedUrl: 'https://www.youtube-nocookie.com/embed/KAgfYFO-qK8',
-      posterSrc: '/images/reels/course-intro-poster.webp',
+      posterSrc: 'https://i.ytimg.com/vi/KAgfYFO-qK8/maxresdefault.jpg',
     },
   },
 

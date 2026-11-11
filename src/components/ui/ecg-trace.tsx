@@ -35,13 +35,6 @@ export function EcgTrace({
         className={cn('w-full h-auto overflow-visible select-none', className)}
         {...props}
       >
-        <defs>
-          {/* Subtle phosphor glow filter */}
-          <filter id="ecg-red-glow" x="-20%" y="-40%" width="140%" height="180%">
-            <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor={glowColor} floodOpacity="0.7" />
-          </filter>
-        </defs>
-
         {/* Faint Baseline Track (Always visible in background) */}
         <path
           d={ecgPath}
@@ -52,7 +45,7 @@ export function EcgTrace({
           className="opacity-20"
         />
 
-        {/* Always-Animating Active Live Cardiac Wave Packet */}
+        {/* Always-Animating Active Live Cardiac Wave Packet (Hardware GPU Accelerated) */}
         <path
           d={ecgPath}
           pathLength="100"
@@ -60,8 +53,8 @@ export function EcgTrace({
           strokeWidth={strokeWidth + 0.5}
           strokeLinecap="round"
           strokeLinejoin="round"
-          filter="url(#ecg-red-glow)"
-          className="animate-ecg-pulse"
+          style={{ filter: `drop-shadow(0 0 3px ${glowColor})` }}
+          className="animate-ecg-pulse will-change-transform"
         />
       </svg>
     </div>

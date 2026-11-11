@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Sparkles, ArrowRight, Stethoscope, Users } from 'lucide-react';
 import { homeContent } from '@/content/home-content';
@@ -96,16 +95,20 @@ export function HomeHero() {
               {/* Portrait Container with Sleek Glassmorphism & BorderBeam */}
               <div className="aspect-[4/5] rounded-3xl p-6 text-white flex flex-col justify-end shadow-2xl relative overflow-hidden border border-white/15 bg-gradient-to-b from-[#17354B]/80 to-[#0A1622]/95 backdrop-blur-md group">
                 
-                {/* Doctor Photograph (High-Priority LCP Image) */}
-                <Image
-                  src={hero.educator.portraitSrc}
-                  alt={hero.educator.name}
-                  fill
-                  priority
-                  fetchPriority="high"
-                  sizes="(max-width: 768px) 100vw, 460px"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                />
+                {/* Doctor Photograph (Responsive Dynamic Art Direction: Full-HD on Desktop, Ultra-Light on Mobile) */}
+                <picture className="absolute inset-0 w-full h-full">
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet={hero.educator.portraitSrc}
+                  />
+                  <img
+                    src={hero.educator.portraitMobileSrc}
+                    alt={hero.educator.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
 
                 {/* High-Performance BorderBeam Tracer */}
                 <BorderBeam

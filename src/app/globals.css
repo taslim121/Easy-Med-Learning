@@ -121,6 +121,11 @@
 }
 
 /* Animated Continuous Highlighter Light Sheen */
+@keyframes shrink {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
 @keyframes highlight-sheen {
   0% {
     transform: translateX(-150%);
@@ -139,21 +144,6 @@
   animation: ecg-sweep 2.4s linear infinite;
 }
 
-/* Vault-style slow marquee ticker */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
 
 /* Decorative clinical ECG grid */
 .bg-clinical-grid {

@@ -28,15 +28,54 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
+    ],
     apple: '/apple-icon.png',
   },
   keywords: [
+    // Brand & Platform Queries
     'EasyMedLearning',
+    'easymedlearning',
     'Easy Med Learning',
+    'easymedlearning.com',
+   
+    'EasyMed',
+    'Easy Med',
+    // Instructor Queries
     'Dr Wasim Adil Khan',
-    'ECG interpretation',
+    'Dr Wasim Adil Khan ECG',
+    'Dr Wasim Khan',
+    'Dr Wasim ECG',
+    'Dr Wasim Adil Khan lectures',
+    // High-Intent Search Phrases
+    'ECG Made Easy',
+    'ECG Made Easy online course',
+    'ECG Made Easy in Hindi',
+    'ECG Made Easy Hinglish',
+    'ECG interpretation course',
+    'learn ECG online',
+    'ECG course India',
+    'ECG reading step by step',
+    // Book & Course Curriculum
     'Absolute Guide to ECG Interpretation',
+    'ECG handbook Dr Wasim',
+    'ECG companion handbook',
+    'ECG interpretation book India',
+    // Target Audience & Education
+    'ECG for MBBS students',
+    'ECG course for junior doctors',
+    'ECG interpretation for medical students',
+    'ECG learning for nurses and paramedics',
+    'clinical ECG interpretation',
+    '12 lead ECG course',
+    'arrhythmia interpretation',
+    'cardiology course online India',
+    'Hinglish medical video lectures',
+    // Seminars & Workshops
+    'Bharti Vidyapeeth ECG masterclass',
+    'Kashmir ECG workshops',
   ],
   authors: [{ name: 'Dr. Wasim Adil Khan' }],
   creator: 'EasyMedLearning',
@@ -51,7 +90,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: siteConfig.urls.site,
     siteName: 'EasyMedLearning',
-    title: 'EasyMedLearning | Learn ECG Interpretation Online with Dr. Wasim Adil Khan',
+    title: 'EasyMedLearning | ECG Made Easy & Interpretation Course by Dr. Wasim Adil Khan',
     description: siteConfig.description,
     images: [
       {
@@ -64,13 +103,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EasyMedLearning | Learn ECG Interpretation Online with Dr. Wasim Adil Khan',
+    title: 'EasyMedLearning | ECG Made Easy & Interpretation Course by Dr. Wasim Adil Khan',
     description: siteConfig.description,
     images: [`${siteConfig.urls.site}/images/logo-horizontal.webp`],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 
@@ -82,20 +128,69 @@ export default function RootLayout({
   const siteUrl = siteConfig.urls.site || 'https://easymedlearning.com';
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
-    name: 'EasyMedLearning',
-    alternateName: ['Easy Med Learning', 'easymedlearning'],
-    url: siteUrl,
-    logo: `${siteUrl}/images/logo-horizontal.webp`,
-    description: siteConfig.description,
-    founder: {
-      '@type': 'Person',
-      name: 'Dr. Wasim Adil Khan',
-    },
-    sameAs: [
-      siteConfig.urls.instagram,
-      siteConfig.urls.youtube,
-    ].filter(Boolean),
+    '@graph': [
+      {
+        '@type': 'EducationalOrganization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'EasyMedLearning',
+        alternateName: [
+          'Easy Med Learning',
+          'easymedlearning',
+          'ECG Made Easy by Dr. Wasim Adil Khan',
+        ],
+        url: siteUrl,
+        logo: `${siteUrl}/images/logo-horizontal.webp`,
+        description: siteConfig.description,
+        founder: {
+          '@type': 'Person',
+          name: 'Dr. Wasim Adil Khan',
+          jobTitle: 'Physician & Medical Educator',
+        },
+        knowsAbout: [
+          'Electrocardiography',
+          'ECG Interpretation',
+          '12-Lead ECG Analysis',
+          'Cardiology Education',
+          'Clinical Medicine',
+        ],
+        sameAs: [
+          siteConfig.urls.instagram,
+          siteConfig.urls.youtube,
+        ].filter(Boolean),
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        url: siteUrl,
+        name: 'EasyMedLearning',
+        alternateName: 'Easy Med Learning | ECG Made Easy',
+        publisher: {
+          '@id': `${siteUrl}/#organization`,
+        },
+        inLanguage: 'en-IN',
+      },
+      {
+        '@type': 'Course',
+        '@id': `${siteUrl}/courses#course`,
+        name: 'Absolute Guide to ECG Interpretation (ECG Made Easy)',
+        description:
+          'Comprehensive 51-chapter ECG interpretation course with video lectures and companion printed handbook by Dr. Wasim Adil Khan.',
+        provider: {
+          '@id': `${siteUrl}/#organization`,
+        },
+        instructor: {
+          '@type': 'Person',
+          name: 'Dr. Wasim Adil Khan',
+        },
+        inLanguage: ['hi', 'en'],
+        courseCode: 'EML-ECG-01',
+        hasCourseInstance: {
+          '@type': 'CourseInstance',
+          courseMode: 'online',
+          startDate: '2026-11-15',
+        },
+      },
+    ],
   };
 
   return (

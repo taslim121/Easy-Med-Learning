@@ -33,10 +33,10 @@ export function CourseSyllabus() {
       id="syllabus"
       className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#FAF9F6] via-[#F4F6F8] to-[#FAF9F6] border-b border-[#17354B]/10 relative overflow-hidden scroll-mt-20"
     >
-      {/* Floating 3D Particles Ambient Backdrop - High Visibility & Deep 3D Motion */}
+      {/* Floating 3D Particles Ambient Backdrop (Desktop/Tablet for Mobile Core Web Vitals) */}
       <Floating3DParticles
-        className="absolute inset-0 pointer-events-none"
-        quantity={700}
+        className="hidden md:block absolute inset-0 pointer-events-none"
+        quantity={120}
         color="#2DD4BF"
         size={6}
         opacity={0.52}
