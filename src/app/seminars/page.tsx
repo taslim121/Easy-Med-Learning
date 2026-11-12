@@ -12,7 +12,7 @@ import { Container } from '@/components/ui/container';
 import { getAllSeminars } from '@/content/seminars';
 
 export const metadata: Metadata = {
-  title: 'Institutional Seminars & Milestones | EasyMedLearning',
+  title: 'Institutional ECG Seminars & Workshops',
   description:
     'Guest lectures on ECG interpretation at medical colleges by Dr. Wasim Adil Khan.',
 };

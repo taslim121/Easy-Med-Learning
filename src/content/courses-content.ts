@@ -111,9 +111,9 @@ export const courseChapters: CourseChapter[] = [
 
 export const coursesPageContent: CoursesContent = {
   meta: {
-    title: 'ECG Interpretation Course & Handbook | EasyMedLearning',
+    title: 'ECG Interpretation Course & Handbook',
     description:
-      'Absolute Guide to ECG Interpretation by Dr. Wasim Adil Khan. 51 structured chapters and companion physical handbook covering basic to advanced ECG interpretation.',
+      'Absolute Guide to ECG Interpretation by Dr. Wasim Adil Khan. 51 structured chapters with companion physical handbook from basics to advanced.',
   },
   breadcrumb: {
     home: 'Home',

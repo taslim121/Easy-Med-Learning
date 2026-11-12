@@ -5,6 +5,9 @@
 
 # Testing & agent sandboxes
 .agents
+.claude
+agent
+skills-lock.json
 
 # Next.js build outputs
 /.next/

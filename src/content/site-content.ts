@@ -23,7 +23,7 @@ export const siteContent = {
   // Our Instructor Page (/our-instructor)
   about: {
     meta: {
-      title: 'Our Instructor - Dr. Wasim Adil Khan | EasyMedLearning',
+      title: 'Dr. Wasim Adil Khan - ECG Medical Educator',
       description:
         'Meet Dr. Wasim Adil Khan, Physician, hospital administrator, and ECG educator passionate about making ECG interpretation simple and practical.',
     },
@@ -201,7 +201,7 @@ export const siteContent = {
       {
         channel: 'YouTube',
         handle: '@easymedlearnings',
-        url: 'https://youtube.com/@easymedlearnings',
+        url: 'https://youtube.com/@easymedlearning',
         description: 'Watch introductory and sample videos.',
         ariaLabel: 'Visit EasyMedLearning on YouTube (opens in new tab)',
       },

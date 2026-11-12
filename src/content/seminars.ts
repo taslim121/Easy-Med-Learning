@@ -37,7 +37,7 @@ export const seminarsData: SeminarPost[] = [
     felicitatedBy: 'Prof. Dr. Anita S. Patil, Principal',
     eventDate: 'October 2026',
     summary:
-      'I had the privilege of delivering a Guest Lecture on ECG Interpretation at Bharti Vidyapeeth Homoeopathic Medical College, where I taught students how to understand ECG concepts in a simple and easy-to-follow way.',
+      'Guest Lecture on ECG Interpretation at Bharti Vidyapeeth Homoeopathic Medical College by Dr. Wasim Adil Khan, simplifying clinical concepts for students.',
     paragraphs: [
       'I had the privilege of delivering a Guest Lecture on ECG Interpretation at Bharti Vidyapeeth Homoeopathic Medical College, where I taught students how to understand ECG concepts in a simple and easy-to-follow way.',
       'I’m truly honoured to have been felicitated by the Principal, Prof. Dr. Anita S. Patil, in recognition of this session. We also conducted a small certificate distribution ceremony for the students who attended the ECG lecture. Seeing students appreciate our teaching and connect with the concepts made this moment even more special! ❤️',

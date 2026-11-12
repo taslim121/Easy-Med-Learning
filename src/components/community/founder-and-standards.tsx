@@ -89,9 +89,9 @@ export function FounderAndStandards() {
                     {standardIcons[idx]}
                   </div>
                   
-                  <h4 className="text-base font-bold text-[#17354B]">
+                  <h3 className="text-base font-bold text-[#17354B]">
                     {item.title}
-                  </h4>
+                  </h3>
                   
                   <p className="text-xs sm:text-sm text-[#5A6E7D] leading-relaxed">
                     {item.description}

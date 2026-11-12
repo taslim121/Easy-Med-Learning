@@ -35,8 +35,15 @@ export async function generateMetadata({ params }: SeminarPageProps): Promise<Me
     };
   }
 
+  const pageTitle =
+    slug === 'bharti-vidyapeeth-ecg-masterclass'
+      ? 'Bharti Vidyapeeth ECG Masterclass'
+      : slug === 'kashmir-ecg-workshops'
+      ? 'ECG Workshops in Kashmir'
+      : seminar.title;
+
   return {
-    title: `${seminar.title} | EasyMedLearning`,
+    title: pageTitle,
     description: seminar.summary,
   };
 }

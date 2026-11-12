@@ -32,7 +32,7 @@ export const siteConfig = {
     sampleLesson: process.env.NEXT_PUBLIC_SAMPLE_LESSON_URL || 'https://www.youtube.com/watch?v=foITCgV8NlE',
     sampleLesson2: 'https://www.youtube.com/watch?v=s4s_qoVXxNM',
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/easy_medlearning',
-    youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://youtube.com/@easymedlearnings',
+    youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://youtube.com/@easymedlearning',
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/message/7TEIZRAIMHNZK1',
   },
 
@@ -98,6 +98,17 @@ export const siteConfig = {
     language: 'Hinglish (a mix of Hindi and English)',
     languageNote: 'English version will follow',
     format: 'Printed book delivered to learner address + structured video lectures',
+  },
+
+  // Central Course Launch Announcement (Single line ticker / top bar & corner card)
+  announcement: {
+    enabled: true,
+    launchDate: '15 November 2026',
+    dateBadge: '15 Nov',
+    courseTitle: 'Absolute Guide to ECG Interpretation',
+    shortHeadline: 'Printed Companion Handbook + Video Lectures',
+    bookImage: '/images/ecg-handbook-cover.webp',
+    courseHref: '/courses#syllabus',
   },
 
   // Navigation

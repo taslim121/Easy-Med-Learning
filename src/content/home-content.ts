@@ -112,7 +112,7 @@ export const homeContent: HomeContent = {
   meta: {
     title: 'Easy Med Learning | ECG Made Easy & Medical Video Lectures',
     description:
-      'Master clinical ECG interpretation and essential medical topics with Dr. Wasim Adil Khan. Structured video lectures, hand-crafted vector diagrams, and simplified clinical teaching.',
+      'Master clinical ECG interpretation with Dr. Wasim Adil Khan. Structured video lectures, hand-crafted vector diagrams, and practical clinical bedside cases.',
   },
 
   // =========================================================================

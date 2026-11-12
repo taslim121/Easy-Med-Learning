@@ -137,9 +137,9 @@ export interface CommunityContent {
 
 export const communityPageContent: CommunityContent = {
   meta: {
-    title: 'EasyMedLearning Community | Learn, Connect and Grow With Medical Professionals',
+    title: 'EasyMedLearning | Medical Discussion & Community',
     description:
-      'A professional medical network where doctors discuss clinical questions with colleagues and medical students get guidance from people in practice. Membership by application.',
+      'Professional medical network where doctors discuss clinical cases and students get practical guidance from clinicians. Free membership by application.',
   },
   breadcrumb: {
     home: 'Home',
