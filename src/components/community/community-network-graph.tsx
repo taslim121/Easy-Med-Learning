@@ -85,7 +85,7 @@ export function CommunityNetworkGraph() {
           <NetworkNode
             ref={studentRef}
             label="Student"
-            role="MBBS / BUMS"
+            role="MBBS / AYUSH"
           >
             <GraduationCap className="size-6 sm:size-7 text-[#367D78]" />
           </NetworkNode>
