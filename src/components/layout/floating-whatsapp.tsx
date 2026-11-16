@@ -8,13 +8,19 @@ import { siteConfig } from '@/content/site-config';
 /**
  * Floating WhatsApp Action Button
  * Fixed in bottom-right corner across all routes using Magic UI Pulsating Button.
- * Directly launches the verified WhatsApp chat channel.
+ * Directly launches WhatsApp with pre-filled brand inquiry text.
  */
 export function FloatingWhatsApp() {
-  const whatsappUrl = siteConfig.urls.whatsapp || 'https://wa.me/message/7TEIZRAIMHNZK1';
+  const whatsappUrl = siteConfig.urls.whatsapp || 'https://wa.me/919270579106';
+  const prefilledMessage = encodeURIComponent('Hello EasyMedLearning!');
+  const targetUrl = whatsappUrl.includes('text=')
+    ? whatsappUrl
+    : whatsappUrl.includes('?')
+    ? `${whatsappUrl}&text=${prefilledMessage}`
+    : `${whatsappUrl}?text=${prefilledMessage}`;
 
   const handleClick = () => {
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    window.open(targetUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (

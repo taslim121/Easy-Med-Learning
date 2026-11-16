@@ -33,7 +33,7 @@ export const siteConfig = {
     sampleLesson2: 'https://www.youtube.com/watch?v=s4s_qoVXxNM',
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/easy_medlearning',
     youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://youtube.com/@easymedlearning',
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/message/7TEIZRAIMHNZK1',
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/919270579106',
   },
 
   // Student lecture previews for authentic course evaluation
