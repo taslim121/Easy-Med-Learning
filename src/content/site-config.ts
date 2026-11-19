@@ -100,15 +100,19 @@ export const siteConfig = {
     format: 'Printed book delivered to learner address + structured video lectures',
   },
 
-  // Central Course Launch Announcement (Single line ticker / top bar & corner card)
+  // Central Event & Course Launch Announcement (Single line ticker / top bar)
   announcement: {
     enabled: true,
-    launchDate: '15 November 2026',
-    dateBadge: '15 Nov',
-    courseTitle: 'Absolute Guide to ECG Interpretation',
-    shortHeadline: 'Printed Companion Handbook + Video Lectures',
+    badge: 'FREE ECG SEMINAR',
+    dateBadge: '22 Nov',
+    title: 'Free Seminar on ECG by Dr. Wasim Adil',
+    courseTitle: 'Free ECG Seminar & Course Launch',
+    subtitle: 'Sun, 22 Nov 2026 • Inamdar Hospital, Pune (Only 100 Seats)',
+    flyerImage: '/images/seminar-flyer.webp',
+    flyerMobileImage: '/images/seminar-flyer-mobile.webp',
     bookImage: '/images/ecg-handbook-cover.webp',
-    courseHref: '/courses#syllabus',
+    ctaText: 'View Flyer & Details',
+    courseHref: '/courses',
   },
 
   // Navigation

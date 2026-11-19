@@ -5,6 +5,8 @@ import { siteConfig } from '@/content/site-config';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { FloatingWhatsApp } from '@/components/layout/floating-whatsapp';
+
+import { TopAnnouncementBar } from '@/components/layout/announcement-bar';
 import { PageRails } from '@/components/layout/page-rails';
 import { cn } from "@/lib/utils";
 
@@ -214,6 +216,7 @@ export default function RootLayout({
         </a>
 
         <PageRails>
+          <TopAnnouncementBar />
           <SiteHeader />
           <main id="main-content" className="flex-1 flex flex-col">
             {children}
