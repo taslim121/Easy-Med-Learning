@@ -257,7 +257,7 @@ export const siteContent = {
           id: 'faq-1',
           question: 'When will the course launch?',
           answer:
-            'The tentative launch date is 15 November 2026. Check the course page or our Learnyst destination for current course availability updates.',
+            'The course launch date is 22 November 2026. Check the course page or our Learnyst destination for current course availability updates.',
         },
         {
           id: 'faq-2',

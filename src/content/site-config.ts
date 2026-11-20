@@ -8,7 +8,7 @@ export const siteConfig = {
   name: 'EasyMedLearning',
   tagline: 'Making ECG learning simple and practical for medical professionals.',
   description:
-    'Learn ECG interpretation with video lectures, case studies and a book by Dr. Wasim Adil Khan. Hinglish course with a tentative launch date of 15 November 2026.',
+    'Learn ECG interpretation with video lectures, case studies and a book by Dr. Wasim Adil Khan. Hinglish course with a launch date of 22 November 2026.',
   locale: 'en-IN',
   
   // Centralized Brand Assets & Identity (Zero hardcoded image paths)
@@ -94,7 +94,7 @@ export const siteConfig = {
   course: {
     title: 'Absolute Guide to ECG Interpretation',
     status: 'Partially recorded',
-    tentativeLaunchDate: '15 November 2026',
+    tentativeLaunchDate: '22 November 2026',
     language: 'Hinglish (a mix of Hindi and English)',
     languageNote: 'English version will follow',
     format: 'Printed book delivered to learner address + structured video lectures',
