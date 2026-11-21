@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRight, Sparkles, BookOpen, Award, Clock, ArrowRight } from 'lucide-react';
+import { ChevronRight, Sparkles, BookOpen, Award, Clock, ArrowRight, Tag } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { coursesPageContent } from '@/content/courses-content';
 import { siteConfig } from '@/content/site-config';
@@ -87,6 +87,40 @@ export function CoursesHero() {
               </div>
             </div>
           </BlurFade>
+
+          {/* Launch Pricing Test Banner (Simple & Easily Removable / Toggleable) */}
+          {coursesPageContent.pricing?.showTestBanner && (
+            <BlurFade delay={0.32} yOffset={10}>
+              <div className="p-4 sm:p-4.5 rounded-2xl bg-gradient-to-r from-white via-emerald-50/30 to-white border border-emerald-500/30 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 my-1">
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-600/10 text-emerald-700 text-[11px] font-mono font-bold uppercase tracking-wider border border-emerald-600/20">
+                      <Tag className="w-3 h-3 text-emerald-600" />
+                      {coursesPageContent.pricing.badge}
+                    </span>
+                    <span className="text-xs text-[#5A6E7D] font-medium">
+                      • {coursesPageContent.pricing.condition}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#5A6E7D] leading-relaxed">
+                    {coursesPageContent.pricing.note}
+                  </p>
+                </div>
+
+                <div className="flex items-baseline gap-2.5 sm:text-right shrink-0">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#17354B] tracking-tight">
+                    {coursesPageContent.pricing.offerPrice}
+                  </span>
+                  <span className="text-sm sm:text-base text-[#5A6E7D] line-through font-medium">
+                    {coursesPageContent.pricing.regularPrice}
+                  </span>
+                  <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300">
+                    {coursesPageContent.pricing.savings}
+                  </span>
+                </div>
+              </div>
+            </BlurFade>
+          )}
 
           {/* Direct Enrollment CTA to Learnyst in Same Tab */}
           <BlurFade delay={0.35} yOffset={10}>

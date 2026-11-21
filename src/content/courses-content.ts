@@ -18,6 +18,16 @@ export interface CourseChapter {
   title: string;
 }
 
+export interface CoursePricingContent {
+  showTestBanner: boolean;
+  regularPrice: string;
+  offerPrice: string;
+  savings: string;
+  badge: string;
+  condition: string;
+  note: string;
+}
+
 export interface CoursesContent {
   meta: {
     title: string;
@@ -32,6 +42,7 @@ export interface CoursesContent {
     subtitle: string;
     description: string;
   };
+  pricing?: CoursePricingContent;
   handbook: {
     badge: string;
     title: string;
@@ -124,6 +135,15 @@ export const coursesPageContent: CoursesContent = {
     subtitle: 'Comprehensive Video Course with Companion Printed Book',
     description:
       'A structured, clinically grounded ECG video course taught by Dr. Wasim Adil Khan, paired with the official companion printed book designed to build clear diagnostic understanding from foundational basics to advanced clinical ECG interpretation.',
+  },
+  pricing: {
+    showTestBanner: true,
+    regularPrice: '₹2,999',
+    offerPrice: '₹1,699',
+    savings: 'Save ₹1,300',
+    badge: 'Limited Time Launch Offer',
+    condition: 'Early Enrolments Special',
+    note: 'Includes Complete Video Course + Companion Printed Book Shipped to Your Door',
   },
   handbook: {
     badge: 'COMPANION PRINTED BOOK',
