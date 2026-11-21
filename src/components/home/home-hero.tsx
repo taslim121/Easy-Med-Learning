@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight, Stethoscope, Users } from 'lucide-react';
@@ -6,6 +8,7 @@ import { Container } from '@/components/ui/container';
 import { Spotlight } from '@/components/ui/spotlight';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { ShimmerButton } from '@/components/magicui/shimmer-button';
+import { PulsatingButton } from '@/components/ui/pulsating-button';
 
 export function HomeHero() {
   const { hero } = homeContent;
@@ -37,25 +40,36 @@ export function HomeHero() {
               {hero.description}
             </p>
 
-            {/* Flagship Course Launch Announcement Banner Box */}
-            <div className="relative p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#17354B]/80 to-[#102434]/80 border border-[#2DD4BF]/25 shadow-lg backdrop-blur-md space-y-1.5 overflow-hidden">
+            {/* Flagship Course Launch Announcement Banner Box (Simple Non-Redirectable Banner) */}
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#17354B]/80 to-[#102434]/80 border border-[#2DD4BF]/25 shadow-lg backdrop-blur-md space-y-1.5 overflow-hidden my-2 sm:my-3">
+              {/* Magic UI BorderBeam */}
+              <BorderBeam
+                duration={6}
+                colorFrom="#2DD4BF"
+                colorTo="#5EEAD4"
+                borderWidth={1.5}
+              />
+
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#2DD4BF] shrink-0" />
+                <Sparkles className="w-4 h-4 text-[#2DD4BF] shrink-0 animate-pulse" />
                 <span className="text-[11px] font-mono uppercase tracking-wider font-bold text-[#2DD4BF]">
                   {hero.launchAnnouncement.kicker}
                 </span>
               </div>
+
               <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                 {hero.launchAnnouncement.title}
               </h2>
+
               <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
                 {hero.launchAnnouncement.description}
               </p>
             </div>
 
-            {/* Action Suite & Micro-Copy */}
-            <div className="space-y-4 pt-1">
+            {/* Action Suite & Micro-Copy (With Generous Spacing to Prevent Overlapping Halos) */}
+            <div className="space-y-4 pt-4 sm:pt-6 pb-1">
               <div className="flex flex-wrap items-center gap-3.5">
+                {/* 1. Primary CTA: Join Our Community (Kept in Original Position with Shimmer Effect) */}
                 <Link href={hero.ctas.primary.href} className="inline-block">
                   <ShimmerButton
                     background="#2DD4BF"
@@ -68,12 +82,20 @@ export function HomeHero() {
                   </ShimmerButton>
                 </Link>
 
-                <Link
-                  href={hero.ctas.secondary.href}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/20 text-white hover:bg-white/10 font-bold text-sm sm:text-base backdrop-blur-sm transition-all hover:border-white/40"
-                >
-                  <span>{hero.ctas.secondary.label}</span>
-                  <ArrowRight className="w-4 h-4" />
+                {/* 2. Enhanced Secondary CTA: Explore Courses (Enhanced with Dark Clinical Teal Pulsating Ripple -> Links to /courses) */}
+                <Link href={hero.ctas.secondary.href} className="inline-block">
+                  <PulsatingButton
+                    pulseColor="rgba(54, 125, 120, 0.45)"
+                    duration="2s"
+                    distance="8px"
+                    aria-label={hero.ctas.secondary.label}
+                    className="bg-[#367D78] hover:bg-[#2b6561] text-white font-bold text-sm sm:text-base px-6 sm:px-7 py-3.5 rounded-xl shadow-lg shadow-[#367D78]/25 transition-transform duration-200 hover:scale-105 active:scale-95 border border-[#367D78]/40"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>{hero.ctas.secondary.label}</span>
+                      <ArrowRight className="w-4 h-4 text-white" />
+                    </span>
+                  </PulsatingButton>
                 </Link>
               </div>
 

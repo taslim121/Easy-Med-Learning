@@ -27,7 +27,7 @@ export function SampleLesson() {
           <SectionHeading
             eyebrow="Student Lecture Previews"
             title="Watch Sample Lectures by Dr. Wasim Adil Khan"
-            description="Experience the clinical teaching style, visual clarity, and Hinglish explanations firsthand before course enrolment."
+            description="Experience the clinical teaching style, visual clarity, and Hinglish explanations firsthand before course enrollment."
           />
         </div>
 

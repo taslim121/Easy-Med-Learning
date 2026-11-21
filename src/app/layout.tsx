@@ -62,8 +62,8 @@ export const metadata: Metadata = {
     'ECG reading step by step',
     // Book & Course Curriculum
     'Absolute Guide to ECG Interpretation',
-    'ECG handbook Dr Wasim',
-    'ECG companion handbook',
+    'ECG companion book Dr Wasim',
+    'ECG companion printed book',
     'ECG interpretation book India',
     // Target Audience & Education
     'ECG for MBBS students',
@@ -176,7 +176,7 @@ export default function RootLayout({
         '@id': `${siteUrl}/courses#course`,
         name: 'Absolute Guide to ECG Interpretation (ECG Made Easy)',
         description:
-          'Comprehensive 51-chapter ECG interpretation course with video lectures and companion printed handbook by Dr. Wasim Adil Khan.',
+          'Comprehensive ECG interpretation video course with companion printed book by Dr. Wasim Adil Khan.',
         provider: {
           '@id': `${siteUrl}/#organization`,
         },

@@ -111,25 +111,25 @@ export const courseChapters: CourseChapter[] = [
 
 export const coursesPageContent: CoursesContent = {
   meta: {
-    title: 'ECG Interpretation Course & Handbook',
+    title: 'ECG Interpretation Course & Companion Book',
     description:
-      'Absolute Guide to ECG Interpretation by Dr. Wasim Adil Khan. 51 structured chapters with companion physical handbook from basics to advanced.',
+      'Absolute Guide to ECG Interpretation by Dr. Wasim Adil Khan. Video course paired with the companion printed book.',
   },
   breadcrumb: {
     home: 'Home',
     current: 'Courses',
   },
   hero: {
-    title: 'Absolute Guide to ECG Interpretation',
-    subtitle: 'Comprehensive ECG Course with Physical Companion Handbook',
+    title: 'Enrollment Is Now Open for the Complete ECG Course',
+    subtitle: 'Comprehensive Video Course with Companion Printed Book',
     description:
-      'A structured, clinically grounded ECG course taught by Dr. Wasim Adil Khan. Follows a 51-chapter sequential curriculum designed to build clear understanding from foundational basics to advanced clinical ECG diagnosis.',
+      'A structured, clinically grounded ECG video course taught by Dr. Wasim Adil Khan, paired with the official companion printed book designed to build clear diagnostic understanding from foundational basics to advanced clinical ECG interpretation.',
   },
   handbook: {
-    badge: 'PHYSICAL COMPANION HANDBOOK',
+    badge: 'COMPANION PRINTED BOOK',
     title: 'Absolute Guide to ECG Interpretation',
     subtitle:
-      'The official physical handbook will be provided alongside the course for desk reference and bedside clinical application upon launch.',
+      'The official companion printed book is included alongside the course for desk reference and bedside clinical application, shipped directly to your address upon enrollment.',
     author: 'Dr. Wasim Adil Khan',
     guidance: 'Under the guidance of Honorable Dr. Bhushan Bari, D.N.B (Cardiology)',
     developmentTime: '7 Years in Research and Development',
@@ -147,9 +147,9 @@ export const coursesPageContent: CoursesContent = {
     },
   },
   syllabus: {
-    badge: 'COURSE SYLLABUS',
-    title: '51 Chapters',
-    subtitle: 'The complete 51-chapter syllabus of the course and companion handbook.',
+    badge: 'COURSE CURRICULUM',
+    title: 'Curriculum Chapters',
+    subtitle: 'The complete sequential syllabus of the course and companion printed book.',
     totalChapters: 51,
     chapters: courseChapters,
   },

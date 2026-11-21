@@ -124,10 +124,10 @@ export const homeContent: HomeContent = {
     description:
       'Your journey towards better medical learning and professional growth starts here. Explore structured educational courses, access valuable learning resources, connect with fellow medical professionals, and participate in meaningful discussions that encourage knowledge sharing and collaboration.',
     launchAnnouncement: {
-      kicker: 'NOW INTRODUCING OUR FIRST COURSE',
-      title: 'Absolute Guide to ECG Interpretation',
+      kicker: 'OFFICIAL COURSE LAUNCH',
+      title: 'Master ECG Course',
       description:
-        'Learn to understand, interpret, and approach ECGs with greater clarity and confidence.',
+        'Master clinical ECG interpretation from basic to advanced with comprehensive video lectures and the official companion printed book shipped to your address.',
     },
     ctas: {
       primary: {
@@ -153,13 +153,13 @@ export const homeContent: HomeContent = {
   // SECTION 02: Introducing Our Medical Courses (ECG Launch Showcase)
   // =========================================================================
   courseLaunch: {
-    badge: 'Official Launch Announcement',
+    badge: 'Official Course Launch',
     sectionHeading: 'Medical Learning, Made Easier.',
     sectionSubtitle:
       'Explore structured medical courses designed to simplify complex concepts and make learning more effective.',
-    courseTitle: 'The Complete ECG Course is Coming Soon!',
+    courseTitle: 'Enrollment Is Now Open for the Complete ECG Course',
     courseLead:
-      'Are you ready to understand ECG from basic to advanced level? We are bringing you a complete course designed to make ECG interpretation simple, easy, and understandable for every medical student and healthcare professional.',
+      'Are you ready to understand ECG from basic to advanced level? Our complete course is now officially live, designed to make ECG interpretation simple, easy, and understandable for every medical student and healthcare professional.',
     pillarsHeading: 'What Makes Our Course Special?',
     pillars: [
       {
@@ -184,10 +184,10 @@ export const homeContent: HomeContent = {
       },
     ],
     mission:
-      'Our Mission: To make ECG simple and easy for everyone. We want you to understand the concepts, build diagnostic confidence, and master ECG master interpretation at the bedside.',
+      'Our Mission: To make ECG simple and easy for everyone. We want you to understand the concepts, build diagnostic confidence, and master ECG interpretation at the bedside.',
     cta: {
-      label: 'Explore the ECG Syllabus',
-      href: '/courses#syllabus',
+      label: 'Enroll in Course Now',
+      href: 'https://courses.easymedlearning.com',
     },
     video: {
       heading: 'Get to Know Your Course',

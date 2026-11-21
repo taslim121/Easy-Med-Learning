@@ -10,8 +10,8 @@ export const siteContent = {
   // Shared Site Header & Footer
   header: {
     brandName: 'EasyMedLearning',
-    primaryCtaLabel: 'View the ECG Course',
-    primaryCtaPendingText: 'Course details coming soon',
+    primaryCtaLabel: 'Explore Course',
+    primaryCtaPendingText: 'Explore Course',
   },
 
   footer: {

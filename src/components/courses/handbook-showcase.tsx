@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { BookOpen, Award, CheckCircle2, Truck, Layers, HeartPulse } from 'lucide-react';
+import { BookOpen, Award, CheckCircle2, Truck, Layers, HeartPulse, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { coursesPageContent } from '@/content/courses-content';
+import { siteConfig } from '@/content/site-config';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { BlurFade } from '@/components/magicui/blur-fade';
@@ -71,7 +72,7 @@ export function HandbookShowcase() {
                       Absolute Guide to ECG Interpretation
                     </p>
                     <p className="text-[11px] font-mono text-[#5A6E7D] mt-0.5">
-                      Provided with the ECG Course upon launch &bull; Shipped to you
+                      Included with the ECG Course &bull; Shipped to your address
                     </p>
                   </div>
                 </div>
@@ -152,6 +153,20 @@ export function HandbookShowcase() {
                     </div>
                   </MagicCard>
                 ))}
+              </div>
+            </BlurFade>
+
+            {/* Direct Enrollment CTA to Learnyst in Same Tab */}
+            <BlurFade delay={0.4} yOffset={10}>
+              <div className="pt-2">
+                <a
+                  href={siteConfig.urls.learnystCourse}
+                  target="_self"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#17354B] hover:bg-[#244C68] text-white font-bold text-sm sm:text-base shadow-md transition-all active:scale-[0.98] hover:shadow-lg"
+                >
+                  <span>Enroll & Receive Physical Book</span>
+                  <ArrowRight className="w-4 h-4 text-[#2DD4BF]" />
+                </a>
               </div>
             </BlurFade>
           </div>

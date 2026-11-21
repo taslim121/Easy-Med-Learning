@@ -178,14 +178,23 @@ export function CourseShowcase() {
                 </p>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-2">
-                <Link
+              {/* Action Buttons: Direct Enrollment + In-Depth Syllabus Link */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
                   href={courseLaunch.cta.href}
+                  target="_self"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#17354B] hover:bg-[#244C68] text-white font-bold text-sm sm:text-base shadow-md transition-all active:scale-[0.98] hover:shadow-lg"
                 >
                   <span>{courseLaunch.cta.label}</span>
                   <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <Link
+                  href="/courses#syllabus"
+                  className="inline-flex items-center gap-1.5 px-4 py-3 text-xs sm:text-sm font-semibold text-[#367D78] hover:text-[#17354B] transition-colors"
+                >
+                  <span>View Course Syllabus</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 

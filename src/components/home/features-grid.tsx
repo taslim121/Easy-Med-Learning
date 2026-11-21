@@ -45,7 +45,7 @@ export function FeaturesGrid() {
       id: 'physical-books',
       className: 'col-span-3 lg:col-span-2',
       href: '/courses#syllabus',
-      cta: 'Explore Handbook',
+      cta: 'Explore Companion Book',
       badge: 'Hardcopy Included',
       background: (
         <div className="absolute inset-0 bg-gradient-to-br from-[#367D78]/15 via-[#2DD4BF]/10 to-transparent transition-all duration-500 ease-out group-hover:scale-105 pointer-events-none [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)]">

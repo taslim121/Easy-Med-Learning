@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRight, Sparkles, BookOpen, Award, Clock } from 'lucide-react';
+import { ChevronRight, Sparkles, BookOpen, Award, Clock, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { coursesPageContent } from '@/content/courses-content';
+import { siteConfig } from '@/content/site-config';
 import { EcgTrace } from '@/components/ui/ecg-trace';
 import { BlurFade } from '@/components/magicui/blur-fade';
 
@@ -41,9 +42,9 @@ export function CoursesHero() {
         {/* Clean, Focused Header Content (Single Centered/Spacious Column) */}
         <div className="max-w-3xl space-y-5">
           <BlurFade delay={0.1} yOffset={8}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17354B]/5 border border-[#17354B]/15 text-[#17354B] text-xs font-mono font-semibold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#367D78]/10 border border-[#367D78]/25 text-[#17354B] text-xs font-mono font-semibold tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#2DD4BF]" />
-              <span>Launching Soon &bull; Flagship Medical Masterclass</span>
+              <span>🎉 Now Live & Enrolling • Flagship Medical Masterclass</span>
             </div>
           </BlurFade>
 
@@ -70,11 +71,11 @@ export function CoursesHero() {
             <div className="flex flex-wrap gap-2.5 pt-2">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#17354B]/10 shadow-xs text-xs font-mono text-[#17354B]">
                 <BookOpen className="w-3.5 h-3.5 text-[#2DD4BF]" />
-                <span>{coursesPageContent.syllabus.totalChapters} Chapters</span>
+                <span>Companion Printed Book</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#17354B]/10 shadow-xs text-xs font-mono text-[#17354B]">
                 <BookOpen className="w-3.5 h-3.5 text-[#D96B60]" />
-                <span>Physical Handbook Included</span>
+                <span>Video Course + Printed Book</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#17354B]/10 shadow-xs text-xs font-mono text-[#17354B]">
                 <Clock className="w-3.5 h-3.5 text-[#367D78]" />
@@ -84,6 +85,27 @@ export function CoursesHero() {
                 <Award className="w-3.5 h-3.5 text-amber-500" />
                 <span>Lead Physician Mentored</span>
               </div>
+            </div>
+          </BlurFade>
+
+          {/* Direct Enrollment CTA to Learnyst in Same Tab */}
+          <BlurFade delay={0.35} yOffset={10}>
+            <div className="pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
+              <a
+                href={siteConfig.urls.learnystCourse}
+                target="_self"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#17354B] hover:bg-[#244C68] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#17354B]/20 hover:shadow-xl transition-all active:scale-[0.98]"
+              >
+                <span>Enroll in Course Now</span>
+                <ArrowRight className="w-4 h-4 text-[#2DD4BF]" />
+              </a>
+
+              <a
+                href="#syllabus"
+                className="inline-flex items-center gap-1.5 px-4 py-3 text-xs sm:text-sm font-semibold text-[#5A6E7D] hover:text-[#17354B] transition-colors"
+              >
+                <span>Browse Course Syllabus ↓</span>
+              </a>
             </div>
           </BlurFade>
         </div>

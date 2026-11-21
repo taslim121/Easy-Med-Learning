@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ExternalLink, ChevronRight, Award, Sparkles, BookOpen } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronRight, Award, Sparkles, BookOpen } from 'lucide-react';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@/components/ui/sheet';
@@ -109,8 +109,9 @@ export function MobileNavigation() {
             {/* Verified Clinical Feature Cards */}
             <div className="pt-2 space-y-3">
               <BlurFade delay={0.2} yOffset={6}>
-                <Link
-                  href="/courses"
+                <a
+                  href={siteConfig.urls.learnystCourse}
+                  target="_self"
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-[#17354B]/10 shadow-sm hover:border-[#367D78]/30 transition-colors group"
                 >
@@ -121,11 +122,11 @@ export function MobileNavigation() {
                     <div className="text-xs sm:text-sm font-bold text-[#17354B]">
                       The Complete ECG Course
                     </div>
-                    <div className="text-[11px] text-[#5A6E7D]">
-                      Coming Soon • Basic to Advanced
+                    <div className="text-[11px] text-[#2DD4BF] font-semibold">
+                      Now Live • Video Course with Companion Book
                     </div>
                   </div>
-                </Link>
+                </a>
               </BlurFade>
 
               <BlurFade delay={0.24} yOffset={6}>
@@ -153,10 +154,10 @@ export function MobileNavigation() {
             <div className="pt-4 pb-12 border-t border-[#17354B]/10 space-y-4">
               <BlurFade delay={0.28} yOffset={6}>
                 {hasCourseUrl ? (
-                  <Link
+                  <a
                     href={siteConfig.urls.learnystCourse}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target="_self"
+                    onClick={() => setOpen(false)}
                     className="block w-full"
                   >
                     <ShimmerButton
@@ -164,10 +165,10 @@ export function MobileNavigation() {
                       shimmerColor="#2DD4BF"
                       className="w-full text-white py-3.5 text-sm font-bold shadow-lg"
                     >
-                      <span>{siteContent.header.primaryCtaLabel}</span>
-                      <ExternalLink className="w-4 h-4 ml-1 opacity-80" />
+                      <span>Enroll in Course Now</span>
+                      <ArrowRight className="w-4 h-4 ml-1 opacity-80" />
                     </ShimmerButton>
-                  </Link>
+                  </a>
                 ) : (
                   <Link
                     href="/courses#syllabus"

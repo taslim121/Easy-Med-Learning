@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/content/site-config';
 import { siteContent } from '@/content/site-content';
 import { Container } from '@/components/ui/container';
@@ -67,23 +67,24 @@ export function SiteHeader() {
 
           {/* Header Action & Mobile Trigger */}
           <div className="flex items-center gap-3">
-            {/* <div className="hidden sm:block">
+            <div className="hidden sm:block">
               {hasCourseUrl ? (
                 <Button
                   href={siteConfig.urls.learnystCourse}
-                  isExternal
+                  isExternal={false}
                   variant="primary"
-                  size="sm"
+                  size="md"
+                  className="font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] gap-2"
                 >
                   <span>{siteContent.header.primaryCtaLabel}</span>
-                  <ExternalLink className="w-3.5 h-3.5 ml-0.5 opacity-70" />
+                  <ArrowRight className="w-4 h-4 ml-0.5" />
                 </Button>
               ) : (
-                <span className="text-xs font-medium text-[#5A6E7D] bg-[#17354B]/5 px-3 py-1.5 rounded-md border border-[#17354B]/10">
+                <span className="text-xs font-medium text-[#5A6E7D] bg-[#17354B]/5 px-4 py-2 rounded-lg border border-[#17354B]/10">
                   {siteContent.header.primaryCtaPendingText}
                 </span>
               )}
-            </div> */}
+            </div>
 
             <MobileNavigation />
           </div>

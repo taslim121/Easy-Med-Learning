@@ -8,7 +8,7 @@ export const siteConfig = {
   name: 'EasyMedLearning',
   tagline: 'Making ECG learning simple and practical for medical professionals.',
   description:
-    'Learn ECG interpretation with video lectures, case studies and a book by Dr. Wasim Adil Khan. Hinglish course with a launch date of 22 November 2026.',
+    'Learn ECG interpretation with structured video lectures, clinical case studies and the official companion printed book by Dr. Wasim Adil Khan.',
   locale: 'en-IN',
   
   // Centralized Brand Assets & Identity (Zero hardcoded image paths)
@@ -27,7 +27,7 @@ export const siteConfig = {
   // External destinations (environment configurable)
   urls: {
     site: process.env.NEXT_PUBLIC_SITE_URL || 'https://easymedlearning.com',
-    learnystCourse: process.env.NEXT_PUBLIC_LEARNYST_COURSE_URL || '',
+    learnystCourse: process.env.NEXT_PUBLIC_LEARNYST_COURSE_URL || 'https://courses.easymedlearning.com',
     introVideo: process.env.NEXT_PUBLIC_INTRO_VIDEO_URL || 'https://www.youtube.com/watch?v=foITCgV8NlE',
     sampleLesson: process.env.NEXT_PUBLIC_SAMPLE_LESSON_URL || 'https://www.youtube.com/watch?v=foITCgV8NlE',
     sampleLesson2: 'https://www.youtube.com/watch?v=s4s_qoVXxNM',
@@ -74,7 +74,7 @@ export const siteConfig = {
       url: 'https://www.instagram.com/easy_medlearning/reel/De9mYeAoXhP/',
       embedUrl: 'https://www.instagram.com/reel/De9mYeAoXhP/embed/',
       title: 'Complete ECG Course Announcement',
-      subtitle: 'Launching November 2026',
+      subtitle: 'Now Officially Live',
       badge: 'Official Launch Teaser',
       description:
         'Step-by-step ECG interpretation from basic to advanced concepts, featuring original self-designed illustrations unavailable anywhere else on the web.',
@@ -93,8 +93,8 @@ export const siteConfig = {
   // Course launch status
   course: {
     title: 'Absolute Guide to ECG Interpretation',
-    status: 'Partially recorded',
-    tentativeLaunchDate: '22 November 2026',
+    status: 'Now Live',
+    tentativeLaunchDate: 'Now Live',
     language: 'Hinglish (a mix of Hindi and English)',
     languageNote: 'English version will follow',
     format: 'Printed book delivered to learner address + structured video lectures',
@@ -103,16 +103,13 @@ export const siteConfig = {
   // Central Event & Course Launch Announcement (Single line ticker / top bar)
   announcement: {
     enabled: true,
-    badge: 'FREE ECG SEMINAR',
-    dateBadge: '22 Nov',
-    title: 'Free Seminar on ECG by Dr. Wasim Adil',
-    courseTitle: 'Free ECG Seminar & Course Launch',
-    subtitle: 'Sun, 22 Nov 2026 • Inamdar Hospital, Pune (Only 100 Seats)',
-    flyerImage: '/images/seminar-flyer.webp',
-    flyerMobileImage: '/images/seminar-flyer-mobile.webp',
-    bookImage: '/images/ecg-handbook-cover.webp',
-    ctaText: 'View Flyer & Details',
-    courseHref: '/courses',
+    badge: '🎉 COURSE NOW LIVE',
+    dateBadge: 'NOW LIVE',
+    title: 'Master ECG Course is Officially Live!',
+    courseTitle: 'Master ECG Course',
+    subtitle: 'Video Course with Companion Printed Book Shipped to Your Door',
+    ctaText: 'Enroll Now',
+    courseHref: process.env.NEXT_PUBLIC_LEARNYST_COURSE_URL || 'https://courses.easymedlearning.com',
   },
 
   // Navigation
@@ -127,7 +124,6 @@ export const siteConfig = {
 
   // Launch blockers checklist (tracked in code for developer/owner clarity)
   launchBlockers: [
-    'Learnyst course destination URL (NEXT_PUBLIC_LEARNYST_COURSE_URL)',
     'Verified 10-digit WhatsApp business number (NEXT_PUBLIC_WHATSAPP_URL)',
     'Corona Warrior awarding body and award year',
     'Certificate availability and conditions confirmation',
